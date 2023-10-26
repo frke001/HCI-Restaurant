@@ -1,0 +1,34 @@
+﻿<Window x:Class="Restaurant.Windows.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Restaurant.Windows"
+        mc:Ignorable="d"
+        Title="Sign In" Height="450" Width="668" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Margin="0,0,0,-6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Source="/Resources/restaurant_logo.jpeg" Stretch="Fill"></Image>
+        <StackPanel Grid.Column="1">
+            <Label HorizontalAlignment="Center" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Height="71" Margin="0,30,0,0" >Dobrodošli u aplikaciju</Label>
+        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <Label HorizontalAlignment="Center" FontFamily="Century Gothic" FontSize="20" Margin="0,0,0,20" FontWeight="Bold">Sing In</Label>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <Label Margin="0,0,20,0" FontFamily="Century Gothic" >Korisničko Ime:</Label>
+                <TextBox Width="138" Height="24" HorizontalAlignment="Center"  VerticalContentAlignment="Center" FontFamily="Century Gothic"></TextBox>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <Label Margin="0,0,50,0" Width="66" FontFamily="Century Gothic" >Lozinka:</Label>
+                <PasswordBox Width="138" Height="24" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontFamily="Century Gothic"></PasswordBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="64,307,64,0"  VerticalAlignment="Top" Height="24">
+            <Button FontFamily="Century Gothic" FontWeight="SemiBold" Height="24" Width="206" Background="#FFFF6B03">Sign In
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
