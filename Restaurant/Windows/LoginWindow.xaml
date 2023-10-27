@@ -6,6 +6,36 @@
         xmlns:local="clr-namespace:Restaurant.Windows"
         mc:Ignorable="d"
         Title="Sign In" Height="450" Width="668" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="ButtonSignIn" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FFFF6B04"></Setter>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5"> <!--Template Binding ustvari povezuje svojsta template sa dugmetom odnosno na to uticemo-->
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFFD9644"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <!-- Dodaj još triggera prema potrebi -->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+       
+
+
+    </Window.Resources>
     <Grid Margin="0,0,0,-6">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -13,21 +43,24 @@
         </Grid.ColumnDefinitions>
         <Image Grid.Column="0" Source="/Resources/restaurant_logo.jpeg" Stretch="Fill"></Image>
         <StackPanel Grid.Column="1">
-            <Label HorizontalAlignment="Center" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Height="71" Margin="0,30,0,0" >Dobrodošli u aplikaciju</Label>
+            <Label HorizontalAlignment="Center" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold" Height="37" Margin="0,40,0,0" >Dobrodošli u aplikaciju</Label>
+            
         </StackPanel>
-        <StackPanel Grid.Column="1" VerticalAlignment="Center">
-            <Label HorizontalAlignment="Center" FontFamily="Century Gothic" FontSize="20" Margin="0,0,0,20" FontWeight="Bold">Sing In</Label>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" Height="60">
+
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                <Label Margin="0,0,20,0" FontFamily="Century Gothic" >Korisničko Ime:</Label>
-                <TextBox Width="138" Height="24" HorizontalAlignment="Center"  VerticalContentAlignment="Center" FontFamily="Century Gothic"></TextBox>
+                <Label Margin="0,0,20,10" FontFamily="Century Gothic" >Korisničko Ime:</Label>
+                <TextBox Width="138" Height="24" HorizontalAlignment="Center"  VerticalContentAlignment="Center" FontFamily="Century Gothic"  Cursor="Hand" RenderTransformOrigin="0.5,0.5" >
+                   
+                </TextBox>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
                 <Label Margin="0,0,50,0" Width="66" FontFamily="Century Gothic" >Lozinka:</Label>
-                <PasswordBox Width="138" Height="24" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontFamily="Century Gothic"></PasswordBox>
+                <PasswordBox Width="138" Height="24" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontFamily="Century Gothic"  Cursor="Hand"  ></PasswordBox>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Column="1" Margin="64,307,64,0"  VerticalAlignment="Top" Height="24">
-            <Button FontFamily="Century Gothic" FontWeight="SemiBold" Height="24" Width="206" Background="#FFFF6B03">Sign In
+        <StackPanel Grid.Column="1" Margin="0,255,0,0"  VerticalAlignment="Top" Height="24">
+            <Button Height="24" Width="206" Style="{StaticResource ButtonSignIn}">Sign In
             </Button>
         </StackPanel>
     </Grid>

@@ -8,11 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Windows\logo_restourant.png" />
     <None Remove="Windows\restaurant_logo.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\restaurant_logo.jpeg" />
+    <Resource Include="Windows\logo_restourant.png" />
   </ItemGroup>
 
 </Project>
