@@ -15,19 +15,24 @@ using System.Windows.Shapes;
 namespace Restaurant.Windows
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for ManagerWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class ManagerWindow : Window
     {
-        public LoginWindow()
+        public ManagerWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-            new ManagerWindow().Show();
-            this.Close();
+            /*pageFrame.Navigate(new MenuPage());*/
+            pageFrame.Content = new MenuPage();
+        }
+
+        private void EmployeesButton_Click(object sender, RoutedEventArgs e)
+        {
+            pageFrame.Navigate(new EmployeesPage());
         }
     }
 }

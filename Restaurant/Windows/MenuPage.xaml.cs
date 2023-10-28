@@ -10,24 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Restaurant.Windows
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for MenuPage.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class MenuPage : Page
     {
-        public LoginWindow()
+        public MenuPage()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            new ManagerWindow().Show();
-            this.Close();
         }
     }
 }

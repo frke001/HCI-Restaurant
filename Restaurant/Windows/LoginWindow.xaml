@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant.Windows"
         mc:Ignorable="d"
-        Title="Sign In" Height="450" Width="668" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Sign In" Height="414" Width="668" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="ButtonSignIn" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
@@ -14,7 +14,8 @@
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="FontFamily" Value="CenturyGothic"/>
-            <Setter Property="Template">
+            
+                <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" CornerRadius="5"> <!--Template Binding ustvari povezuje svojsta template sa dugmetom odnosno na to uticemo-->
@@ -60,7 +61,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1" Margin="0,255,0,0"  VerticalAlignment="Top" Height="24">
-            <Button Height="24" Width="206" Style="{StaticResource ButtonSignIn}">Sign In
+            <Button Height="24" Width="206" Style="{StaticResource ButtonSignIn}" Click="Button_Click">Sign In
             </Button>
         </StackPanel>
     </Grid>

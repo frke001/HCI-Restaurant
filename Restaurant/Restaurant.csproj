@@ -8,13 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Windows\logo_restourant.png" />
+    <None Remove="Resources\bill.jpeg" />
+    <None Remove="Resources\logout.jpeg" />
+    <None Remove="Resources\menu.jpeg" />
+    <None Remove="Resources\settings.jpeg" />
+    <None Remove="Resources\staff.jpeg" />
     <None Remove="Windows\restaurant_logo.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\bill.jpeg" />
+    <Resource Include="Resources\logout.jpeg" />
+    <Resource Include="Resources\menu.jpeg" />
     <Resource Include="Resources\restaurant_logo.jpeg" />
-    <Resource Include="Windows\logo_restourant.png" />
+    <Resource Include="Resources\settings.jpeg" />
+    <Resource Include="Resources\staff.jpeg" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,30 @@
+﻿<Page x:Class="Restaurant.Windows.MenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Restaurant.Windows"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MenuPage">
+    <Page.Resources>
+        <Style x:Key="Column" TargetType="DataGridCell"></Style>
+    </Page.Resources>
+    <Grid>
+        <Grid Margin="0,115,0,0">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,0,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID"  Width="100" FontFamily="CenturyGothic" FontSize="14" FontWeight="Bold" />
+                    <DataGridTextColumn Header="Naziv"  Width="150" />
+                    <DataGridTextColumn Header="Cijena"   Width="100" />
+                    <DataGridTextColumn Header="Vrsta"   Width="150"/>
+                    <DataGridTextColumn Header="Opis"  Width="300" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="291,45,0,0" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="360,45,0,0" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="430,45,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.468,-0.247"/>
+        <Label Content="Hrana i Piće" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="140" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
+    </Grid>
+</Page>

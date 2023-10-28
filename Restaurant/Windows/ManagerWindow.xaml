@@ -1,0 +1,75 @@
+﻿<Window x:Class="Restaurant.Windows.ManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Restaurant.Windows"
+        mc:Ignorable="d"
+        Title="ManagerWindow" Height="517" Width="957" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="MenuButton" TargetType="Button">
+            <Setter Property="Width" Value="103"></Setter>
+            <Setter Property="Height" Value="65"></Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Margin" Value="0,10,0,0"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,10,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <!-- Prva kolona za tabove -->
+            <ColumnDefinition Width="*"/>
+            <!-- Druga kolona za prikaz različitih formi -->
+        </Grid.ColumnDefinitions>
+
+        <!-- TabControl za tabove -->
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="10,0,10,0" Height="407" >
+            <Button Style="{StaticResource MenuButton}" Click="MenuButton_Click" >
+                <StackPanel>
+                    <Image Source="/Resources/menu.jpeg" Width="45" Height="32"/>
+                    <TextBlock Text="Meni" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuButton}" Click="EmployeesButton_Click">
+                <StackPanel>
+                    <Image Source="/Resources/staff.jpeg" Width="45" Height="32"/>
+                    <TextBlock Text="Zaposleni" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuButton}" >
+                <StackPanel>
+                    <Image Source="/Resources/bill.jpeg" Width="45" Height="32"/>
+                    <TextBlock Text="Računi" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuButton}" >
+                <StackPanel>
+                    <Image Source="/Resources/settings.jpeg" Width="45" Height="32"/>
+                    <TextBlock Text="Podešavanja" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuButton}" >
+                <StackPanel>
+                    <Image Source="/Resources/logout.jpeg" Width="45" Height="32"/>
+                    <TextBlock Text="Odjavi se" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Button>
+
+
+
+            <!-- Dodaj ostale dugmice prema potrebi -->
+        </StackPanel>
+
+        <!-- Kontejner za prikaz različitih formi -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!-- Mjesto za prikaz sadržaja forma -->
+            <Frame x:Name="pageFrame" NavigationUIVisibility="Hidden"  Grid.Row="1"/>
+        </Grid>
+
+    </Grid>
+</Window>
