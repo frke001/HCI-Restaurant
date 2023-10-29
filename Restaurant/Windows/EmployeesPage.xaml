@@ -8,8 +8,144 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EmployeesPage">
 
+    <Page.Resources>
+        <Style x:Key="OperationButton" TargetType="Button">
+            <Setter Property="Background" Value="FloralWhite"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Width" Value="40"></Setter>
+            <Setter Property="Height" Value="40"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                            <!--Template Binding ustvari povezuje svojsta template sa dugmetom odnosno na to uticemo-->
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFFFB07F"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <!-- Dodaj još triggera prema potrebi -->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="CreateProfileButton" TargetType="Button">
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Background" Value="FloralWhite"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="Width" Value="124"></Setter>
+            <Setter Property="Height" Value="40"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                            <!--Template Binding ustvari povezuje svojsta template sa dugmetom odnosno na to uticemo-->
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFFFB07F"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <!-- Dodaj još triggera prema potrebi -->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ToggleButtonStyle" TargetType="ToggleButton">
+            <Setter Property="Background" Value="FloralWhite"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Width" Value="40"></Setter>
+            <Setter Property="Height" Value="40"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                            <!--Template Binding ustvari povezuje svojsta template sa dugmetom odnosno na to uticemo-->
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFFFB07F"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <!-- Dodaj još triggera prema potrebi -->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     <Grid>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="56" Width="114"/>
+        <Grid Margin="0,115,0,0">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="JMBG"  Width="150" />
+                    <DataGridTextColumn Header="Ime"  Width="150"   />
+                    <DataGridTextColumn Header="Prezime"  Width="150"   />
+                    <DataGridTextColumn Header="Adresa"   Width="150"  />
+                    <DataGridTextColumn Header="Plata"   Width="80"  />
+                    <DataGridTextColumn Header="Telefon"  Width="110"  />
+                </DataGrid.Columns>
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="Height" Value="35"></Setter>
+
+
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontWeight" Value="Normal"/>
+                    </Style>
+                </DataGrid.RowStyle>
+
+            </DataGrid>
+        </Grid>
+        <StackPanel>
+            <Label Content="Zaposleni" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="140" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
+        </StackPanel>
+        <StackPanel Margin="0,16,0,0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="44" Width="132">
+            <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0"  >
+                <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/addWorker.jpeg"/>
+            </Button>
+
+            <Button Style="{StaticResource OperationButton}"   Margin="0,0,5,0">
+                <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/modifyWorker.jpeg"/>
+            </Button>
+            <Button  Style="{StaticResource OperationButton}"   >
+                <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/deleteWorker.jpeg"/>
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="596,16,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="173" Height="44">
+            <ToggleButton x:Name="filterButton"  Style="{StaticResource ToggleButtonStyle}" Margin="0,0,5,0">
+                <Image Source="/Resources/filter.jpeg" Width="24" Height="24"/>
+            </ToggleButton>
+            <Button Style="{StaticResource CreateProfileButton}" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/createProfile.jpeg" Width="24" Height="24" Margin="0,0,10,0"/>
+                    <TextBlock Text="Dodaj profil" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Popup IsOpen="{Binding ElementName=filterButton, Path=IsChecked}" PlacementTarget="{Binding ElementName=filterButton}" StaysOpen="False">
+                <ComboBox Width="100">
+                    <ComboBoxItem Content="Konobari"/>
+                    <ComboBoxItem Content="Menadzeri"/>
+                </ComboBox>
+            </Popup>
+
+        </StackPanel>
 
     </Grid>
 </Page>

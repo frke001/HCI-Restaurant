@@ -24,5 +24,25 @@ namespace Restaurant.Windows
         {
             InitializeComponent();
         }
+
+        private void AddArticleButton_Click(object sender, RoutedEventArgs e)
+        {
+            new AddArticleWindow().Show();
+        }
+
+        private void ModifyArticleButton_Click(object sender, RoutedEventArgs e)
+        {
+            new ModifyArticleWindow().Show();
+        }
+
+        private void DeleteArticleButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ManageArticleButton_Click(object sender, RoutedEventArgs e)
+        {
+            new ManageArticleTypeWindow().Show();   
+        }
     }
 }

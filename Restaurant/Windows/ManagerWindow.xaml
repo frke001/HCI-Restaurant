@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant.Windows"
         mc:Ignorable="d"
-        Title="ManagerWindow" Height="517" Width="957" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Manager Window" Height="517" Width="957" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="MenuButton" TargetType="Button">
             <Setter Property="Width" Value="103"></Setter>
@@ -13,6 +13,24 @@
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="BorderThickness" Value="0"></Setter>
             <Setter Property="Margin" Value="0,10,0,0"></Setter>
+            <Setter Property="Cursor" Value="Hand"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                            <!--Template Binding ustvari povezuje svojsta template sa dugmetom odnosno na to uticemo-->
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFFFB07F"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <!-- Dodaj još triggera prema potrebi -->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
     <Grid Margin="0,10,0,0">
@@ -24,8 +42,8 @@
         </Grid.ColumnDefinitions>
 
         <!-- TabControl za tabove -->
-        <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="10,0,10,0" Height="407" >
-            <Button Style="{StaticResource MenuButton}" Click="MenuButton_Click" >
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="491" Grid.ColumnSpan="2" Margin="0,0,835,0" Background="FloralWhite">
+            <Button Style="{StaticResource MenuButton}" Click="MenuButton_Click" Margin="0,50,0,0" >
                 <StackPanel>
                     <Image Source="/Resources/menu.jpeg" Width="45" Height="32"/>
                     <TextBlock Text="Meni" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
@@ -37,19 +55,19 @@
                     <TextBlock Text="Zaposleni" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuButton}" >
+            <Button Style="{StaticResource MenuButton}" Click="BillsButton_Click" >
                 <StackPanel>
                     <Image Source="/Resources/bill.jpeg" Width="45" Height="32"/>
                     <TextBlock Text="Računi" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuButton}" >
+            <Button Style="{StaticResource MenuButton}" Click="SettingsButton_Click">
                 <StackPanel>
                     <Image Source="/Resources/settings.jpeg" Width="45" Height="32"/>
                     <TextBlock Text="Podešavanja" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuButton}" >
+            <Button Style="{StaticResource MenuButton}" Click="LogoutButton_Click" >
                 <StackPanel>
                     <Image Source="/Resources/logout.jpeg" Width="45" Height="32"/>
                     <TextBlock Text="Odjavi se" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
@@ -62,7 +80,7 @@
         </StackPanel>
 
         <!-- Kontejner za prikaz različitih formi -->
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" Margin="122,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0*"/>
                 <RowDefinition/>

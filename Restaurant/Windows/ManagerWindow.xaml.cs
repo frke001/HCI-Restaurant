@@ -34,5 +34,22 @@ namespace Restaurant.Windows
         {
             pageFrame.Navigate(new EmployeesPage());
         }
+
+        private void BillsButton_Click(object sender, RoutedEventArgs e)
+        {
+            pageFrame.Navigate(new BillsPage());
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            pageFrame.Navigate(new SettingsPage());
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            new LoginWindow().Show();
+            this.Close();
+            
+        }
     }
 }

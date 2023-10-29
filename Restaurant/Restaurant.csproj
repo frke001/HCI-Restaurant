@@ -8,21 +8,50 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\addCategory.jpeg" />
+    <None Remove="Resources\addFood.jpeg" />
+    <None Remove="Resources\addWorker.jpeg" />
     <None Remove="Resources\bill.jpeg" />
+    <None Remove="Resources\createProfile.jpeg" />
+    <None Remove="Resources\delete.jpeg" />
+    <None Remove="Resources\deleteWorker.jpeg" />
+    <None Remove="Resources\filter.jpeg" />
+    <None Remove="Resources\language.jpeg" />
     <None Remove="Resources\logout.jpeg" />
     <None Remove="Resources\menu.jpeg" />
+    <None Remove="Resources\modifyFood.jpeg" />
+    <None Remove="Resources\modifyWorker.jpeg" />
+    <None Remove="Resources\order-food.jpeg" />
+    <None Remove="Resources\orderFood.jpeg" />
+    <None Remove="Resources\profile.jpeg" />
     <None Remove="Resources\settings.jpeg" />
     <None Remove="Resources\staff.jpeg" />
+    <None Remove="Resources\theme.jpeg" />
     <None Remove="Windows\restaurant_logo.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\createProfile.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\addCategory.jpeg" />
+    <Resource Include="Resources\addWorker.jpeg" />
     <Resource Include="Resources\bill.jpeg" />
+    <Resource Include="Resources\delete.jpeg" />
+    <Resource Include="Resources\deleteWorker.jpeg" />
+    <Resource Include="Resources\filter.jpeg" />
+    <Resource Include="Resources\language.jpeg" />
     <Resource Include="Resources\logout.jpeg" />
     <Resource Include="Resources\menu.jpeg" />
+    <Resource Include="Resources\modifyFood.jpeg" />
+    <Resource Include="Resources\modifyWorker.jpeg" />
+    <Resource Include="Resources\orderFood.jpeg" />
+    <Resource Include="Resources\profile.jpeg" />
     <Resource Include="Resources\restaurant_logo.jpeg" />
     <Resource Include="Resources\settings.jpeg" />
     <Resource Include="Resources\staff.jpeg" />
+    <Resource Include="Resources\theme.jpeg" />
   </ItemGroup>
 
 </Project>
