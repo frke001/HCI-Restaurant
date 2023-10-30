@@ -1,0 +1,99 @@
+﻿<Window x:Class="Restaurant.Windows.AddEmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Restaurant.Windows"
+        mc:Ignorable="d"
+        Title="AddEmployeeWindow" Height="368" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="CustomLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="CenturyGothic"/>
+        </Style>
+        <Style x:Key="CustomInput" TargetType="Control">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="AddButton" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FFFF6B04"></Setter>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="CenturyGothic"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                            <!--Template Binding ustvari povezuje svojsta template sa dugmetom odnosno na to uticemo-->
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFFD9644"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <!-- Dodaj još triggera prema potrebi -->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <StackPanel Height="55" VerticalAlignment="Center">
+                <Label Style="{StaticResource CustomLabel}" FontSize="18" HorizontalAlignment="Center" Margin="0,20,0,0" > Popunite osnovne informacije o zaposlenom</Label>
+            </StackPanel>
+            <Grid Height="227">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <!-- Druga kolona za prikaz različitih formi -->
+                    <!-- Prva kolona za tabove -->
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" >
+                    <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="2,0,0,20">
+                        <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,22,0" >Ime:</Label>
+                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}"></TextBox>
+                    </StackPanel>
+                    <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,0,0,20">
+                        <Label Height="30" Style="{StaticResource CustomLabel}" >Prezime:</Label>
+                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" ></TextBox>
+                    </StackPanel>
+                    <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center">
+                        <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,10,0" >Adresa:</Label>
+                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}"></TextBox>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="2,0,0,20">
+                        <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,15,0" >Plata:</Label>
+                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}"></TextBox>
+                    </StackPanel>
+                    <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,0,0,20">
+                        <Label Height="30" Style="{StaticResource CustomLabel}" >Telefon:</Label>
+                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}"></TextBox>
+                    </StackPanel>
+                    <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center">
+                        <Label Height="30" Style="{StaticResource CustomLabel}" Margin="5,0,5,0" >Uloga:</Label>
+                        <ComboBox VerticalAlignment="Center" Width="184" Height="32" Style="{StaticResource CustomInput}">
+                            <ComboBoxItem Content="Posno jelo"/>
+                            <ComboBoxItem Content="Mrsno jelo"/>
+                            <ComboBoxItem Content="Gazirano piće"/>
+                            <ComboBoxItem Content="Alkoholno piće"/>
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <StackPanel Height="43" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Content="Dodaj zaposlenog" Style="{StaticResource AddButton}" Height="42" Width="139" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

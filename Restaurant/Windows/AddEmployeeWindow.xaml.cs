@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Restaurant.Windows
 {
     /// <summary>
-    /// Interaction logic for EmployeesPage.xaml
+    /// Interaction logic for AddEmployeeWindow.xaml
     /// </summary>
-    public partial class EmployeesPage : Page
+    public partial class AddEmployeeWindow : Window
     {
-        public EmployeesPage()
+        public AddEmployeeWindow()
         {
             InitializeComponent();
-        }
-
-        private void AddEmployeeButton_Click(object sender, RoutedEventArgs e)
-        {
-            new AddEmployeeWindow().ShowDialog();
         }
     }
 }

@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace Restaurant.Windows
 {
     /// <summary>
-    /// Interaction logic for EmployeesPage.xaml
+    /// Interaction logic for OrdersPage.xaml
     /// </summary>
-    public partial class EmployeesPage : Page
+    public partial class OrdersPage : Page
     {
-        public EmployeesPage()
+        public OrdersPage()
         {
             InitializeComponent();
-        }
-
-        private void AddEmployeeButton_Click(object sender, RoutedEventArgs e)
-        {
-            new AddEmployeeWindow().ShowDialog();
         }
     }
 }

@@ -73,8 +73,8 @@
 
             </DataGrid>
         </Grid>
-        <StackPanel Margin="35,94,278,0" VerticalAlignment="Top">
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomButton}" Height="40" Width="86" Content="Obriši"/>
+        <StackPanel Margin="35,101,278,0" VerticalAlignment="Top">
+            <Button HorizontalAlignment="Center" Style="{StaticResource CustomButton}" Height="30" Width="86" Content="Obriši"/>
         </StackPanel>
         <StackPanel Margin="239,190,10,74">
             <Label Content="Dodavanje Vrste:" HorizontalAlignment="Center" Style="{StaticResource CustomLabel}"></Label>
@@ -83,7 +83,7 @@
                 <TextBox Width="180" VerticalAlignment="Center" Style="{StaticResource CustomInput}" Height="28"/>
             </StackPanel>
             <StackPanel Height="42">
-                <Button HorizontalAlignment="Center" Style="{StaticResource CustomButton}" Height="40" Width="123" Content="Sačuvaj"/>
+                <Button Style="{StaticResource CustomButton}" Height="34" Width="123" Content="Sačuvaj"/>
             </StackPanel>
 
         </StackPanel>

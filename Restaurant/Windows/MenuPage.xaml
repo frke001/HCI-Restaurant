@@ -80,7 +80,21 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="CustomTooltip" TargetType="ToolTip">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="CenturyGothic"/>
 
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToolTip">
+                        <Border Background="FloralWhite" CornerRadius="5">
+                            <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="3"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
     <Grid>
         <Grid Margin="0,115,0,0">
@@ -118,18 +132,30 @@
         <StackPanel Margin="0,16,0,0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="44" Width="132">
             <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0" Click="AddArticleButton_Click" >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/orderFood.jpeg"/>
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}">Dodaj artikal</ToolTip>
+                </Button.ToolTip>
             </Button>
 
             <Button Style="{StaticResource OperationButton}"   Margin="0,0,5,0" Click="ModifyArticleButton_Click">
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/modifyFood.jpeg"/>
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}">Izmijeni artikal</ToolTip>
+                </Button.ToolTip>
             </Button>
             <Button  Style="{StaticResource OperationButton}" Click="DeleteArticleButton_Click"  >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/delete.jpeg"/>
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}">Obriši artikal</ToolTip>
+                </Button.ToolTip>
             </Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="541,16,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="229" Height="44">
             <ToggleButton x:Name="filterButton" Style="{StaticResource ToggleButtonStyle}" Margin="0,0,5,0">
                 <Image Source="/Resources/filter.jpeg" Width="24" Height="24"/>
+                <ToggleButton.ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}">Filtriraj artikle</ToolTip>
+                </ToggleButton.ToolTip>
             </ToggleButton>
             <Button  Style="{StaticResource AddCategoryButton}" Click="ManageArticleButton_Click"  >
                 <StackPanel Orientation="Horizontal">

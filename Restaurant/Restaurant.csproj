@@ -12,6 +12,7 @@
     <None Remove="Resources\addFood.jpeg" />
     <None Remove="Resources\addWorker.jpeg" />
     <None Remove="Resources\bill.jpeg" />
+    <None Remove="Resources\createOrder.jpeg" />
     <None Remove="Resources\createProfile.jpeg" />
     <None Remove="Resources\delete.jpeg" />
     <None Remove="Resources\deleteWorker.jpeg" />
@@ -23,7 +24,9 @@
     <None Remove="Resources\modifyWorker.jpeg" />
     <None Remove="Resources\order-food.jpeg" />
     <None Remove="Resources\orderFood.jpeg" />
+    <None Remove="Resources\orders.jpeg" />
     <None Remove="Resources\profile.jpeg" />
+    <None Remove="Resources\reserved.jpeg" />
     <None Remove="Resources\settings.jpeg" />
     <None Remove="Resources\staff.jpeg" />
     <None Remove="Resources\theme.jpeg" />
@@ -31,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\createOrder.jpeg" />
     <Resource Include="Resources\createProfile.jpeg" />
   </ItemGroup>
 
@@ -47,7 +51,9 @@
     <Resource Include="Resources\modifyFood.jpeg" />
     <Resource Include="Resources\modifyWorker.jpeg" />
     <Resource Include="Resources\orderFood.jpeg" />
+    <Resource Include="Resources\orders.jpeg" />
     <Resource Include="Resources\profile.jpeg" />
+    <Resource Include="Resources\reserved.jpeg" />
     <Resource Include="Resources\restaurant_logo.jpeg" />
     <Resource Include="Resources\settings.jpeg" />
     <Resource Include="Resources\staff.jpeg" />
