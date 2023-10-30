@@ -14,6 +14,7 @@
     <None Remove="Resources\bill.jpeg" />
     <None Remove="Resources\createOrder.jpeg" />
     <None Remove="Resources\createProfile.jpeg" />
+    <None Remove="Resources\createReservation.jpeg" />
     <None Remove="Resources\delete.jpeg" />
     <None Remove="Resources\deleteWorker.jpeg" />
     <None Remove="Resources\filter.jpeg" />
@@ -42,6 +43,7 @@
     <Resource Include="Resources\addCategory.jpeg" />
     <Resource Include="Resources\addWorker.jpeg" />
     <Resource Include="Resources\bill.jpeg" />
+    <Resource Include="Resources\createReservation.jpeg" />
     <Resource Include="Resources\delete.jpeg" />
     <Resource Include="Resources\deleteWorker.jpeg" />
     <Resource Include="Resources\filter.jpeg" />

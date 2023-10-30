@@ -39,5 +39,10 @@ namespace Restaurant.Windows
         {
             WorkerPageFrame.Navigate(new OrdersPage());
         }
+
+        private void ReservationsButton_Click(object sender, RoutedEventArgs e)
+        {
+            WorkerPageFrame.Navigate(new ReservationPage());
+        }
     }
 }

@@ -47,12 +47,12 @@
             <Label Content="Podešavanja" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="140" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
             <StackPanel Height="200"/>
         </StackPanel>
-        <Separator Margin="21,5,20,360"/>
+        <Separator Margin="21,5,19,360"/>
         <StackPanel Margin="21,67,653,0" Orientation="Horizontal" VerticalAlignment="Top" Height="49">
-            <Label Content="Moj Profil" Width="Auto" FontFamily="Century Gothic" FontSize="18" FontWeight="SemiBold" Height="38" Margin="0,5,0,0"/>
-            <Image Height="24" Width="24" Source="/Resources/profile.jpeg"/>
+            <Label Content="Moj Profil" Width="Auto" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="38" Margin="0,5,0,0"/>
+            <Image Height="20" Width="20" Source="/Resources/profile.jpeg"/>
         </StackPanel>
-        <Separator Width="760" Margin="21,90,19,303"/>
+        <Separator  Margin="21,90,19,329"/>
         <StackPanel Margin="21,140,478,212">
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
@@ -72,11 +72,11 @@
             </Button>
         </StackPanel>
         <StackPanel Margin="21,242,610,0" Orientation="Horizontal" VerticalAlignment="Top" Height="48">
-            <Label Content="Jezik i Tema" Width="Auto" FontFamily="Century Gothic" FontSize="18" FontWeight="SemiBold" Height="38" Margin="0,5,0,0"/>
-            <Image Height="24" Width="24" Source="/Resources/language.jpeg" Margin="0,0,5,0"/>
-            <Image Height="24" Width="24" Source="/Resources/theme.jpeg"/>
+            <Label Content="Jezik i Tema" Width="Auto" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="38" Margin="0,5,0,0"/>
+            <Image Height="20" Width="20" Source="/Resources/language.jpeg" Margin="0,0,5,0"/>
+            <Image Height="20" Width="20" Source="/Resources/theme.jpeg"/>
         </StackPanel>
-        <Separator Width="760" Margin="21,262,19,131"/>
+        <Separator  Margin="21,262,19,151"/>
         <StackPanel Margin="21,304,441,48">
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">

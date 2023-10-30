@@ -49,7 +49,7 @@
                     <TextBlock Text="Narudzbe" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuButton}" >
+            <Button Style="{StaticResource MenuButton}" Click="ReservationsButton_Click">
                 <StackPanel>
                     <Image Source="/Resources/reserved.jpeg" Width="45" Height="32"/>
                     <TextBlock Text="Rezervacije" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
