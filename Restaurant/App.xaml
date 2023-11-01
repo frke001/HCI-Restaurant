@@ -4,6 +4,20 @@
              xmlns:local="clr-namespace:Restaurant"
              StartupUri="Windows/LoginWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="CustomLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="CenturyGothic"/>
+        </Style>
+        <Style x:Key="CustomInput" TargetType="Control">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+        </Style>
+
+        
+
     </Application.Resources>
 </Application>

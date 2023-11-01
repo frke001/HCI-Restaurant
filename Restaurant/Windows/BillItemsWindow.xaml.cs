@@ -10,24 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Restaurant.Windows
 {
     /// <summary>
-    /// Interaction logic for BillsPage.xaml
+    /// Interaction logic for BillItemsWindow.xaml
     /// </summary>
-    public partial class BillsPage : Page
+    public partial class BillItemsWindow : Window
     {
-        public BillsPage()
+        public BillItemsWindow()
         {
             InitializeComponent();
         }
 
-        private void Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            new BillItemsWindow().Show();
+            this.Close();   
         }
     }
 }

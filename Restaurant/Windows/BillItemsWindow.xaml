@@ -1,14 +1,13 @@
-﻿<Window x:Class="Restaurant.Windows.AddArticleWindow"
+﻿<Window x:Class="Restaurant.Windows.BillItemsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant.Windows"
         mc:Ignorable="d"
-        Title="Add New Food/Dring" Height="450" Width="506" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="BillItemsWindow" Height="600" Width="515" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
-       
-        <Style x:Key="AddButton" TargetType="Button">
+        <Style x:Key="CancelButton" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="#FFFF6B04"></Setter>
             <Setter Property="BorderThickness" Value="0"/>
@@ -36,11 +35,37 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <StackPanel>
+        <Grid Margin="77,106,56,203" >
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-12,-79,0,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Naziv"  Width="180"   />
+                    <DataGridTextColumn Header="Cijena"  Width="120"   />
+                    <DataGridTextColumn Header="Količina"   Width="100"  />
 
-            <Label Style="{StaticResource CustomLabel}" Content="Unesite podatke za dodavanje novog artikla:" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="18"></Label>
+                </DataGrid.Columns>
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="Height" Value="35"></Setter>
+
+
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontWeight" Value="Normal"/>
+                    </Style>
+                </DataGrid.RowStyle>
+
+            </DataGrid>
+        </Grid>
+        <StackPanel Margin="0,386,0,0" Orientation="Vertical">
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334">
-                <Label Content="Naziv:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,20,0"></Label>
+                <Label Content="JMB Konobara:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,20,0"></Label>
                 <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}">
                     <TextBox.Resources>
                         <Style TargetType="Border">
@@ -50,40 +75,20 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334">
-                <Label Content="Cijena:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,18,0"></Label>
-                <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Width="201" Height="32" Style="{StaticResource CustomInput}">
+                <Label Content="Ukupna Cijena:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,20,0"></Label>
+                <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}">
                     <TextBox.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-            </StackPanel>
-            <StackPanel Height="135" Orientation="Horizontal" HorizontalAlignment="Center"  Width="334">
-                <Label Content="Opis:" Style="{StaticResource CustomLabel}" Height="98" Margin="0,0,29,0"/>
-                <TextBox VerticalContentAlignment="Top" Width="200" Height="100" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Style="{StaticResource CustomInput}">
-                    <TextBox.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="5"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
-            </StackPanel>
-            <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334">
-                <Label Content="Vrsta:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,25,0"/>
-                <ComboBox VerticalAlignment="Center" Width="201" Height="32" Style="{StaticResource CustomInput}">
-                    <ComboBoxItem Content="Posno jelo"/>
-                    <ComboBoxItem Content="Mrsno jelo"/>
-                    <ComboBoxItem Content="Gazirano piće"/>
-                    <ComboBoxItem Content="Alkoholno piće"/>
-                </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
-                <Button Height="31" Width="142" Content="Dodaj Artikal" Style="{StaticResource AddButton}" FontWeight="SemiBold" Margin="0,0,10,0"/>
-                <Button Height="31" Width="142" Content="Izađi" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
-            </StackPanel>
+            HorizontalAlignment="Center">
                 
+                <Button Height="31" Width="142" Content="Izađi" Style="{StaticResource CancelButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

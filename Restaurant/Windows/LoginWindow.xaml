@@ -47,17 +47,19 @@
             <Label HorizontalAlignment="Center" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold" Height="37" Margin="0,40,0,0" >Dobrodošli u aplikaciju</Label>
             
         </StackPanel>
-        <StackPanel Grid.Column="1" VerticalAlignment="Center" Height="60">
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" Height="69" HorizontalAlignment="Center">
 
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                <Label Margin="0,0,20,10" FontFamily="Century Gothic" >Korisničko Ime:</Label>
-                <TextBox Width="138" Height="24" HorizontalAlignment="Center"  VerticalContentAlignment="Center" FontFamily="Century Gothic"  Cursor="Hand" RenderTransformOrigin="0.5,0.5" >
-                   
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10" >
+                <Label Margin="0,0,10,0" Width="Auto" Style="{StaticResource CustomLabel}" >Korisničko Ime:</Label>
+                <TextBox Width="138" Height="24" Style="{StaticResource CustomInput}"  >
+                    
                 </TextBox>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
-                <Label Margin="0,0,50,0" Width="66" FontFamily="Century Gothic" >Lozinka:</Label>
-                <PasswordBox Width="138" Height="24" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontFamily="Century Gothic"  Cursor="Hand"  ></PasswordBox>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10" >
+                <Label Margin="0,0,50,0" Width="66" Style="{StaticResource CustomLabel}" >Lozinka:</Label>
+                <PasswordBox Width="138" Height="24" Style="{StaticResource CustomInput}"  >
+                    
+                </PasswordBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1" Margin="0,255,0,0"  VerticalAlignment="Top" Height="24">

@@ -43,17 +43,18 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <StackPanel Margin="0,0,625,402">
-            <Label Content="Podešavanja" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="140" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
-            <StackPanel Height="200"/>
+
+        <StackPanel Margin="0,0,580,402" Orientation="Horizontal">
+            <Label Content="Podešavanja" Margin="27,10,0,0" VerticalAlignment="Top" Width="129" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
+            <Image Height="32" Width="32" Source="/Resources/settings.jpeg"></Image>
         </StackPanel>
-        <Separator Margin="21,5,19,360"/>
+        <Separator Margin="21,10,19,365"/>
         <StackPanel Margin="21,67,653,0" Orientation="Horizontal" VerticalAlignment="Top" Height="49">
             <Label Content="Moj Profil" Width="Auto" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="38" Margin="0,5,0,0"/>
             <Image Height="20" Width="20" Source="/Resources/profile.jpeg"/>
         </StackPanel>
         <Separator  Margin="21,90,19,329"/>
-        <StackPanel Margin="21,140,478,212">
+        <StackPanel Margin="21,126,478,226">
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
                 <Label Content="Korisničko Ime:" Width="119" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="24"/>
@@ -66,22 +67,22 @@
             </StackPanel>
 
         </StackPanel>
-        <StackPanel Margin="327,165,367,242">
+        <StackPanel Margin="327,151,367,257">
             <Button  Style="{StaticResource UpdateButton}"  Margin="0,0,5,0" HorizontalAlignment="Center" Content="Update"  >
 
             </Button>
         </StackPanel>
-        <StackPanel Margin="21,242,610,0" Orientation="Horizontal" VerticalAlignment="Top" Height="48">
+        <StackPanel Margin="21,276,610,0" Orientation="Horizontal" VerticalAlignment="Top" Height="48">
             <Label Content="Jezik i Tema" Width="Auto" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="38" Margin="0,5,0,0"/>
             <Image Height="20" Width="20" Source="/Resources/language.jpeg" Margin="0,0,5,0"/>
             <Image Height="20" Width="20" Source="/Resources/theme.jpeg"/>
         </StackPanel>
-        <Separator  Margin="21,262,19,151"/>
-        <StackPanel Margin="21,304,441,48">
+        <Separator  Margin="21,300,19,122"/>
+        <StackPanel Margin="21,329,441,23">
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
                 <Label Content="Jezik:" Width="119" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="24"/>
-                <ComboBox Width="171" Height="28" Style="{StaticResource CustomInput}">
+                <ComboBox Width="171" Height="28" Style="{StaticResource CustomInput}" SelectedIndex="0">
                     <ComboBoxItem Content="Engleski"/>
                     <ComboBoxItem Content="Srpski"/>
                 </ComboBox>
@@ -89,7 +90,7 @@
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
                 <Label Content="Tema:" Width="119" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="24"/>
-                <ComboBox Width="171" Height="28" Style="{StaticResource CustomInput}">
+                <ComboBox Width="171" Height="28" Style="{StaticResource CustomInput}" SelectedIndex="0">
                     <ComboBoxItem Content="Svijetla"/>
                     <ComboBoxItem Content="Tamna"/>
                     <ComboBoxItem Content="Hibrid"/>

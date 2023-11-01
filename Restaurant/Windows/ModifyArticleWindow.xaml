@@ -51,15 +51,33 @@
             <Label Style="{StaticResource CustomLabel}" Content="Unesite nove podatke da biste modifikovali artikal:" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="18"></Label>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334">
                 <Label Content="Naziv:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,20,0"></Label>
-                <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}"/>
+                <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
             </StackPanel>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334">
                 <Label Content="Cijena:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,18,0"></Label>
-                <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Width="201" Height="32" Style="{StaticResource CustomInput}"/>
+                <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Width="201" Height="32" Style="{StaticResource CustomInput}">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
             </StackPanel>
             <StackPanel Height="135" Orientation="Horizontal" HorizontalAlignment="Center"  Width="334">
                 <Label Content="Opis:" Style="{StaticResource CustomLabel}" Height="98" Margin="0,0,29,0"/>
-                <TextBox VerticalContentAlignment="Top" Width="200" Height="100" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Style="{StaticResource CustomInput}"/>
+                <TextBox VerticalContentAlignment="Top" Width="200" Height="100" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Style="{StaticResource CustomInput}">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
             </StackPanel>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334">
                 <Label Content="Vrsta:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,25,0"/>
@@ -70,7 +88,11 @@
                     <ComboBoxItem Content="Alkoholno piće"/>
                 </ComboBox>
             </StackPanel>
-            <Button Height="31" Width="142" Content="Sačuvaj" Style="{StaticResource SaveButton}" FontWeight="SemiBold"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+                <Button Height="31" Width="142" Content="Sačuvaj" Style="{StaticResource SaveButton}" FontWeight="SemiBold" Margin="0,0,10,0"/>
+                <Button Height="31" Width="142" Content="Izađi" Style="{StaticResource SaveButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

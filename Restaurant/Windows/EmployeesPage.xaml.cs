@@ -29,5 +29,10 @@ namespace Restaurant.Windows
         {
             new AddEmployeeWindow().ShowDialog();
         }
+
+        private void ModifyEmployeeButton_Click(object sender, RoutedEventArgs e)
+        {
+            new ModifyEmployeeWindow().ShowDialog();
+        }
     }
 }

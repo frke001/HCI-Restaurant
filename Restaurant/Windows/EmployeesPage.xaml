@@ -85,7 +85,7 @@
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="FontFamily" Value="CenturyGothic"/>
-            
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ToolTip">
@@ -102,11 +102,11 @@
             <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="JMBG"  Width="150" />
-                    <DataGridTextColumn Header="Ime"  Width="150"   />
-                    <DataGridTextColumn Header="Prezime"  Width="150"   />
+                    <DataGridTextColumn Header="Ime"  Width="130"   />
+                    <DataGridTextColumn Header="Prezime"  Width="130"   />
                     <DataGridTextColumn Header="Adresa"   Width="150"  />
                     <DataGridTextColumn Header="Plata"   Width="80"  />
-                    <DataGridTextColumn Header="Telefon"  Width="110"  />
+                    <DataGridTextColumn Header="Telefon"  Width="150"  />
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -129,18 +129,20 @@
             </DataGrid>
         </Grid>
         <StackPanel>
-            <Label Content="Zaposleni" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="140" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
+            <Label Content="Zaposleni" HorizontalAlignment="Left" Margin="27,10,0,0" Width="113" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
         </StackPanel>
-        <StackPanel Margin="0,16,0,0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="44" Width="132">
+
+
+        <StackPanel Margin="0,16,32,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="44" Width="139">
             <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0" Click="AddEmployeeButton_Click" >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/addWorker.jpeg"/>
                 <Button.ToolTip>
                     <ToolTip Style="{StaticResource CustomTooltip}">Dodaj zaposlenog
-                        </ToolTip>
+                    </ToolTip>
                 </Button.ToolTip>
             </Button>
 
-            <Button Style="{StaticResource OperationButton}"   Margin="0,0,5,0">
+            <Button Style="{StaticResource OperationButton}"   Margin="0,0,5,0"  Click="ModifyEmployeeButton_Click">
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/modifyWorker.jpeg"/>
                 <Button.ToolTip>
                     <ToolTip Style="{StaticResource CustomTooltip}">Izmijeni informacije o zaposlenog</ToolTip>
@@ -153,26 +155,24 @@
                 </Button.ToolTip>
             </Button>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="596,16,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="173" Height="44">
-            <ToggleButton x:Name="filterButton"  Style="{StaticResource ToggleButtonStyle}" Margin="0,0,5,0">
-                <Image Source="/Resources/filter.jpeg" Width="24" Height="24"/>
-                <ToggleButton.ToolTip>
-                    <ToolTip Style="{StaticResource CustomTooltip}">Filtriraj zaposlene</ToolTip>
-                </ToggleButton.ToolTip>
-            </ToggleButton>
-            <Button Style="{StaticResource CreateProfileButton}" >
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/Resources/createProfile.jpeg" Width="24" Height="24" Margin="0,0,10,0"/>
-                    <TextBlock Text="Dodaj profil" VerticalAlignment="Center"/>
-                </StackPanel>
-            </Button>
-            <Popup IsOpen="{Binding ElementName=filterButton, Path=IsChecked}" PlacementTarget="{Binding ElementName=filterButton}" StaysOpen="False">
-                <ComboBox Width="100">
-                    <ComboBoxItem Content="Konobari"/>
-                    <ComboBoxItem Content="Menadzeri"/>
-                </ComboBox>
-            </Popup>
 
+        <StackPanel Margin="156,25,0,0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label Style="{StaticResource CustomLabel}">Status:</Label>
+            <ComboBox Width="117" Margin="0,0,10,0" SelectedIndex="0" Style="{StaticResource CustomInput}" >
+
+                <ComboBoxItem>Svi zaposleni</ComboBoxItem>
+                <ComboBoxItem>Menadžer</ComboBoxItem>
+                <ComboBoxItem>Konobari</ComboBoxItem>
+
+            </ComboBox>
+            <TextBox  Style="{StaticResource CustomInput}" Width="277" Text="Search employees..." Foreground="Gray">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+
+            </TextBox>
         </StackPanel>
 
     </Grid>

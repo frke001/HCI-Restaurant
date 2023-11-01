@@ -51,5 +51,10 @@ namespace Restaurant.Windows
             this.Close();
             
         }
+
+        private void CategoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            pageFrame.Navigate(new ArticleCatgeoryPage());
+        }
     }
 }

@@ -26,7 +26,8 @@ namespace Restaurant.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new ManagerWindow().Show();
+           // new ManagerWindow().Show();
+           new WorkerWindow().Show();
             this.Close();
         }
     }

@@ -24,5 +24,10 @@ namespace Restaurant.Windows
         {
             InitializeComponent();
         }
+
+        private void CreateOrdeButton_Click(object sender, RoutedEventArgs e)
+        {
+            new CreateOrderWindow().Show(); 
+        }
     }
 }

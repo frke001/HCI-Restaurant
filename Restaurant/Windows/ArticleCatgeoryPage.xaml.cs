@@ -16,18 +16,23 @@ using System.Windows.Shapes;
 namespace Restaurant.Windows
 {
     /// <summary>
-    /// Interaction logic for BillsPage.xaml
+    /// Interaction logic for ArticleCatgeoryPage.xaml
     /// </summary>
-    public partial class BillsPage : Page
+    public partial class ArticleCatgeoryPage : Page
     {
-        public BillsPage()
+        public ArticleCatgeoryPage()
         {
             InitializeComponent();
         }
 
-        private void Click(object sender, RoutedEventArgs e)
+        private void AddCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            new BillItemsWindow().Show();
+            new AddCategoryWindow().Show(); 
+        }
+
+        private void ModifyCategoryButton_CLick(object sender, RoutedEventArgs e)
+        {
+            new ModifyCatgoryWindow().Show();
         }
     }
 }

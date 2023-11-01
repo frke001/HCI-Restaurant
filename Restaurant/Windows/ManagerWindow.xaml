@@ -43,10 +43,16 @@
 
         <!-- TabControl za tabove -->
         <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="491" Grid.ColumnSpan="2" Margin="0,0,835,0" Background="FloralWhite">
-            <Button Style="{StaticResource MenuButton}" Click="MenuButton_Click" Margin="0,50,0,0" >
+            <Button Style="{StaticResource MenuButton}" Click="MenuButton_Click" Margin="0,30,0,0" >
                 <StackPanel>
                     <Image Source="/Resources/menu.jpeg" Width="45" Height="32"/>
                     <TextBlock Text="Meni" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuButton}" Click="CategoryButton_Click" Margin="0,5,0,0" >
+                <StackPanel>
+                    <Image Source="/Resources/addCategory.jpeg" Width="45" Height="32"/>
+                    <TextBlock Text="Vrste Artikala" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
                 </StackPanel>
             </Button>
             <Button Style="{StaticResource MenuButton}" Click="EmployeesButton_Click">
@@ -55,6 +61,7 @@
                     <TextBlock Text="Zaposleni" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
                 </StackPanel>
             </Button>
+            
             <Button Style="{StaticResource MenuButton}" Click="BillsButton_Click" >
                 <StackPanel>
                     <Image Source="/Resources/bill.jpeg" Width="45" Height="32"/>
