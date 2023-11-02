@@ -24,5 +24,15 @@ namespace Restaurant.Windows
         {
             InitializeComponent();
         }
+
+        private void AddReservationButton_Click(object sender, RoutedEventArgs e)
+        {
+            new AddReservationWindow().Show();
+        }
+
+        private void ModifyReservationButton_Click(object sender, RoutedEventArgs e)
+        {
+            new ModifyReservationWindow().Show();
+        }
     }
 }

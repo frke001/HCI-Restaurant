@@ -24,5 +24,34 @@ namespace Restaurant.Windows
         {
             InitializeComponent();
         }
+
+        private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            String selectedTheme = ThemeComboBox.SelectedValue.ToString();
+            if(selectedTheme == "Svijetla")
+            {
+                AppUtil.ChangeTheme(new Uri("/Dictionaries/LightTheme.xaml", UriKind.Relative));
+            }
+            if (selectedTheme == "Tamna")
+            {
+                AppUtil.ChangeTheme(new Uri("/Dictionaries/DarkTheme.xaml", UriKind.Relative));
+            }
+            if(selectedTheme == "Hibridna")
+            {
+                AppUtil.ChangeTheme(new Uri("/Dictionaries/HibridTheme.xaml", UriKind.Relative));
+            }
+        }
+
+        private void LanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           if(LanguageComboBox.SelectedIndex == 0)
+            {
+                AppUtil.ChangeLanguage(new Uri("/Languages/EnglishLanguage.xaml", UriKind.Relative));
+            }
+            else
+            {
+                AppUtil.ChangeLanguage(new Uri("/Languages/SerbianLanguage.xaml", UriKind.Relative));
+            }
+        }
     }
 }

@@ -7,14 +7,26 @@
         mc:Ignorable="d"
         Title="Add New Food/Dring" Height="450" Width="506" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
-       
+        <Style x:Key="CustomLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+        </Style>
+        <Style x:Key="CustomInput" TargetType="Control">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+        </Style>
         <Style x:Key="AddButton" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#FFFF6B04"></Setter>
+            <Setter Property="Background" Value="{DynamicResource Button}"></Setter>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
 
             <Setter Property="Template">
                 <Setter.Value>
@@ -25,8 +37,9 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FFFD9644"/>
+                                <Setter Property="Background" Value="{DynamicResource ButtonHover}"/>
                                 <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="Foreground" Value="Black"/>
                             </Trigger>
                             <!-- Dodaj još triggera prema potrebi -->
                         </ControlTemplate.Triggers>
@@ -35,12 +48,12 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Background="{DynamicResource Background}">
         <StackPanel>
 
             <Label Style="{StaticResource CustomLabel}" Content="Unesite podatke za dodavanje novog artikla:" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="18"></Label>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334">
-                <Label Content="Naziv:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,20,0"></Label>
+                <Label Content="Naziv:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,25,0"></Label>
                 <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}">
                     <TextBox.Resources>
                         <Style TargetType="Border">
@@ -60,7 +73,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Height="135" Orientation="Horizontal" HorizontalAlignment="Center"  Width="334">
-                <Label Content="Opis:" Style="{StaticResource CustomLabel}" Height="98" Margin="0,0,29,0"/>
+                <Label Content="Opis:" Style="{StaticResource CustomLabel}" Height="98" Margin="0,0,32,0"/>
                 <TextBox VerticalContentAlignment="Top" Width="200" Height="100" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Style="{StaticResource CustomInput}">
                     <TextBox.Resources>
                         <Style TargetType="Border">
@@ -69,8 +82,8 @@
                     </TextBox.Resources>
                 </TextBox>
             </StackPanel>
-            <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334">
-                <Label Content="Vrsta:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,25,0"/>
+            <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334" Margin="0,0,0,5">
+                <Label Content="Vrsta:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,29,0"/>
                 <ComboBox VerticalAlignment="Center" Width="201" Height="32" Style="{StaticResource CustomInput}">
                     <ComboBoxItem Content="Posno jelo"/>
                     <ComboBoxItem Content="Mrsno jelo"/>

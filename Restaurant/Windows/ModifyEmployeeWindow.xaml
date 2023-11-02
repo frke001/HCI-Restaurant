@@ -5,26 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant.Windows"
         mc:Ignorable="d"
-        Title="ModifyEmployeeWindow" Height="459" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Modify Employee" Height="459" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="CustomLabel" TargetType="Label">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Foreground" Value="{DynamicResource Text}"/>
         </Style>
         <Style x:Key="CustomInput" TargetType="Control">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
         <Style x:Key="AddButton" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#FFFF6B04"></Setter>
+            <Setter Property="Background" Value="{DynamicResource Button}"></Setter>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
 
             <Setter Property="Template">
                 <Setter.Value>
@@ -35,8 +36,9 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FFFD9644"/>
+                                <Setter Property="Background" Value="{DynamicResource ButtonHover}"/>
                                 <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="Foreground" Value="Black"/>
                             </Trigger>
                             <!-- Dodaj još triggera prema potrebi -->
                         </ControlTemplate.Triggers>
@@ -45,8 +47,8 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid Margin="0,0,0,74">
-        <StackPanel Margin="0,0,0,-72">
+    <Grid Margin="0,0,0,74" Background="{DynamicResource Background}">
+        <StackPanel Margin="0,0,0,-72"  Background="{DynamicResource Background}">
             <StackPanel Height="55" VerticalAlignment="Center">
                 <Label Style="{StaticResource CustomLabel}" FontSize="18" HorizontalAlignment="Center" Margin="0,20,0,0" >Popunite nove informacije o zaposlenom</Label>
             </StackPanel>
@@ -125,7 +127,7 @@
                 </StackPanel>
             </Grid>
 
-            <StackPanel Height="32" HorizontalAlignment="Center" Orientation="Horizontal">
+            <StackPanel Height="32" HorizontalAlignment="Center" Orientation="Horizontal"  >
                 <Button Height="32" Width="123" Content="Sačuvaj" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0"></Button>
                 <Button Height="32" Width="123" Content="Izađi" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="CancelButton_Click"></Button>
             </StackPanel>

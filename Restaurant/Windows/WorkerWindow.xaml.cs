@@ -19,14 +19,18 @@ namespace Restaurant.Windows
     /// </summary>
     public partial class WorkerWindow : Window
     {
+      
         public WorkerWindow()
         {
             InitializeComponent();
+            SettingsPage = new SettingsPage();
+            SettingsPage.ThemeComboBox.SelectedIndex = 0;
         }
+        public SettingsPage SettingsPage { get; set; }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            WorkerPageFrame.Navigate(new SettingsPage());
+            WorkerPageFrame.Navigate(SettingsPage);
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)

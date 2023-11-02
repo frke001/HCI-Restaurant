@@ -4,16 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant.Windows"
+        
         mc:Ignorable="d"
+        
         Title="Sign In" Height="414" Width="668" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
+        
+        <Style x:Key="CustomLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+        </Style>
+        <Style x:Key="CustomInput" TargetType="Control">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+        </Style>
         <Style x:Key="ButtonSignIn" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="#FFFF6B04"></Setter>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
             
                 <Setter Property="Template">
                 <Setter.Value>
@@ -44,7 +59,7 @@
         </Grid.ColumnDefinitions>
         <Image Grid.Column="0" Source="/Resources/restaurant_logo.jpeg" Stretch="Fill"></Image>
         <StackPanel Grid.Column="1">
-            <Label HorizontalAlignment="Center" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold" Height="37" Margin="0,40,0,0" >Dobrodošli u aplikaciju</Label>
+            <Label HorizontalAlignment="Center" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold" Height="37" Margin="0,40,0,0"  >Dobrodošli u Aplikaciju</Label>
             
         </StackPanel>
         <StackPanel Grid.Column="1" VerticalAlignment="Center" Height="69" HorizontalAlignment="Center">

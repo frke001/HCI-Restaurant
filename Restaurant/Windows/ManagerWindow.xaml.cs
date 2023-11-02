@@ -22,7 +22,11 @@ namespace Restaurant.Windows
         public ManagerWindow()
         {
             InitializeComponent();
+            SettingsPage = new SettingsPage();
+            SettingsPage.ThemeComboBox.SelectedIndex = 0;
+            SettingsPage.LanguageComboBox.SelectedIndex = 0;    
         }
+        public SettingsPage SettingsPage { get; set; }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
@@ -42,7 +46,7 @@ namespace Restaurant.Windows
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            pageFrame.Navigate(new SettingsPage());
+            pageFrame.Navigate(SettingsPage);
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)

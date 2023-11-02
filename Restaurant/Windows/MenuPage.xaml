@@ -8,8 +8,21 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MenuPage">
     <Page.Resources>
+        <Style x:Key="CustomLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+        </Style>
+        <Style x:Key="CustomInput" TargetType="Control">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+        </Style>
         <Style x:Key="OperationButton" TargetType="Button">
-            <Setter Property="Background" Value="FloralWhite"></Setter>
+            <Setter Property="Background" Value="{DynamicResource OpButton}"></Setter>
             <Setter Property="BorderThickness" Value="0"></Setter>
             <Setter Property="Width" Value="40"></Setter>
             <Setter Property="Height" Value="40"></Setter>
@@ -22,7 +35,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FFFFB07F"/>
+                                <Setter Property="Background" Value="{DynamicResource ButtonHover}"/>
                                 <Setter Property="Cursor" Value="Hand"/>
                             </Trigger>
                             <!-- Dodaj još triggera prema potrebi -->
@@ -35,7 +48,7 @@
         <Style x:Key="CustomTooltip" TargetType="ToolTip">
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
 
             <Setter Property="Template">
                 <Setter.Value>
@@ -49,18 +62,18 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <Grid Margin="0,115,0,0">
+        <Grid Margin="22,115,0,0">
             <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="Naziv"  Width="150"   />
-                    <DataGridTextColumn Header="Cijena"   Width="150"  />
-                    <DataGridTextColumn Header="Vrsta"   Width="150"  />
-                    <DataGridTextColumn Header="Opis"  Width="350"  />
+                    <DataGridTextColumn Header="{DynamicResource NameColumn}"  Width="150"   />
+                    <DataGridTextColumn Header="{DynamicResource PriceColumn}"   Width="150"  />
+                    <DataGridTextColumn Header="{DynamicResource TypeColumn}"   Width="150"  />
+                    <DataGridTextColumn Header="{DynamicResource DescriptionColumn}"  Width="350"  />
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
                         <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="SemiBold"/>
                         <Setter Property="Height" Value="35"></Setter>
@@ -70,7 +83,7 @@
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
-                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
                         <Setter Property="FontSize" Value="12"/>
                         <Setter Property="FontWeight" Value="Normal"/>
                     </Style>
@@ -79,39 +92,39 @@
             </DataGrid>
         </Grid>
         <StackPanel>
-            <Label Content="Hrana i Piće" HorizontalAlignment="Left" Margin="27,10,0,0" Width="119" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
+            <Label Content="{DynamicResource MenuTitle}" Foreground="{DynamicResource Text}" HorizontalAlignment="Left" Margin="27,10,0,0" Width="119" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
         </StackPanel>
         <StackPanel Margin="0,16,32,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="44" Width="139">
             <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0" Click="AddArticleButton_Click" >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/orderFood.jpeg"/>
                 <Button.ToolTip>
-                    <ToolTip Style="{StaticResource CustomTooltip}">Dodaj artikal</ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}" Content="{DynamicResource AddArticleTooltip}"></ToolTip>
                 </Button.ToolTip>
             </Button>
 
             <Button Style="{StaticResource OperationButton}"   Margin="0,0,5,0" Click="ModifyArticleButton_Click">
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/modifyFood.jpeg"/>
                 <Button.ToolTip>
-                    <ToolTip Style="{StaticResource CustomTooltip}">Izmijeni artikal</ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}" Content="{DynamicResource ModifyArticleTooltip}"></ToolTip>
                 </Button.ToolTip>
             </Button>
             <Button  Style="{StaticResource OperationButton}" Click="DeleteArticleButton_Click"  >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/delete.jpeg"/>
                 <Button.ToolTip>
-                    <ToolTip Style="{StaticResource CustomTooltip}">Obriši artikal</ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}" Content="{DynamicResource DeleteArticleTooltip}"></ToolTip>
                 </Button.ToolTip>
             </Button>
         </StackPanel>
 
         <StackPanel Margin="156,25,0,0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Label Style="{StaticResource CustomLabel}">Status:</Label>
+            <Label Style="{StaticResource CustomLabel}" Content="{DynamicResource Status}"></Label>
             <ComboBox Width="96" Margin="0,0,10,0" SelectedIndex="0" Style="{StaticResource CustomInput}" >
 
-                <ComboBoxItem>Svi artikli</ComboBoxItem>
-                <ComboBoxItem>Aktivni artikli</ComboBoxItem>
+                <ComboBoxItem Content="{DynamicResource AllArticles}"></ComboBoxItem>
+                <ComboBoxItem Content="{DynamicResource ActiveArticles}"></ComboBoxItem>
 
             </ComboBox>
-            <TextBox  Style="{StaticResource CustomInput}" Width="292" Text="Search articles..." Foreground="Gray">
+            <TextBox  Style="{StaticResource CustomInput}" Width="292" Text="{DynamicResource Search}" Foreground="Gray">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

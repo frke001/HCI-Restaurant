@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant.Windows"
         mc:Ignorable="d"
-        Title="CreateOrderWindow" Height="495" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Create Order" Height="495" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
+        <Style x:Key="CustomLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Foreground" Value="{DynamicResource Text}"></Setter>
+        </Style>
+        <Style x:Key="CustomInput" TargetType="Control">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+        </Style>
         <Style x:Key="OperationButton" TargetType="Button">
             <Setter Property="Background" Value="FloralWhite"></Setter>
             <Setter Property="BorderThickness" Value="0"></Setter>
@@ -21,7 +34,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FFFFB07F"/>
+                                <Setter Property="Background" Value="White"/>
                                 <Setter Property="Cursor" Value="Hand"/>
                             </Trigger>
                             <!-- Dodaj još triggera prema potrebi -->
@@ -32,11 +45,11 @@
         </Style>
         <Style x:Key="AddButton" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#FFFF6B04"></Setter>
+            <Setter Property="Background" Value="{DynamicResource Button}"></Setter>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
 
             <Setter Property="Template">
                 <Setter.Value>
@@ -47,8 +60,9 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FFFD9644"/>
+                                <Setter Property="Background" Value="{DynamicResource ButtonHover}"/>
                                 <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="Foreground" Value="Black"></Setter>
                             </Trigger>
                             <!-- Dodaj još triggera prema potrebi -->
                         </ControlTemplate.Triggers>
@@ -57,7 +71,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Background="{DynamicResource Background}">
         <StackPanel Margin="0,0,0,369" HorizontalAlignment="Center">
             <Label Style="{StaticResource CustomLabel}" FontSize="18" Margin="0,20,0,0">Odaberite artikle</Label>
         </StackPanel>
@@ -70,7 +84,7 @@
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
                         <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="SemiBold"/>
                         <Setter Property="Height" Value="35"></Setter>
@@ -80,7 +94,7 @@
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
-                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
                         <Setter Property="FontSize" Value="12"/>
                         <Setter Property="FontWeight" Value="Normal"/>
                     </Style>
@@ -113,7 +127,7 @@
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
                         <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="SemiBold"/>
                         <Setter Property="Height" Value="35"></Setter>
@@ -123,7 +137,7 @@
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
-                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
                         <Setter Property="FontSize" Value="12"/>
                         <Setter Property="FontWeight" Value="Normal"/>
                     </Style>

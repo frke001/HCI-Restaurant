@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant.Windows"
         mc:Ignorable="d"
-        Title="WorkerWindow" Height="517" Width="957" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Worker Window" Height="517" Width="957" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
+        <Style x:Key="CustomLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Foreground" Value="{DynamicResource Text}"></Setter>
+        </Style>
+        <Style x:Key="CustomInput" TargetType="Control">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+        </Style>
         <Style x:Key="MenuButton" TargetType="Button">
             <Setter Property="Width" Value="103"></Setter>
             <Setter Property="Height" Value="65"></Setter>
@@ -23,7 +36,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FFFFB07F"/>
+                                <Setter Property="Background" Value="{DynamicResource ButtonHover}"/>
                                 <Setter Property="Cursor" Value="Hand"/>
                             </Trigger>
                             <!-- Dodaj još triggera prema potrebi -->
@@ -40,32 +53,33 @@
             <ColumnDefinition Width="*"/>
             <!-- Druga kolona za prikaz različitih formi -->
         </Grid.ColumnDefinitions>
-
+        <Border Grid.Column="0" Background="{DynamicResource Menu}" Grid.ColumnSpan="2" Margin="0,-14,814,0"></Border>
+        <Border Grid.Column="1" Background="{DynamicResource Background}" Margin="122,-14,0,0"></Border>
         <!-- TabControl za tabove -->
-        <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="492" Grid.ColumnSpan="2" Margin="0,0,835,0" Background="FloralWhite">
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="492" Grid.ColumnSpan="2" Margin="0,0,814,0" >
             <Button Style="{StaticResource MenuButton}"  Margin="0,80,0,0" Click="OrdersButton_Click" >
                 <StackPanel>
                     <Image Source="/Resources/orders.jpeg" Width="45" Height="32"/>
-                    <TextBlock Text="Računi" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
+                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal">Računi</Label>
                 </StackPanel>
             </Button>
             <Button Style="{StaticResource MenuButton}" Click="ReservationsButton_Click">
                 <StackPanel>
                     <Image Source="/Resources/reserved.jpeg" Width="45" Height="32"/>
-                    <TextBlock Text="Rezervacije" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
+                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal">Rezervacije</Label>
                 </StackPanel>
             </Button>
             
             <Button Style="{StaticResource MenuButton}" Click="SettingsButton_Click">
                 <StackPanel>
                     <Image Source="/Resources/settings.jpeg" Width="45" Height="32"/>
-                    <TextBlock Text="Podešavanja" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
+                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal">Podešavanja</Label>
                 </StackPanel>
             </Button>
             <Button Style="{StaticResource MenuButton}" Click="LogoutButton_Click" >
                 <StackPanel>
                     <Image Source="/Resources/logout.jpeg" Width="45" Height="32"/>
-                    <TextBlock Text="Odjavi se" HorizontalAlignment="Center" FontFamily="Century Gothic" Margin="0,5,0,0"/>
+                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal">Odjavi se</Label>
                 </StackPanel>
             </Button>
 

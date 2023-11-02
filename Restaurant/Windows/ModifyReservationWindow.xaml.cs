@@ -15,19 +15,17 @@ using System.Windows.Shapes;
 namespace Restaurant.Windows
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for ModifyReservationWindowWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class ModifyReservationWindow : Window
     {
-        public LoginWindow()
+        public ModifyReservationWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-           new ManagerWindow().Show();
-           new WorkerWindow().Show();
             this.Close();
         }
     }

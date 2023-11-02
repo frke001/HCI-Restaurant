@@ -5,15 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant.Windows"
         mc:Ignorable="d"
-        Title="BillItemsWindow" Height="600" Width="515" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Bill Items" Height="600" Width="515" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
+        <Style x:Key="CustomLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+        </Style>
+        <Style x:Key="CustomInput" TargetType="Control">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+        </Style>
         <Style x:Key="CancelButton" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="#FFFF6B04"></Setter>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
 
             <Setter Property="Template">
                 <Setter.Value>
@@ -45,7 +57,7 @@
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
                         <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="SemiBold"/>
                         <Setter Property="Height" Value="35"></Setter>
@@ -55,7 +67,7 @@
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
-                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
                         <Setter Property="FontSize" Value="12"/>
                         <Setter Property="FontWeight" Value="Normal"/>
                     </Style>
@@ -64,7 +76,7 @@
             </DataGrid>
         </Grid>
         <StackPanel Margin="0,386,0,0" Orientation="Vertical">
-            <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334">
+            <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="346">
                 <Label Content="JMB Konobara:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,20,0"></Label>
                 <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}">
                     <TextBox.Resources>
@@ -74,8 +86,8 @@
                     </TextBox.Resources>
                 </TextBox>
             </StackPanel>
-            <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334">
-                <Label Content="Ukupna Cijena:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,20,0"></Label>
+            <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="348">
+                <Label Content="Ukupna Cijena:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,18,0"></Label>
                 <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}">
                     <TextBox.Resources>
                         <Style TargetType="Border">

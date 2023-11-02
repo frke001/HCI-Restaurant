@@ -7,10 +7,11 @@
         mc:Ignorable="d"
         Title="Manage Article" Height="450" Width="506" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
+        
         <Style x:Key="CustomLabel" TargetType="Label">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
         </Style>
         <Style x:Key="CustomButton" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
@@ -18,7 +19,7 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
 
             <Setter Property="Template">
                 <Setter.Value>
@@ -41,7 +42,7 @@
         <Style x:Key="CustomInput" TargetType="Control">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
     </Window.Resources>
@@ -57,7 +58,7 @@
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
                         <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="SemiBold"/>
                         <Setter Property="Height" Value="35"></Setter>
@@ -65,7 +66,7 @@
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
-                        <Setter Property="FontFamily" Value="CenturyGothic"/>
+                        <Setter Property="FontFamily" Value="Century Gothic"/>
                         <Setter Property="FontSize" Value="12"/>
                         <Setter Property="FontWeight" Value="Normal"/>
                     </Style>

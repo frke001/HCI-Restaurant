@@ -8,15 +8,28 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SettingsPage">
     <Page.Resources>
+        <Style x:Key="CustomLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+        </Style>
+        <Style x:Key="CustomInput" TargetType="Control">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+        </Style>
         <Style x:Key="UpdateButton" TargetType="Button">
-            <Setter Property="Background" Value="FloralWhite"></Setter>
+            <Setter Property="Background" Value="{DynamicResource Button}"></Setter>
             <Setter Property="BorderThickness" Value="0"></Setter>
             <Setter Property="Width" Value="90"></Setter>
             <Setter Property="Height" Value="40"></Setter>
-
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -26,8 +39,9 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FFFFB07F"/>
+                                <Setter Property="Background" Value="{DynamicResource ButtonHover}"/>
                                 <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="Foreground" Value="Black"/>
                             </Trigger>
                             <!-- Dodaj još triggera prema potrebi -->
                         </ControlTemplate.Triggers>
@@ -35,34 +49,29 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="CustomInput" TargetType="Control">
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="FontFamily" Value="CenturyGothic"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-        </Style>
+        
     </Page.Resources>
     <Grid>
 
-        <StackPanel Margin="0,0,580,402" Orientation="Horizontal">
-            <Label Content="Podešavanja" Margin="27,10,0,0" VerticalAlignment="Top" Width="129" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
+        <StackPanel Margin="0,0,580,402" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="Podešavanja" Foreground="{DynamicResource Text}" Margin="20,10,0,0" VerticalAlignment="Top" Width="129" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
             <Image Height="32" Width="32" Source="/Resources/settings.jpeg"></Image>
         </StackPanel>
         <Separator Margin="21,10,19,365"/>
         <StackPanel Margin="21,67,653,0" Orientation="Horizontal" VerticalAlignment="Top" Height="49">
-            <Label Content="Moj Profil" Width="Auto" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="38" Margin="0,5,0,0"/>
+            <Label Content="Moj Profil" Width="Auto"  Height="38" Margin="0,5,0,0" Style="{StaticResource CustomLabel}"/>
             <Image Height="20" Width="20" Source="/Resources/profile.jpeg"/>
         </StackPanel>
         <Separator  Margin="21,90,19,329"/>
         <StackPanel Margin="21,126,478,226">
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                <Label Content="Korisničko Ime:" Width="119" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="24"/>
+                <Label Content="Korisničko Ime:" Width="119" Style="{StaticResource CustomLabel}" Height="24"/>
                 <TextBox Width="171" Height="28" Style="{StaticResource CustomInput}"/>
             </StackPanel>
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                <Label Content="Lozinka:" Width="119" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="24"/>
+                <Label Content="Lozinka:" Width="119" Style="{StaticResource CustomLabel}" Height="24"/>
                 <PasswordBox Width="171" Height="28" />
             </StackPanel>
 
@@ -73,7 +82,7 @@
             </Button>
         </StackPanel>
         <StackPanel Margin="21,276,610,0" Orientation="Horizontal" VerticalAlignment="Top" Height="48">
-            <Label Content="Jezik i Tema" Width="Auto" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="38" Margin="0,5,0,0"/>
+            <Label Content="Jezik i Tema" Width="Auto" Style="{StaticResource CustomLabel}" Height="38" Margin="0,5,0,0"/>
             <Image Height="20" Width="20" Source="/Resources/language.jpeg" Margin="0,0,5,0"/>
             <Image Height="20" Width="20" Source="/Resources/theme.jpeg"/>
         </StackPanel>
@@ -81,19 +90,20 @@
         <StackPanel Margin="21,329,441,23">
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                <Label Content="Jezik:" Width="119" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="24"/>
-                <ComboBox Width="171" Height="28" Style="{StaticResource CustomInput}" SelectedIndex="0">
+                <Label Content="Jezik:" Width="119" Style="{StaticResource CustomLabel}" Height="24"/>
+                <ComboBox Width="171" Height="28" Style="{StaticResource CustomInput}" SelectionChanged="LanguageComboBox_SelectionChanged" Name="LanguageComboBox">
                     <ComboBoxItem Content="Engleski"/>
                     <ComboBoxItem Content="Srpski"/>
                 </ComboBox>
             </StackPanel>
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                <Label Content="Tema:" Width="119" FontFamily="Century Gothic" FontSize="14" FontWeight="SemiBold" Height="24"/>
-                <ComboBox Width="171" Height="28" Style="{StaticResource CustomInput}" SelectedIndex="0">
-                    <ComboBoxItem Content="Svijetla"/>
-                    <ComboBoxItem Content="Tamna"/>
-                    <ComboBoxItem Content="Hibrid"/>
+                <Label Content="Tema:" Width="119" Style="{StaticResource CustomLabel}" Height="24"/>
+                <ComboBox Width="171" Height="28" SelectedValuePath="Content" Style="{StaticResource CustomInput}" SelectionChanged="ThemeComboBox_SelectionChanged" Name="ThemeComboBox">
+                    <ComboBoxItem >Svijetla</ComboBoxItem>
+                    <ComboBoxItem >Tamna</ComboBoxItem>
+                    <ComboBoxItem >Hibridna</ComboBoxItem>
+                   
                 </ComboBox>
             </StackPanel>
 
