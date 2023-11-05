@@ -102,10 +102,8 @@
 
             </DataGrid>
         </Grid>
-        <StackPanel Margin="0,206,0,129" HorizontalAlignment="Center" Width="96">
-            <Button Height="34" Width="38" Margin="0,0,0,10" Style="{StaticResource OperationButton}">
-                <Image Height="32" Width="32" Source="/Resources/right-arrow.jpeg"></Image>
-            </Button>
+        <StackPanel Margin="0,180,0,129" HorizontalAlignment="Center" Width="96">
+           
             <StackPanel Orientation="Horizontal">
                 <Label Style="{StaticResource CustomLabel}">Količina</Label>
                 <TextBox Height="21" Width="30" Text="1" Style="{StaticResource CustomInput}" HorizontalContentAlignment="Center">
@@ -116,6 +114,9 @@
                     </TextBox.Resources>
                 </TextBox>
             </StackPanel>
+            <Button Height="34" Width="38" Margin="0,0,0,10" Style="{StaticResource OperationButton}">
+                <Image Height="32" Width="32" Source="/Resources/right-arrow.jpeg"></Image>
+            </Button>
         </StackPanel>
         <Grid Margin="486,115,48,89">
             <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-16,-44,-40,0">

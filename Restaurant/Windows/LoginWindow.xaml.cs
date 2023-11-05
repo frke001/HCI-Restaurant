@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Restaurant.DAO.MySQL;
+using Restaurant.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,15 +22,47 @@ namespace Restaurant.Windows
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private readonly EmployeeDAOImpl _employeeDAOImpl;
         public LoginWindow()
         {
             InitializeComponent();
+            _employeeDAOImpl = new EmployeeDAOImpl();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void SingInButton_Click(object sender, RoutedEventArgs e)
         {
-           new ManagerWindow().Show();
-           new WorkerWindow().Show();
+            
+            if (string.IsNullOrWhiteSpace(UsernameTextBox.Text) || string.IsNullOrWhiteSpace(PasswordTextBox.Password))
+            {
+                new WarningWindow("Nepotpuni podaci!").ShowDialog();
+            }
+            else
+            {
+      
+                Employee employee = _employeeDAOImpl.FindByUsernameAndPassword(UsernameTextBox.Text, PasswordTextBox.Password);
+                if(employee == null)
+                {
+                    new WarningWindow("Netačni kredencijali!").ShowDialog();
+                    UsernameTextBox.Clear();
+                    PasswordTextBox.Clear();
+                    return;
+                }
+                else
+                {
+                    if(employee.IsManager == 1)
+                    {
+                        new ManagerWindow(employee).ShowDialog();
+                        
+                    }
+                    else
+                    {
+                        new WorkerWindow(employee).ShowDialog();    
+                    }
+                    
+                    
+                }
+            }
             this.Close();
         }
     }

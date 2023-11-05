@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,18 +20,31 @@ namespace Restaurant.Windows
     /// </summary>
     public partial class WorkerWindow : Window
     {
-      
-        public WorkerWindow()
+
+        private Employee employee;
+        public WorkerWindow(Employee employee)
         {
             InitializeComponent();
             SettingsPage = new SettingsPage();
-            SettingsPage.ThemeComboBox.SelectedIndex = 0;
+          
+            this.employee = employee;
+            if (employee.Theme == "Svijetla")
+                SettingsPage.ThemeComboBox.SelectedIndex = 0;
+            else if (employee.Theme == "Tamna")
+                SettingsPage.ThemeComboBox.SelectedIndex = 1;
+            else
+                SettingsPage.ThemeComboBox.SelectedIndex = 2;
+            if (employee.Language == "Engleski")
+                SettingsPage.LanguageComboBox.SelectedIndex = 0;
+            else
+                SettingsPage.LanguageComboBox.SelectedIndex = 1;
         }
         public SettingsPage SettingsPage { get; set; }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
             WorkerPageFrame.Navigate(SettingsPage);
+            this.Title = "Settings";
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
@@ -41,12 +55,14 @@ namespace Restaurant.Windows
 
         private void OrdersButton_Click(object sender, RoutedEventArgs e)
         {
-            WorkerPageFrame.Navigate(new OrdersPage());
+            WorkerPageFrame.Navigate(new OrdersPage()); 
+            this.Title = "Bills/Orders";
         }
 
         private void ReservationsButton_Click(object sender, RoutedEventArgs e)
         {
             WorkerPageFrame.Navigate(new ReservationPage());
+            this.Title = "Reservations";
         }
     }
 }

@@ -91,9 +91,7 @@
 
             </DataGrid>
         </Grid>
-        <StackPanel>
-            <Label Content="{DynamicResource MenuTitle}" Foreground="{DynamicResource Text}" HorizontalAlignment="Left" Margin="27,10,0,0" Width="119" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
-        </StackPanel>
+        
         <StackPanel Margin="0,16,32,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="44" Width="139">
             <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0" Click="AddArticleButton_Click" >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/orderFood.jpeg"/>
@@ -116,7 +114,7 @@
             </Button>
         </StackPanel>
 
-        <StackPanel Margin="156,25,0,0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <StackPanel Margin="20,25,0,0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label Style="{StaticResource CustomLabel}" Content="{DynamicResource Status}"></Label>
             <ComboBox Width="96" Margin="0,0,10,0" SelectedIndex="0" Style="{StaticResource CustomInput}" >
 
@@ -124,7 +122,7 @@
                 <ComboBoxItem Content="{DynamicResource ActiveArticles}"></ComboBoxItem>
 
             </ComboBox>
-            <TextBox  Style="{StaticResource CustomInput}" Width="292" Text="{DynamicResource Search}" Foreground="Gray">
+            <TextBox  Style="{StaticResource CustomInput}" Width="450" Text="{DynamicResource Search}" Foreground="Gray">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

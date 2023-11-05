@@ -66,19 +66,19 @@
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10" >
                 <Label Margin="0,0,10,0" Width="Auto" Style="{StaticResource CustomLabel}" >Korisničko Ime:</Label>
-                <TextBox Width="138" Height="24" Style="{StaticResource CustomInput}"  >
+                <TextBox Width="138" Height="24" Style="{StaticResource CustomInput}"  Name="UsernameTextBox">
                     
                 </TextBox>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10" >
-                <Label Margin="0,0,50,0" Width="66" Style="{StaticResource CustomLabel}" >Lozinka:</Label>
-                <PasswordBox Width="138" Height="24" Style="{StaticResource CustomInput}"  >
+                <Label Margin="0,0,57,0" Width="66" Style="{StaticResource CustomLabel}" >Lozinka:</Label>
+                <PasswordBox Width="138" Height="24" Style="{StaticResource CustomInput}" Name="PasswordTextBox"  >
                     
                 </PasswordBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1" Margin="0,255,0,0"  VerticalAlignment="Top" Height="24">
-            <Button Height="24" Width="206" Style="{StaticResource ButtonSignIn}" Click="Button_Click">Sign In
+            <Button Height="24" Width="206" Style="{StaticResource ButtonSignIn}" Click="SingInButton_Click">Sign In
             </Button>
         </StackPanel>
     </Grid>

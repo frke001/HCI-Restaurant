@@ -50,9 +50,9 @@
     </Window.Resources>
     <Grid Background="{DynamicResource Background}">
         <StackPanel VerticalAlignment="Center">
-            <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2,0,0,20">
+            <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2,0,0,20" >
                 <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,22,0" >Naziv:</Label>
-                <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}">
+                <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="NameTextBox">
                     <TextBox.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -61,7 +61,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Height="32" HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button Height="32" Width="123" Content="Dodaj" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0"></Button>
+                <Button Height="32" Width="123" Content="Dodaj" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" Click="AddButton_Click"></Button>
                 <Button Height="32" Width="123" Content="Izađi" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="CancelButton_Click"></Button>
             </StackPanel>
         </StackPanel>

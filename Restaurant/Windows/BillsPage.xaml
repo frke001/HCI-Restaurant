@@ -66,9 +66,10 @@
         <Grid Margin="22,115,0,0">
             <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Vrijeme izdavanja"  Width="290"   />
-                    <DataGridTextColumn Header="JMB Konobara"  Width="230"   />
-                    <DataGridTextColumn Header="Način plaćanja"   Width="250"  />
+                    <DataGridTextColumn Header="Vrijeme izdavanja"  Width="200"   />
+                    <DataGridTextColumn Header="JMB Konobara"  Width="200"   />
+                    <DataGridTextColumn Header="Način plaćanja"   Width="200"  />
+                    <DataGridTextColumn Header="Stanje"   Width="170"  />
 
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
@@ -91,11 +92,9 @@
 
             </DataGrid>
         </Grid>
-        <StackPanel>
-            <Label Content="Računi" Foreground="{DynamicResource Text}" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="140" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
-        </StackPanel>
+      
 
-        <StackPanel Margin="120,25,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Width="310">
+        <StackPanel Margin="20,25,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Width="310">
             <Label Style="{StaticResource CustomLabel}" Width="138">Datum Izdavanja:</Label>
             <DatePicker Width="171" Style="{StaticResource CustomInput}" FontWeight="SemiBold" SelectedDate="{x:Static sys:DateTime.Now}"></DatePicker>
         </StackPanel>

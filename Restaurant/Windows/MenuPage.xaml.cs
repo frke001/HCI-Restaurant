@@ -23,6 +23,7 @@ namespace Restaurant.Windows
         public MenuPage()
         {
             InitializeComponent();
+            
         }
 
         private void AddArticleButton_Click(object sender, RoutedEventArgs e)

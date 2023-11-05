@@ -63,11 +63,11 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <Grid Margin="170,115,192,0">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36">
+        <Grid Margin="22,115,0,0">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="articleTypeGrid" CanUserResizeRows="False" CanUserResizeColumns="False">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="Naziv"  Width="430"   />
+                    <DataGridTextColumn Header="Naziv"  Width="763"  Binding="{Binding Name}"  />
                    
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
@@ -76,6 +76,7 @@
                         <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="SemiBold"/>
                         <Setter Property="Height" Value="35"></Setter>
+                        
 
 
                     </Style>
@@ -83,17 +84,49 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="FontFamily" Value="Century Gothic"/>
-                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="Normal"/>
+                        
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <!-- Ukloni ivice ćelija -->
+                        <Setter Property="Margin" Value="0,1,0,1"/>
+                        <!-- Dodaj malo margine između redova -->
+                        <Setter Property="Background" Value="White"/>
+                        <!-- Pozadina reda -->
+                        <Setter Property="MinHeight" Value="30"/>
+                        <!-- Dodaj zaobljene ivice -->
+                        <!-- Pozadina reda -->
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Promeni boju pozadine i stila kada je mis iznad reda -->
+                                <Setter Property="Background" Value="LightSkyBlue"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <!-- Promeni cursor na ruci -->
+                            </Trigger>
+                            
+                          
+                        </Style.Triggers>
                     </Style>
                 </DataGrid.RowStyle>
-
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <!-- Postavi boju za selektovanu ćeliju -->
+                                <Setter Property="Background" Value="DodgerBlue"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <!-- Promeni boju teksta za bolju čitljivost -->
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
+                
             </DataGrid>
         </Grid>
-        <StackPanel>
-            <Label Content="Vrste Artikala" Foreground="{DynamicResource Text}" HorizontalAlignment="Left" Margin="27,10,0,0" Width="135" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
-        </StackPanel>
-        <StackPanel Margin="0,16,32,0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="44" Width="139">
+
+        <StackPanel Margin="0,16,32,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="44" Width="139">
             <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0"  Click="AddCategoryButton_Click">
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/add.jpeg"/>
                 <Button.ToolTip>
@@ -107,7 +140,7 @@
                     <ToolTip Style="{StaticResource CustomTooltip}">Izmijeni artikal</ToolTip>
                 </Button.ToolTip>
             </Button>
-            <Button  Style="{StaticResource OperationButton}" >
+            <Button  Style="{StaticResource OperationButton}" Click="DeleteCategoryButton_CLick" >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/delete.jpeg"/>
                 <Button.ToolTip>
                     <ToolTip Style="{StaticResource CustomTooltip}">Obriši artikal</ToolTip>

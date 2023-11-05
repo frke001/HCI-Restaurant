@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Restaurant.DAO.MySQL;
+using Restaurant.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +23,41 @@ namespace Restaurant.Windows
     /// </summary>
     public partial class AddCategoryWindow : Window
     {
-        public AddCategoryWindow()
+        private readonly ArticleTypeDAOImpl _articleTypeDAO;
+        public ObservableCollection<ArticleType> articleTypes;
+        public AddCategoryWindow(ObservableCollection<ArticleType> articleTypes)
         {
             InitializeComponent();
+            _articleTypeDAO = new ArticleTypeDAOImpl();
+            this.articleTypes = articleTypes;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
+            {
+                new WarningWindow("Nepotpuno polje!").ShowDialog();
+            }
+            else
+            {
+                ArticleType temp = _articleTypeDAO.Add(new ArticleType(NameTextBox.Text));
+                if (temp == null)
+                {
+                    new WarningWindow("Podatak vec postoji!").ShowDialog();
+                }
+                else
+                {
+                    articleTypes.Add(temp);
+                    this.Close();
+                    new SuccessNotificationWindow().ShowDialog();
+                }
+            }
+
         }
     }
 }

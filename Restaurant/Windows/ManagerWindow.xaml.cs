@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,23 @@ namespace Restaurant.Windows
     /// </summary>
     public partial class ManagerWindow : Window
     {
-        public ManagerWindow()
+        private Employee employee;
+        public ManagerWindow(Employee employee)
         {
             InitializeComponent();
             SettingsPage = new SettingsPage();
-            SettingsPage.ThemeComboBox.SelectedIndex = 0;
-            SettingsPage.LanguageComboBox.SelectedIndex = 0;    
+             
+            this.employee = employee; 
+            if(employee.Theme == "Svijetla")
+                SettingsPage.ThemeComboBox.SelectedIndex = 0;
+            else if(employee.Theme == "Tamna")
+                SettingsPage.ThemeComboBox.SelectedIndex = 1;
+            else
+                SettingsPage.ThemeComboBox.SelectedIndex = 2;
+            if (employee.Language == "Engleski")
+                SettingsPage.LanguageComboBox.SelectedIndex = 0;
+            else
+                SettingsPage.LanguageComboBox.SelectedIndex = 1;
         }
         public SettingsPage SettingsPage { get; set; }
 
@@ -32,21 +44,25 @@ namespace Restaurant.Windows
         {
             /*pageFrame.Navigate(new MenuPage());*/
             pageFrame.Content = new MenuPage();
+            this.Title = "Articles";
         }
 
         private void EmployeesButton_Click(object sender, RoutedEventArgs e)
         {
             pageFrame.Navigate(new EmployeesPage());
+            this.Title = "Employees";
         }
 
         private void BillsButton_Click(object sender, RoutedEventArgs e)
         {
             pageFrame.Navigate(new BillsPage());
+            this.Title = "Bills";
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
             pageFrame.Navigate(SettingsPage);
+            this.Title = "Settings";
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
