@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Restaurant.Models;
 
-public partial class Order
+public partial class Order 
 {
     public int OrderNumber { get; set; }
 

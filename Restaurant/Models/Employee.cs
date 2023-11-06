@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Restaurant.Models;
 
-public partial class Employee
+public partial class Employee 
 {
     public string Jmb { get; set; }
 
@@ -30,4 +30,16 @@ public partial class Employee
     public string Language { get; set; }
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+
+    public override bool Equals(object obj)
+    {
+        return Equals(obj as Employee);
+    }
+
+    public bool Equals(Employee other)
+    {
+        if (ReferenceEquals(null, other)) return false;
+        if (ReferenceEquals(this, other)) return true;
+        return string.Equals(Jmb, other.Jmb, StringComparison.OrdinalIgnoreCase);
+    }
 }

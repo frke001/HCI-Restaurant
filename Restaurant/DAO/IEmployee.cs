@@ -11,5 +11,13 @@ namespace Restaurant.DAO
     {
         Employee GetById(int id);
         Employee FindByUsernameAndPassword(string username, string password);
+        Employee UpdateLanguage(string language, string JMB);
+        Employee UpdateTheme(string theme, string JMB);
+        Employee UpdateCredentials(string username, string password, string JMB);
+        List<Employee> GetAll();
+        Employee Add(Employee employee);
+        Employee Update(Employee employee);
+        void Delete(Employee employee);
+        string GetNameAndSurname(string JMB);
     }
 }

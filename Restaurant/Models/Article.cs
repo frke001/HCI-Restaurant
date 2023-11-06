@@ -7,6 +7,25 @@ namespace Restaurant.Models;
 
 public partial class Article
 {
+    public Article(string name, decimal price, string description, sbyte active, int idType)
+    {
+        this.Name = name;
+        this.Price = price; 
+        this.Description = description;
+        this.Active = active;
+        this.IdType = idType;
+    }
+    public Article(int id,string name, decimal price, string description, sbyte active, int idType)
+    {
+        this.Id = id;
+        this.Name = name;
+        this.Price = price;
+        this.Description = description;
+        this.Active = active;
+        this.IdType = idType;
+    }
+    public Article() { }
+
     public int Id { get; set; }
 
     public string Name { get; set; }
@@ -22,4 +41,16 @@ public partial class Article
     public virtual ArticleType IdTypeNavigation { get; set; }
 
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+    public override bool Equals(object obj)
+    {
+        return Equals(obj as Article);
+    }
+
+    public bool Equals(Article other)
+    {
+        if (ReferenceEquals(null, other)) return false;
+        if (ReferenceEquals(this, other)) return true;
+
+        return Id == other.Id;
+    }
 }

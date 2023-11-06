@@ -59,11 +59,11 @@ namespace Restaurant.Windows
                     {
                         new WorkerWindow(employee).ShowDialog();    
                     }
-                    
-                    
+                    this.Close();
+
                 }
             }
-            this.Close();
+           
         }
     }
 }

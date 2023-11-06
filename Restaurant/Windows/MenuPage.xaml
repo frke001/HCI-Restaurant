@@ -63,13 +63,13 @@
     </Page.Resources>
     <Grid>
         <Grid Margin="22,115,0,0">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="ArticlesGrid">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="{DynamicResource NameColumn}"  Width="150"   />
-                    <DataGridTextColumn Header="{DynamicResource PriceColumn}"   Width="150"  />
-                    <DataGridTextColumn Header="{DynamicResource TypeColumn}"   Width="150"  />
-                    <DataGridTextColumn Header="{DynamicResource DescriptionColumn}"  Width="350"  />
+                    <DataGridTextColumn Header="{DynamicResource NameColumn}" Binding="{Binding Name}"  Width="150"   />
+                    <DataGridTextColumn Header="{DynamicResource PriceColumn}" Binding="{Binding Price}"  Width="150"  />
+                    <DataGridTextColumn Header="{DynamicResource TypeColumn}"  Binding="{Binding IdTypeNavigation.Name}" Width="150"  />
+                    <DataGridTextColumn Header="{DynamicResource DescriptionColumn}" Binding="{Binding Description}"  Width="310"  />
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -84,11 +84,36 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="FontFamily" Value="Century Gothic"/>
-                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="Normal"/>
-                    </Style>
-                </DataGrid.RowStyle>
+                        <Setter Property="Margin" Value="0,1,0,1"/>
+                        <Setter Property="MinHeight" Value="25"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Promeni boju pozadine i stila kada je mis iznad reda -->
+                                <Setter Property="Background" Value="LightSkyBlue"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <!-- Promeni cursor na ruci -->
+                            </Trigger>
 
+
+                        </Style.Triggers>
+                    </Style>
+                    
+                </DataGrid.RowStyle>
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <!-- Postavi boju za selektovanu ćeliju -->
+                                <Setter Property="Background" Value="DodgerBlue"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <!-- Promeni boju teksta za bolju čitljivost -->
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
             </DataGrid>
         </Grid>
         
@@ -116,13 +141,13 @@
 
         <StackPanel Margin="20,25,0,0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label Style="{StaticResource CustomLabel}" Content="{DynamicResource Status}"></Label>
-            <ComboBox Width="96" Margin="0,0,10,0" SelectedIndex="0" Style="{StaticResource CustomInput}" >
+            <ComboBox Width="130" Margin="0,0,10,0" Style="{StaticResource CustomInput}" SelectionChanged="TypeComboBox_SelectionChanged" Name="TypeComboBox" >
 
                 <ComboBoxItem Content="{DynamicResource AllArticles}"></ComboBoxItem>
                 <ComboBoxItem Content="{DynamicResource ActiveArticles}"></ComboBoxItem>
 
             </ComboBox>
-            <TextBox  Style="{StaticResource CustomInput}" Width="450" Text="{DynamicResource Search}" Foreground="Gray">
+            <TextBox  Style="{StaticResource CustomInput}" Width="420"  Foreground="Gray" Name="SearchTextBox" TextChanged="SearchTextBox_TextChanged">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

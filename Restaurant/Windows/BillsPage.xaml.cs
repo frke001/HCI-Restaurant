@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Restaurant.DAO;
+using Restaurant.DAO.MySQL;
+using Restaurant.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +24,53 @@ namespace Restaurant.Windows
     /// </summary>
     public partial class BillsPage : Page
     {
+        private readonly BillDaoImpl _billDaoImpl;
+        public ObservableCollection<Order> Orders { get; set; }
         public BillsPage()
         {
+            this._billDaoImpl = new BillDaoImpl();
+            this.Orders = new ObservableCollection<Order>(_billDaoImpl.GetAll());
             InitializeComponent();
+            
+            BillGrid.ItemsSource = this.Orders;
+        }
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime? selectedDate = BillDatePicker.SelectedDate;
+            BillGrid.ItemsSource = Orders.Where(o => o.IssueDateAndTime.Date == selectedDate.Value.Date);
+
         }
 
-        private void Click(object sender, RoutedEventArgs e)
+        private void CancelBillButton_Click(object sender, RoutedEventArgs e)
         {
-            new BillItemsWindow().Show();
+            if (BillGrid.SelectedItem != null)
+            {
+                Order selectedOrder = (Order)BillGrid.SelectedItem;
+                if(selectedOrder.IsCanceled == 1)
+                {
+                    new WarningWindow("Racun je vec storniran").ShowDialog();
+                    return;
+                }
+                selectedOrder.IsCanceled = 1;
+                Order temp = _billDaoImpl.Delete(selectedOrder);
+                BillGrid.ItemsSource = _billDaoImpl.GetAll();
+                new SuccessNotificationWindow().Show();
+            }
+            else
+            {
+                new WarningWindow("Nije selektovan podatak").ShowDialog();
+            }
+        }
+        private void BillGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+            Order selectedItem = (Order)BillGrid.SelectedItem;
+
+           
+            if (selectedItem != null)
+            {
+                new BillItemsWindow(selectedItem).ShowDialog();
+            }
         }
     }
 }

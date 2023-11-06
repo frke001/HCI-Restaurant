@@ -11,6 +11,7 @@
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Foreground" Value="{DynamicResource Text}"></Setter>
         </Style>
         <Style x:Key="CustomInput" TargetType="Control">
             <Setter Property="FontSize" Value="14"/>
@@ -21,7 +22,7 @@
         </Style>
         <Style x:Key="CancelButton" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#FFFF6B04"></Setter>
+            <Setter Property="Background" Value="{DynamicResource Button}"></Setter>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -36,8 +37,9 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FFFD9644"/>
+                                <Setter Property="Background" Value="{DynamicResource ButtonHover}"/>
                                 <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="Foreground" Value="Black"></Setter>
                             </Trigger>
                             <!-- Dodaj još triggera prema potrebi -->
                         </ControlTemplate.Triggers>
@@ -46,13 +48,13 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Background="{DynamicResource Background}">
         <Grid Margin="77,106,56,203" >
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-12,-79,0,0">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-12,-79,0,0" Name="BillItemsGrid">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Naziv"  Width="180"   />
-                    <DataGridTextColumn Header="Cijena"  Width="120"   />
-                    <DataGridTextColumn Header="Količina"   Width="100"  />
+                    <DataGridTextColumn Header="Naziv"  Width="180" Binding="{Binding IdArticleNavigation.Name}"  />
+                    <DataGridTextColumn Header="Cijena"  Width="120" Binding="{Binding IdArticleNavigation.Price}"  />
+                    <DataGridTextColumn Header="Količina"   Width="70" Binding="{Binding Quantity}" />
 
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
@@ -68,17 +70,40 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="FontFamily" Value="Century Gothic"/>
-                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="Normal"/>
+                        <Setter Property="MinHeight" Value="25"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Promeni boju pozadine i stila kada je mis iznad reda -->
+                                <Setter Property="Background" Value="LightSkyBlue"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <!-- Promeni cursor na ruci -->
+                            </Trigger>
+
+
+                        </Style.Triggers>
                     </Style>
                 </DataGrid.RowStyle>
-
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <!-- Postavi boju za selektovanu ćeliju -->
+                                <Setter Property="Background" Value="DodgerBlue"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <!-- Promeni boju teksta za bolju čitljivost -->
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
             </DataGrid>
         </Grid>
         <StackPanel Margin="0,386,0,0" Orientation="Vertical">
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="346">
                 <Label Content="JMB Konobara:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,20,0"></Label>
-                <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}">
+                <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}" Name="EmployeeTextBox">
                     <TextBox.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -88,7 +113,7 @@
             </StackPanel>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="348">
                 <Label Content="Ukupna Cijena:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,18,0"></Label>
-                <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}">
+                <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}"  Name="TotalPriceTextBox">
                     <TextBox.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>

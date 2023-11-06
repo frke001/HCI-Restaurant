@@ -24,7 +24,7 @@ namespace Restaurant.Windows
         public ManagerWindow(Employee employee)
         {
             InitializeComponent();
-            SettingsPage = new SettingsPage();
+            SettingsPage = new SettingsPage(employee);
              
             this.employee = employee; 
             if(employee.Theme == "Svijetla")

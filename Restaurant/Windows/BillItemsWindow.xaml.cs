@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Restaurant.DAO.MySQL;
+using Restaurant.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +22,25 @@ namespace Restaurant.Windows
     /// </summary>
     public partial class BillItemsWindow : Window
     {
-        public BillItemsWindow()
+        private readonly OrderItemDaoImpl _orderItemDao;
+        private Order order;
+        public ObservableCollection<OrderItem> OrderItems { get; set; }
+
+        public BillItemsWindow(Order order)
         {
             InitializeComponent();
+            this._orderItemDao = new OrderItemDaoImpl();
+            this.order = order;
+            OrderItems = new ObservableCollection<OrderItem>(_orderItemDao.GetAllByOrderNumber(order.OrderNumber));
+            BillItemsGrid.ItemsSource = OrderItems;
+            EmployeeDAOImpl employeeDAOImpl = new EmployeeDAOImpl();
+            EmployeeTextBox.Text = employeeDAOImpl.GetNameAndSurname(order.Jmbemployee);
+            decimal totalPrice = 0;
+            foreach(var el in OrderItems)
+            {
+                totalPrice += el.Price;
+            }
+            TotalPriceTextBox.Text = totalPrice.ToString();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

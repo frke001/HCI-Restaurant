@@ -63,7 +63,7 @@
                 <StackPanel Grid.Column="0" >
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="2,0,0,40">
                         <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,22,0" >Ime:</Label>
-                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}">
+                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="NameTextBox">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
@@ -73,7 +73,7 @@
                     </StackPanel>
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,0,0,40">
                         <Label Height="30" Style="{StaticResource CustomLabel}" >Prezime:</Label>
-                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" >
+                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="SurnameTextBox" >
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
@@ -83,7 +83,7 @@
                     </StackPanel>
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,0,0,20">
                         <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,10,0" >Adresa:</Label>
-                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}">
+                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="AddressTextBox">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
@@ -96,7 +96,7 @@
                 <StackPanel Grid.Column="1">
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="2,0,0,40">
                         <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,20,0" >Plata:</Label>
-                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}">
+                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="SalaryTextBox">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
@@ -106,7 +106,7 @@
                     </StackPanel>
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,0,0,40">
                         <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,15,0" >Telefon:</Label>
-                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}">
+                        <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="TelephoneTextBox">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
@@ -117,18 +117,17 @@
                     
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center">
                         <Label Height="30" Style="{StaticResource CustomLabel}" Margin="5,0,20,0" >Uloga:</Label>
-                        <ComboBox VerticalAlignment="Center" Width="184" Height="32" Style="{StaticResource CustomInput}">
-                            <ComboBoxItem Content="Posno jelo"/>
-                            <ComboBoxItem Content="Mrsno jelo"/>
-                            <ComboBoxItem Content="Gazirano piće"/>
-                            <ComboBoxItem Content="Alkoholno piće"/>
+                        <ComboBox VerticalAlignment="Center" Width="184" Height="32" Style="{StaticResource CustomInput}" Name="TypeComboBox"  SelectedValuePath="Content">
+                            <ComboBoxItem >Menadžer</ComboBoxItem>
+                            <ComboBoxItem >Konobar</ComboBoxItem>
+        
                         </ComboBox>
                     </StackPanel>
                 </StackPanel>
             </Grid>
 
             <StackPanel Height="32" HorizontalAlignment="Center" Orientation="Horizontal"  >
-                <Button Height="32" Width="123" Content="Sačuvaj" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0"></Button>
+                <Button Height="32" Width="123" Content="Sačuvaj" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0"  Click="SaveButton_Click"></Button>
                 <Button Height="32" Width="123" Content="Izađi" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="CancelButton_Click"></Button>
             </StackPanel>
             <!--<StackPanel Height="85" HorizontalAlignment="Center">

@@ -67,17 +67,17 @@
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
                 <Label Content="Korisničko Ime:" Width="119" Style="{StaticResource CustomLabel}" Height="24"/>
-                <TextBox Width="171" Height="28" Style="{StaticResource CustomInput}"/>
+                <TextBox Width="171" Height="28" Style="{StaticResource CustomInput}" Name="UsernameTextBox"/>
             </StackPanel>
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
                 <Label Content="Lozinka:" Width="119" Style="{StaticResource CustomLabel}" Height="24"/>
-                <PasswordBox Width="171" Height="28" />
+                <PasswordBox Width="171" Height="28" Style="{StaticResource CustomInput}" Name="PasswordTextBox" />
             </StackPanel>
 
         </StackPanel>
         <StackPanel Margin="327,151,367,257">
-            <Button  Style="{StaticResource UpdateButton}"  Margin="0,0,5,0" HorizontalAlignment="Center" Content="Update"  >
+            <Button  Style="{StaticResource UpdateButton}"  Margin="0,0,5,0" HorizontalAlignment="Center" Content="Update" Click="UpdateCredentialsButton_Click"  >
 
             </Button>
         </StackPanel>
@@ -91,9 +91,9 @@
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
                 <Label Content="Jezik:" Width="119" Style="{StaticResource CustomLabel}" Height="24"/>
-                <ComboBox Width="171" Height="28" Style="{StaticResource CustomInput}" SelectionChanged="LanguageComboBox_SelectionChanged" Name="LanguageComboBox">
-                    <ComboBoxItem Content="Engleski"/>
-                    <ComboBoxItem Content="Srpski"/>
+                <ComboBox Width="171" Height="28"  SelectedValuePath="Content" Style="{StaticResource CustomInput}" SelectionChanged="LanguageComboBox_SelectionChanged" Name="LanguageComboBox">
+                    <ComboBoxItem >Engleski</ComboBoxItem>
+                    <ComboBoxItem >Srpski</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
 

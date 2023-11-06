@@ -5,7 +5,7 @@
     <system:String x:Key="MenuTitle">Articles</system:String>
     <system:String x:Key="Status">Status</system:String>
     <system:String x:Key="AllArticles">All articles</system:String>
-    <system:String x:Key="ActiveArticles">Active Articles</system:String>
+    <system:String x:Key="ActiveArticles">Active articles</system:String>
     <system:String x:Key="Search">Search articles...</system:String>
     <system:String x:Key="AddArticleTooltip">Add article</system:String>
     <system:String x:Key="ModifyArticleTooltip">Modify article</system:String>

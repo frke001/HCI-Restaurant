@@ -6,7 +6,7 @@
     <system:String x:Key="MenuTitle">Artikli</system:String>
     <system:String x:Key="Status">Status</system:String>
     <system:String x:Key="AllArticles">Svi artikli</system:String>
-    <system:String x:Key="ActiveArticles">Aktivni Artikli</system:String>
+    <system:String x:Key="ActiveArticles">Aktivni artikli</system:String>
     <system:String x:Key="Search">Pretražite artikle...</system:String>
     <system:String x:Key="AddArticleTooltip">Dodaj artikal</system:String>
     <system:String x:Key="ModifyArticleTooltip">Modifikuj artikal</system:String>

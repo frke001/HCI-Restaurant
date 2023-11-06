@@ -12,7 +12,8 @@ namespace Restaurant.DAO
     {
         List<Article> GetAll();
         Article GetById(int id);
-        Article Update(int id, Article updatedArticle);
-        void DeleteById(int id);
+        Article Update(Article updatedArticle);
+        void Delete(Article article);
+        Article Add(Article article);
     }
 }

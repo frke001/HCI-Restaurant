@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Restaurant.DAO.MySQL;
+using Restaurant.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,14 @@ namespace Restaurant.Windows
     /// </summary>
     public partial class SettingsPage : Page
     {
-        public SettingsPage()
+        private readonly EmployeeDAOImpl _employeeDAOImpl;
+        private Employee currentEmploye;
+        public SettingsPage(Employee currentEmployee)
         {
             InitializeComponent();
+            _employeeDAOImpl = new EmployeeDAOImpl();
+            this.currentEmploye = currentEmployee;
+            UsernameTextBox.Text = currentEmployee.Username;
         }
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -40,6 +47,8 @@ namespace Restaurant.Windows
             {
                 AppUtil.ChangeTheme(new Uri("/Dictionaries/HibridTheme.xaml", UriKind.Relative));
             }
+            Employee temp = _employeeDAOImpl.UpdateTheme(selectedTheme, currentEmploye.Jmb);
+            currentEmploye = temp;
         }
 
         private void LanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -51,6 +60,30 @@ namespace Restaurant.Windows
             else
             {
                 AppUtil.ChangeLanguage(new Uri("/Languages/SerbianLanguage.xaml", UriKind.Relative));
+            }
+            Employee temp = _employeeDAOImpl.UpdateLanguage(LanguageComboBox.SelectedValue.ToString(), currentEmploye.Jmb);
+            currentEmploye = temp;
+        }
+
+        private void UpdateCredentialsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(UsernameTextBox.Text))
+            {
+                new WarningWindow("Nepotpuni podaci!").ShowDialog();
+                UsernameTextBox.Text = currentEmploye.Username;
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(PasswordTextBox.Password))
+                {
+                    _employeeDAOImpl.UpdateCredentials(UsernameTextBox.Text, currentEmploye.Password,currentEmploye.Jmb);
+                }
+                else
+                {
+                    _employeeDAOImpl.UpdateCredentials(UsernameTextBox.Text, PasswordTextBox.Password, currentEmploye.Jmb);
+                }
+                new SuccessNotificationWindow().ShowDialog();
+                PasswordTextBox.Clear();
             }
         }
     }

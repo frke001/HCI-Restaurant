@@ -1,5 +1,7 @@
-﻿using Restaurant.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Restaurant.Models;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,20 +11,37 @@ namespace Restaurant.DAO.MySQL
 {
     class ArticleDAOImpl : IArticle
     {
-        private readonly restoranContext _db;
 
-        public ArticleDAOImpl()
+        public void Delete(Article article)
         {
-            _db = new restoranContext();
-        }
-        public void DeleteById(int id)
-        {
-            throw new NotImplementedException();
+            using (var _db = new restoranContext())
+            {
+
+                var temp = _db.Articles.Find(article.Id);
+                if (temp != null)
+                {
+                    temp.Active = 0;
+                    _db.SaveChanges();
+                }
+
+            }
         }
 
         public List<Article> GetAll()
         {
-            return _db.Articles.ToList();
+
+            using (var _db = new restoranContext())
+            {
+                var articles = _db.Articles.ToList();
+                foreach (var el in articles)
+                {
+                    var ArticleType = _db.ArticleTypes.Find(el.IdType);
+                    el.IdTypeNavigation = ArticleType;
+
+                }
+                return articles;
+            }
+
         }
 
         public Article GetById(int id)
@@ -30,9 +49,40 @@ namespace Restaurant.DAO.MySQL
             throw new NotImplementedException();
         }
 
-        public Article Update(int id, Article updatedArticle)
+        public Article Update(Article updatedArticle)
         {
-            throw new NotImplementedException();
+            if (updatedArticle != null)
+            {
+                using (var _db = new restoranContext())
+                {
+
+                    Article existingArticle = _db.Articles.Find(updatedArticle.Id);
+
+                    if (existingArticle != null)
+                    {
+                        if (_db.ArticleTypes.Any(el => el.Name == updatedArticle.Name))
+                            return null;
+                        existingArticle.Name = updatedArticle.Name;
+                        existingArticle.Price = updatedArticle.Price;
+                        existingArticle.Description = updatedArticle.Description;
+                        existingArticle.IdType = updatedArticle.IdType;
+                        _db.SaveChanges();
+                    }
+                }
+            }
+
+            return updatedArticle;
+        }
+        public Article Add(Article article)
+        {
+            using (var _db = new restoranContext())
+            {
+                if (_db.Articles.Any(el => el.Name == article.Name))
+                    return null;
+                _db.Articles.Add(article);
+                _db.SaveChanges();
+            }
+            return article;
         }
     }
 }

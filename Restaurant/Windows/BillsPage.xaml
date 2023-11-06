@@ -5,10 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       xmlns:local="clr-namespace:Restaurant.Windows"
+      xmlns:myns="clr-namespace:Restaurant.Convertors"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="BillsPage">
     <Page.Resources>
+        <myns:OrderStatusConverter x:Key="OrderConvertor" ></myns:OrderStatusConverter>
+        <myns:PaymentMethodConverter x:Key="PaymentConvertor" ></myns:PaymentMethodConverter>
         <Style x:Key="CustomLabel" TargetType="Label">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -64,12 +67,12 @@
     </Page.Resources>
     <Grid>
         <Grid Margin="22,115,0,0">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="BillGrid" MouseDoubleClick="BillGrid_MouseDoubleClick" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Vrijeme izdavanja"  Width="200"   />
-                    <DataGridTextColumn Header="JMB Konobara"  Width="200"   />
-                    <DataGridTextColumn Header="Način plaćanja"   Width="200"  />
-                    <DataGridTextColumn Header="Stanje"   Width="170"  />
+                    <DataGridTextColumn Header="Vrijeme izdavanja"  Width="200" Binding="{Binding IssueDateAndTime}"  />
+                    <DataGridTextColumn Header="JMB Konobara"  Width="200"  Binding="{Binding Jmbemployee}"/>
+                    <DataGridTextColumn Header="Način plaćanja"   Width="200" Binding="{Binding WithCash, Converter={StaticResource PaymentConvertor}}"/>
+                    <DataGridTextColumn Header="Stanje"   Width="160" Binding="{Binding IsCanceled, Converter={StaticResource OrderConvertor}}" />
 
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
@@ -85,21 +88,44 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="FontFamily" Value="Century Gothic"/>
-                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="Normal"/>
+                        <Setter Property="MinHeight" Value="25"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Promeni boju pozadine i stila kada je mis iznad reda -->
+                                <Setter Property="Background" Value="LightSkyBlue"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <!-- Promeni cursor na ruci -->
+                            </Trigger>
+
+
+                        </Style.Triggers>
                     </Style>
                 </DataGrid.RowStyle>
-
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <!-- Postavi boju za selektovanu ćeliju -->
+                                <Setter Property="Background" Value="DodgerBlue"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <!-- Promeni boju teksta za bolju čitljivost -->
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
             </DataGrid>
         </Grid>
       
 
         <StackPanel Margin="20,25,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Width="310">
             <Label Style="{StaticResource CustomLabel}" Width="138">Datum Izdavanja:</Label>
-            <DatePicker Width="171" Style="{StaticResource CustomInput}" FontWeight="SemiBold" SelectedDate="{x:Static sys:DateTime.Now}"></DatePicker>
+            <DatePicker Width="171" Style="{StaticResource CustomInput}" FontWeight="SemiBold" SelectedDate="{x:Static sys:DateTime.Now}" Name="BillDatePicker" SelectedDateChanged="DatePicker_SelectedDateChanged"></DatePicker>
         </StackPanel>
         <StackPanel Margin="0,16,49,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="44" Width="44">
-            <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0"  >
+            <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0" Click="CancelBillButton_Click" >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/cancel.jpeg"/>
                 <Button.ToolTip>
                     <ToolTip Style="{StaticResource CustomTooltip}">Storniraj račun</ToolTip>

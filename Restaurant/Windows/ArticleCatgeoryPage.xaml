@@ -94,7 +94,7 @@
                         <!-- Dodaj malo margine između redova -->
                         <Setter Property="Background" Value="White"/>
                         <!-- Pozadina reda -->
-                        <Setter Property="MinHeight" Value="30"/>
+                        <Setter Property="MinHeight" Value="25"/>
                         <!-- Dodaj zaobljene ivice -->
                         <!-- Pozadina reda -->
                         <Style.Triggers>
@@ -128,7 +128,7 @@
 
         <StackPanel Margin="0,16,32,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="44" Width="139">
             <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0"  Click="AddCategoryButton_Click">
-                <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/add.jpeg"/>
+                <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/orderFood.jpeg"/>
                 <Button.ToolTip>
                     <ToolTip Style="{StaticResource CustomTooltip}">Dodaj artikal</ToolTip>
                 </Button.ToolTip>

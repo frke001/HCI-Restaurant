@@ -74,7 +74,7 @@
             </StackPanel>
             <StackPanel Height="135" Orientation="Horizontal" HorizontalAlignment="Center"  Width="334">
                 <Label Content="Opis:" Style="{StaticResource CustomLabel}" Height="98" Margin="0,0,32,0"/>
-                <TextBox VerticalContentAlignment="Top" Width="200" Height="100" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Style="{StaticResource CustomInput}">
+                <TextBox Name="DescriptionTextBox" VerticalContentAlignment="Top" Width="200" Height="100" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Style="{StaticResource CustomInput}">
                     <TextBox.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -84,16 +84,13 @@
             </StackPanel>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334" Margin="0,0,0,5">
                 <Label Content="Vrsta:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,29,0"/>
-                <ComboBox VerticalAlignment="Center" Width="201" Height="32" Style="{StaticResource CustomInput}">
-                    <ComboBoxItem Content="Posno jelo"/>
-                    <ComboBoxItem Content="Mrsno jelo"/>
-                    <ComboBoxItem Content="Gazirano piće"/>
-                    <ComboBoxItem Content="Alkoholno piće"/>
+                <ComboBox VerticalAlignment="Center" SelectedValuePath="Content" Width="201" Height="32" Style="{StaticResource CustomInput}" Name="ArticleTypeComboBox">
+                   
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                         HorizontalAlignment="Center">
-                <Button Height="31" Width="142" Content="Dodaj Artikal" Style="{StaticResource AddButton}" FontWeight="SemiBold" Margin="0,0,10,0"/>
+                <Button Height="31" Width="142" Content="Dodaj Artikal" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="AddButton_Click" Margin="0,0,10,0"/>
                 <Button Height="31" Width="142" Content="Izađi" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
             </StackPanel>
                 
