@@ -60,8 +60,10 @@ namespace Restaurant.Windows
                 new WarningWindow("Nije selektovan podatak").ShowDialog();
             }
         }
-        private void BillGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void BillItemsGrid_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
+            var dataGrid = sender as DataGrid;
+            var selectedRow = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromItem(dataGrid.SelectedItem);
 
             Order selectedItem = (Order)BillGrid.SelectedItem;
 
@@ -69,6 +71,18 @@ namespace Restaurant.Windows
             if (selectedItem != null)
             {
                 new BillItemsWindow(selectedItem).ShowDialog();
+            }
+        }
+        private void BillGrid_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            // Dobijte red koji je izazvao događaj
+            DataGridRow row = sender as DataGridRow;
+
+            // Ako želite onemogućiti dvoklik na određenim redovima, postavite uslov prema vašim potrebama
+            if (row != null )
+            {
+                // Ako red ispunjava vaš kriterijum, sprečite dalje širenje događaja
+                e.Handled = true;
             }
         }
     }

@@ -22,8 +22,9 @@ namespace Restaurant.Windows
     {
 
         private Employee employee;
-        public WorkerWindow(Employee employee)
+        public WorkerWindow(Employee employee, LoginWindow loginWindow)
         {
+            loginWindow.Close();
             InitializeComponent();
             SettingsPage = new SettingsPage(employee);
           

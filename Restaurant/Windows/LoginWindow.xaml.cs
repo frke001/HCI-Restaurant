@@ -51,15 +51,17 @@ namespace Restaurant.Windows
                 else
                 {
                     if(employee.IsManager == 1)
-                    {
-                        new ManagerWindow(employee).ShowDialog();
+                    {   
+                        new ManagerWindow(employee,this).ShowDialog();
                         
+
                     }
                     else
-                    {
-                        new WorkerWindow(employee).ShowDialog();    
+                    {                        
+                        new WorkerWindow(employee,this).ShowDialog();
+                        
                     }
-                    this.Close();
+                    
 
                 }
             }

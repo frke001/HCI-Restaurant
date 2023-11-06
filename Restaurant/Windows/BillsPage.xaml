@@ -67,7 +67,7 @@
     </Page.Resources>
     <Grid>
         <Grid Margin="22,115,0,0">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="BillGrid" MouseDoubleClick="BillGrid_MouseDoubleClick" >
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="BillGrid" IsReadOnly="True" MouseRightButtonDown="BillItemsGrid_MouseRightButtonDown" PreviewMouseDoubleClick="BillGrid_PreviewMouseDoubleClick" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Vrijeme izdavanja"  Width="200" Binding="{Binding IssueDateAndTime}"  />
                     <DataGridTextColumn Header="JMB Konobara"  Width="200"  Binding="{Binding Jmbemployee}"/>

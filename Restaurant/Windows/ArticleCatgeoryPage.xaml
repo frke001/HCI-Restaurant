@@ -64,7 +64,7 @@
     </Page.Resources>
     <Grid>
         <Grid Margin="22,115,0,0">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="articleTypeGrid" CanUserResizeRows="False" CanUserResizeColumns="False">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" IsReadOnly="True" Name="articleTypeGrid" CanUserResizeRows="False" CanUserResizeColumns="False">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="Naziv"  Width="763"  Binding="{Binding Name}"  />

@@ -21,8 +21,9 @@ namespace Restaurant.Windows
     public partial class ManagerWindow : Window
     {
         private Employee employee;
-        public ManagerWindow(Employee employee)
+        public ManagerWindow(Employee employee,LoginWindow loginWindow)
         {
+            loginWindow.Close();
             InitializeComponent();
             SettingsPage = new SettingsPage(employee);
              

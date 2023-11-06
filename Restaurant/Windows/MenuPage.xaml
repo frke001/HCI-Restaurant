@@ -63,7 +63,7 @@
     </Page.Resources>
     <Grid>
         <Grid Margin="22,115,0,0">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="ArticlesGrid">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="ArticlesGrid" IsReadOnly="True">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="{DynamicResource NameColumn}" Binding="{Binding Name}"  Width="150"   />

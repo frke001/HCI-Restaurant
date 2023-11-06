@@ -99,7 +99,7 @@
             </Button>
         </StackPanel>
         <Grid Margin="27,115,474,89">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-12,-44,0,0" Name="ArticlesGrid">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-12,-44,0,0" IsReadOnly="True" Name="ArticlesGrid">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="Naziv"  Width="160" Binding="{Binding Name}"  />
@@ -170,7 +170,7 @@
             </ComboBox>
         </StackPanel>
         <Grid Margin="486,115,48,89">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-16,-44,-40,0" Name="OrderItemsGrid">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-16,-44,-40,0" IsReadOnly="True" Name="OrderItemsGrid">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="Naziv"  Width="125" Binding="{Binding IdArticleNavigation.Name}"  />

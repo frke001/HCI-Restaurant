@@ -64,7 +64,7 @@
     </Page.Resources>
     <Grid>
         <Grid Margin="21,115,-16,0">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,42,36" Name="ReservationsGrid">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"  Margin="0,-44,42,36" Name="ReservationsGrid">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="Vrijeme rezervacije"  Width="380" Binding="{Binding DateAndTime}"  />

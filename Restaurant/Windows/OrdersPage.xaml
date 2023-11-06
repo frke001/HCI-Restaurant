@@ -68,7 +68,7 @@
     </Page.Resources>
     <Grid>
         <Grid Margin="21,115,0,0">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="BillGrid" MouseDoubleClick="BillGrid_MouseDoubleClick">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="BillGrid" IsReadOnly="True" MouseDoubleClick="BillGrid_MouseDoubleClick">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="Vrijeme izdavanja"  Width="200" Binding="{Binding IssueDateAndTime}"  />
