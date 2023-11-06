@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Restaurant.DAO;
+using Restaurant.DAO.MySQL;
+using Restaurant.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,19 +24,54 @@ namespace Restaurant.Windows
     /// </summary>
     public partial class ReservationPage : Page
     {
+        private readonly ReservationDAOImpl _reservationDAO;
+        public ObservableCollection<Reservation> Reservations { get; set; }
         public ReservationPage()
         {
+            this._reservationDAO = new ReservationDAOImpl();
+            Reservations = new ObservableCollection<Reservation>(_reservationDAO.GetAll());
             InitializeComponent();
+            //ReservationsGrid.ItemsSource = Reservations;
+            DateTime? selectedDate = ReservationDatePicker.SelectedDate;
+            ReservationsGrid.ItemsSource = Reservations.Where(o => o.DateAndTime.Date == selectedDate.Value.Date);
         }
-
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime? selectedDate = ReservationDatePicker.SelectedDate;
+            ReservationsGrid.ItemsSource = Reservations.Where(o => o.DateAndTime.Date == selectedDate.Value.Date);
+        }
         private void AddReservationButton_Click(object sender, RoutedEventArgs e)
         {
-            new AddReservationWindow().Show();
+            new AddReservationWindow(Reservations,this).Show();
         }
 
         private void ModifyReservationButton_Click(object sender, RoutedEventArgs e)
         {
-            new ModifyReservationWindow().Show();
+            if(ReservationsGrid.SelectedItem != null)
+            {
+                Reservation reservation = (Reservation)ReservationsGrid.SelectedItem;
+                new ModifyReservationWindow(Reservations, reservation).Show();
+            }
+            else
+            {
+                new WarningWindow("Izaberite podatak!").ShowDialog();
+            }
+            
+        }
+
+        private void DeleteReservationButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(ReservationsGrid.SelectedItem != null)
+            {
+                Reservation selected = (Reservation)ReservationsGrid.SelectedItem;
+                _reservationDAO.Delete(selected);
+                Reservations.Remove(selected);
+                ReservationsGrid.ItemsSource = _reservationDAO.GetAll().Where(el => el.DateAndTime.Date == ReservationDatePicker.SelectedDate.Value.Date);
+                new SuccessNotificationWindow().ShowDialog();
+            }else
+            {
+                new WarningWindow("Izaberite podatak!").ShowDialog();
+            }
         }
     }
 }

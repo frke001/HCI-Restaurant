@@ -11,7 +11,7 @@ namespace Restaurant.DAO
     {
         List<ArticleType> GetAll();
         ArticleType Add(ArticleType articleType);
-        void Delete(ArticleType articleType);
+        bool Delete(ArticleType articleType);
         ArticleType Update(ArticleType articleType);
     }
 }

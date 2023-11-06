@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Restaurant.DAO;
+using Restaurant.DAO.MySQL;
+using Restaurant.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +24,40 @@ namespace Restaurant.Windows
     /// </summary>
     public partial class OrdersPage : Page
     {
-        public OrdersPage()
+        private readonly BillDaoImpl _billDaoImpl;
+        public ObservableCollection<Order> Orders { get; set; }
+        public Employee Employee { get; set; }
+        public OrdersPage(Employee employee)
         {
+            this._billDaoImpl = new BillDaoImpl();
+            this.Orders = new ObservableCollection<Order>(_billDaoImpl.GetAll());
             InitializeComponent();
+
+            BillGrid.ItemsSource = this.Orders.Where(o => o.IssueDateAndTime.Date == BillDatePicker.SelectedDate.Value.Date);
+            Employee = employee;
         }
 
         private void CreateOrdeButton_Click(object sender, RoutedEventArgs e)
         {
-            new CreateOrderWindow().Show(); 
+            new CreateOrderWindow(Employee,Orders).Show(); 
+        }
+
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime? selectedDate = BillDatePicker.SelectedDate;
+            BillGrid.ItemsSource = Orders.Where(o => o.IssueDateAndTime.Date == selectedDate.Value.Date);
+
+        }
+        private void BillGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+            Order selectedItem = (Order)BillGrid.SelectedItem;
+
+
+            if (selectedItem != null)
+            {
+                new BillItemsWindow(selectedItem).ShowDialog();
+            }
         }
     }
 }

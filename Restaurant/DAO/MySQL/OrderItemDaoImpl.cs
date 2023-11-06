@@ -26,5 +26,14 @@ namespace Restaurant.DAO.MySQL
                 return result;
             }
         }
+        public OrderItem Add(OrderItem item)
+        {
+            using(var _db = new restoranContext())
+            {
+                _db.OrderItems.Add(item);
+                _db.SaveChanges();
+            }
+            return item;
+        }
     }
 }

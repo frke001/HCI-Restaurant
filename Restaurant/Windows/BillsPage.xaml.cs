@@ -31,14 +31,13 @@ namespace Restaurant.Windows
             this._billDaoImpl = new BillDaoImpl();
             this.Orders = new ObservableCollection<Order>(_billDaoImpl.GetAll());
             InitializeComponent();
-            
-            BillGrid.ItemsSource = this.Orders;
+
+            BillGrid.ItemsSource = this.Orders.Where(o => o.IssueDateAndTime.Date == BillDatePicker.SelectedDate.Value.Date);
         }
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             DateTime? selectedDate = BillDatePicker.SelectedDate;
             BillGrid.ItemsSource = Orders.Where(o => o.IssueDateAndTime.Date == selectedDate.Value.Date);
-
         }
 
         private void CancelBillButton_Click(object sender, RoutedEventArgs e)

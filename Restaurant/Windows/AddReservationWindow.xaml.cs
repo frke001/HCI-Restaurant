@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Restaurant.DAO.MySQL;
+using Restaurant.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +22,48 @@ namespace Restaurant.Windows
     /// </summary>
     public partial class AddReservationWindow : Window
     {
-        public AddReservationWindow()
+        private readonly ReservationDAOImpl _reservationDAO;
+        public ObservableCollection<Reservation> Reservations { get; set; }
+        public ReservationPage reservationPage { get; set; }
+        public AddReservationWindow(ObservableCollection<Reservation> reservations, ReservationPage reservationPage)
         {
             InitializeComponent();
+            this._reservationDAO = new ReservationDAOImpl();
+            Reservations = reservations;
+            this.reservationPage = reservationPage;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(PersonNameTextBox.Text))
+            {
+                new WarningWindow("Nepotpuni podaci!").ShowDialog();
+            }
+            else
+            {
+                Reservation reservation = new Reservation();
+                reservation.DateAndTime = ReservationDatePicker.SelectedDate.Value; 
+                reservation.PersonName = PersonNameTextBox.Text;
+                Reservation res = _reservationDAO.Add(reservation);
+                if(res == null)
+                {
+                    new WarningWindow("Rezervacija postoji!").ShowDialog();
+                }
+                else
+                {
+                    
+                    Reservations.Add(reservation);
+                    reservationPage.ReservationsGrid.ItemsSource = Reservations.Where(el => el.DateAndTime.Date == reservationPage.ReservationDatePicker.SelectedDate.Value.Date);
+                    this.Close();
+                    new SuccessNotificationWindow().ShowDialog();
+                }
+                
+            }
         }
     }
 }

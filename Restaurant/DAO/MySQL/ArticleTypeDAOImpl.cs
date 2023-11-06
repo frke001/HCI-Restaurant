@@ -34,13 +34,20 @@ namespace Restaurant.DAO.MySQL
 
             return newArticle;
         }
-        public void Delete(ArticleType articleType) {
+        public bool Delete(ArticleType articleType) {
+            bool deleted = true;
             using (var _db = new restoranContext())
             {
-                
-                _db.ArticleTypes.Remove(articleType);
-                _db.SaveChanges();
+                try
+                {
+                    _db.ArticleTypes.Remove(articleType);
+                    _db.SaveChanges();
+                }catch (Exception ex)
+                {
+                    deleted = false;
+                }
             }
+            return deleted;
         }
         public ArticleType Update(ArticleType articleType)
         {
@@ -53,7 +60,7 @@ namespace Restaurant.DAO.MySQL
 
                     if (existingArticleType != null)
                     {
-                        if (_db.ArticleTypes.Any(el => el.Name == articleType.Name))
+                        if (_db.ArticleTypes.Any(el => el.Name == articleType.Name && el.Id != articleType.Id))
                             return null;
                         existingArticleType.Name = articleType.Name; 
                         _db.SaveChanges();

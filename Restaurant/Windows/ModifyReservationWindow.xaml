@@ -55,7 +55,7 @@
             <Label Style="{StaticResource CustomLabel}" Content="Unesite podatke za izmjenu  rezervacije:" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="18"></Label>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334" Margin="0,0,0,20">
                 <Label Content="Ime Osobe:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,10,0"/>
-                <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}">
+                <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}" Name="PersonNameTextBox">
                     <TextBox.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -65,13 +65,13 @@
             </StackPanel>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334" Margin="0,0,0,30">
                 <Label Content="Datum:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,42,0"></Label>
-                <DatePicker Width="200" Style="{StaticResource CustomInput}" FontWeight="SemiBold" SelectedDate="{x:Static sys:DateTime.Now}" VerticalAlignment="Center"></DatePicker>
+                <DatePicker Width="200" Style="{StaticResource CustomInput}" FontWeight="SemiBold" SelectedDate="{x:Static sys:DateTime.Now}" VerticalAlignment="Center" Name="ReservationDatePicker"></DatePicker>
             </StackPanel>
 
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                   HorizontalAlignment="Center">
-                <Button Height="31" Width="142" Content="Kreiraj rezervaciju" Style="{StaticResource AddButton}" FontWeight="SemiBold" Margin="0,0,10,0"/>
+                <Button Height="31" Width="142" Content="Sačuvaj" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="SaveButton_Click" Margin="0,0,10,0"/>
                 <Button Height="31" Width="142" Content="Izađi" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
             </StackPanel>
 

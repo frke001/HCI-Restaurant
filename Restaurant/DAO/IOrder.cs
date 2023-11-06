@@ -1,5 +1,4 @@
 ﻿using Restaurant.Models;
-using Restaurant.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Restaurant.DAO
 {
-    internal interface IOrderItem
+    interface IOrder
     {
-        List<OrderItem> GetAllByOrderNumber(int orderNumber);
-        OrderItem Add(OrderItem item);
-        
+        Order Add(Order order);
+       
     }
 }

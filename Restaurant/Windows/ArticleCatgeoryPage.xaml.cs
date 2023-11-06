@@ -75,8 +75,15 @@ namespace Restaurant.Windows
             if(articleTypeGrid.SelectedItem != null)
             {
                 ArticleType selectedArticleType = (ArticleType)articleTypeGrid.SelectedItem;
-                ArticleTypes.Remove(selectedArticleType);
-                _articleTypeDAO.Delete(selectedArticleType);
+                if (_articleTypeDAO.Delete(selectedArticleType))
+                {
+                    ArticleTypes.Remove(selectedArticleType);
+                    new SuccessNotificationWindow().ShowDialog();
+                }
+                else
+                {
+                    new WarningWindow("Neuspješno brisanje!").ShowDialog();
+                }
             }
             else
             {

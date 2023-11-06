@@ -117,14 +117,21 @@ namespace Restaurant.DAO.MySQL
 
             return employee;
         }
-        public void Delete(Employee employee)
+        public bool Delete(Employee employee)
         {
+            bool deleted = true;
             using (var _db = new restoranContext())
             {
-
-                _db.Employees.Remove(employee);
-                _db.SaveChanges();
+                try
+                {
+                    _db.Employees.Remove(employee);
+                    _db.SaveChanges();
+                } catch (Exception ex)
+                {
+                    deleted = false;
+                }
             }
+            return deleted;
         }
         public string GetNameAndSurname(string JMB)
         {

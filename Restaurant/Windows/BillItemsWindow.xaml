@@ -102,7 +102,7 @@
         </Grid>
         <StackPanel Margin="0,386,0,0" Orientation="Vertical">
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="346">
-                <Label Content="JMB Konobara:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,20,0"></Label>
+                <Label Content="Ime Konobara:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,21,0"></Label>
                 <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}" Name="EmployeeTextBox">
                     <TextBox.Resources>
                         <Style TargetType="Border">

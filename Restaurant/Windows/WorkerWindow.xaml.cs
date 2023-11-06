@@ -55,7 +55,7 @@ namespace Restaurant.Windows
 
         private void OrdersButton_Click(object sender, RoutedEventArgs e)
         {
-            WorkerPageFrame.Navigate(new OrdersPage()); 
+            WorkerPageFrame.Navigate(new OrdersPage(employee)); 
             this.Title = "Bills/Orders";
         }
 

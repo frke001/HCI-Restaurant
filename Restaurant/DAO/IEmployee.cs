@@ -17,7 +17,7 @@ namespace Restaurant.DAO
         List<Employee> GetAll();
         Employee Add(Employee employee);
         Employee Update(Employee employee);
-        void Delete(Employee employee);
+        bool Delete(Employee employee);
         string GetNameAndSurname(string JMB);
     }
 }

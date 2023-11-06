@@ -12,19 +12,30 @@ namespace Restaurant.DAO.MySQL
     class ArticleDAOImpl : IArticle
     {
 
-        public void Delete(Article article)
+        public bool Delete(Article article)
         {
+            bool deleted  = true;
             using (var _db = new restoranContext())
             {
 
-                var temp = _db.Articles.Find(article.Id);
-                if (temp != null)
+                if (_db.OrderItems.Any(item => item.IdArticle == article.Id))
                 {
-                    temp.Active = 0;
-                    _db.SaveChanges();
+
+                    deleted = false;
                 }
+                else
+                {
+                    var temp = _db.Articles.Find(article.Id);
+                    if (temp != null)
+                    {
+                        temp.Active = 0;
+                        _db.SaveChanges();
+                    }
+                }
+                
 
             }
+            return deleted;
         }
 
         public List<Article> GetAll()

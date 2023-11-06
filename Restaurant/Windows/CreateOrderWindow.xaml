@@ -70,17 +70,40 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="CustomTooltip" TargetType="ToolTip">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToolTip">
+                        <Border Background="FloralWhite" CornerRadius="5">
+                            <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="3"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid Background="{DynamicResource Background}">
         <StackPanel Margin="0,0,0,369" HorizontalAlignment="Center">
             <Label Style="{StaticResource CustomLabel}" FontSize="18" Margin="0,20,0,0">Odaberite artikle</Label>
         </StackPanel>
+        <StackPanel Margin="714,20,10,370">
+            <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0" Click="CancelItemButton_Click" >
+                <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/cancel.jpeg"/>
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}">Izbaci stavku</ToolTip>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
         <Grid Margin="27,115,474,89">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-12,-44,0,0">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-12,-44,0,0" Name="ArticlesGrid">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="Naziv"  Width="160"   />
-                    <DataGridTextColumn Header="Cijena"  Width="150"   />
+                    <DataGridTextColumn Header="Naziv"  Width="160" Binding="{Binding Name}"  />
+                    <DataGridTextColumn Header="Cijena"  Width="126" Binding="{Binding Price}"  />
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -95,18 +118,41 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="FontFamily" Value="Century Gothic"/>
-                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="Normal"/>
+                        <Setter Property="MinHeight" Value="25"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Promeni boju pozadine i stila kada je mis iznad reda -->
+                                <Setter Property="Background" Value="LightSkyBlue"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <!-- Promeni cursor na ruci -->
+                            </Trigger>
+
+
+                        </Style.Triggers>
                     </Style>
                 </DataGrid.RowStyle>
-
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <!-- Postavi boju za selektovanu ćeliju -->
+                                <Setter Property="Background" Value="DodgerBlue"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <!-- Promeni boju teksta za bolju čitljivost -->
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
             </DataGrid>
         </Grid>
-        <StackPanel Margin="0,180,0,129" HorizontalAlignment="Center" Width="96">
+        <StackPanel Margin="0,180,0,94" HorizontalAlignment="Center" Width="120">
            
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label Style="{StaticResource CustomLabel}">Količina</Label>
-                <TextBox Height="21" Width="30" Text="1" Style="{StaticResource CustomInput}" HorizontalContentAlignment="Center">
+                <TextBox Height="21" Width="30" Style="{StaticResource CustomInput}" HorizontalContentAlignment="Center" Name="QuantityTextBox">
                     <TextBox.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -114,17 +160,22 @@
                     </TextBox.Resources>
                 </TextBox>
             </StackPanel>
-            <Button Height="34" Width="38" Margin="0,0,0,10" Style="{StaticResource OperationButton}">
+            <Button Height="34" Width="38" Margin="0,0,0,40" Style="{StaticResource OperationButton}" Click="AddButton_Click">
                 <Image Height="32" Width="32" Source="/Resources/right-arrow.jpeg"></Image>
             </Button>
+            <Label Style="{StaticResource CustomLabel}" HorizontalAlignment="Center">Plaćanje</Label>
+            <ComboBox Width="108" SelectedValuePath="Content" Name="PaymentComboBox" Style="{StaticResource CustomInput}">
+                <ComboBoxItem>Gotovina</ComboBoxItem>
+                <ComboBoxItem>Kartica</ComboBoxItem>
+            </ComboBox>
         </StackPanel>
         <Grid Margin="486,115,48,89">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-16,-44,-40,0">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-16,-44,-40,0" Name="OrderItemsGrid">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="Naziv"  Width="150"   />
-                    <DataGridTextColumn Header="Cijena"  Width="90"   />
-                    <DataGridTextColumn Header="Količina"  Width="80"   />
+                    <DataGridTextColumn Header="Naziv"  Width="125" Binding="{Binding IdArticleNavigation.Name}"  />
+                    <DataGridTextColumn Header="Cijena"  Width="90" Binding="{Binding IdArticleNavigation.Price}"  />
+                    <DataGridTextColumn Header="Količina"  Width="83"  Binding="{Binding Quantity}" />
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -139,16 +190,39 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="FontFamily" Value="Century Gothic"/>
-                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="Normal"/>
+                        <Setter Property="MinHeight" Value="25"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Promeni boju pozadine i stila kada je mis iznad reda -->
+                                <Setter Property="Background" Value="LightSkyBlue"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <!-- Promeni cursor na ruci -->
+                            </Trigger>
+
+
+                        </Style.Triggers>
                     </Style>
                 </DataGrid.RowStyle>
-
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <!-- Postavi boju za selektovanu ćeliju -->
+                                <Setter Property="Background" Value="DodgerBlue"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <!-- Promeni boju teksta za bolju čitljivost -->
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
             </DataGrid>
         </Grid>
         <StackPanel Orientation="Horizontal"
              HorizontalAlignment="Center" Margin="0,390,0,0">
-            <Button Height="31" Width="142" Content="Kreiraj" Style="{StaticResource AddButton}" FontWeight="SemiBold" Margin="0,0,10,0"/>
+            <Button Height="31" Width="142" Content="Kreiraj" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CreateButton_Click" Margin="0,0,10,0"/>
             <Button Height="31" Width="142" Content="Izađi" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
         </StackPanel>
     </Grid>

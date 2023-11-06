@@ -63,18 +63,29 @@ namespace Restaurant.Windows
             if (ArticlesGrid.SelectedItem != null)
             {
                 Article selectedArticle = (Article)ArticlesGrid.SelectedItem;
-               
+
+                if(selectedArticle.Active == 0)
+                {
+                    new WarningWindow("Podatak je već obrisan!").ShowDialog();
+                    return;
+                }
                 /*if (TypeComboBox.SelectedIndex == 1)
                     Articles.Remove(selectedArticle);*/
-                _articleDAO.Delete(selectedArticle);   
-                Articles = new ObservableCollection<Article>(_articleDAO.GetAll());
-                if (TypeComboBox.SelectedIndex == 1)
-                    ArticlesGrid.ItemsSource = Articles.Where(el => el.Active == 1);
+                if (_articleDAO.Delete(selectedArticle))
+                {
+                    Articles = new ObservableCollection<Article>(_articleDAO.GetAll());
+                    if (TypeComboBox.SelectedIndex == 1)
+                        ArticlesGrid.ItemsSource = Articles.Where(el => el.Active == 1);
+                    else
+                    {
+                        ArticlesGrid.ItemsSource = Articles;
+                    }
+                    new SuccessNotificationWindow().ShowDialog();
+                }
                 else
                 {
-                    ArticlesGrid.ItemsSource = Articles;
+                    new WarningWindow("Neuspješno brisanje!").ShowDialog();   
                 }
-                new SuccessNotificationWindow().ShowDialog();   
             }
             else
             {

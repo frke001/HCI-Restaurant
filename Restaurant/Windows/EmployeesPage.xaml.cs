@@ -102,15 +102,23 @@ namespace Restaurant.Windows
             if (EmployeesGrid.SelectedItem != null)
             {
                 Employee selectedEmployee = (Employee)EmployeesGrid.SelectedItem;
-                
-                _employeeDAO.Delete(selectedEmployee);
-                Employees = new ObservableCollection<Employee>(_employeeDAO.GetAll());
-                if(TypeComboBox.SelectedIndex == 0)
-                    EmployeesGrid.ItemsSource = Employees;
-                else if(TypeComboBox.SelectedIndex == 1)
-                    EmployeesGrid.ItemsSource = Employees.Where(e => e.IsManager == 1);
+
+                if (_employeeDAO.Delete(selectedEmployee))
+                {
+
+                    Employees = new ObservableCollection<Employee>(_employeeDAO.GetAll());
+                    if (TypeComboBox.SelectedIndex == 0)
+                        EmployeesGrid.ItemsSource = Employees;
+                    else if (TypeComboBox.SelectedIndex == 1)
+                        EmployeesGrid.ItemsSource = Employees.Where(e => e.IsManager == 1);
+                    else
+                        EmployeesGrid.ItemsSource = Employees.Where(e => e.IsManager == 0);
+                    new SuccessNotificationWindow().ShowDialog();
+                }
                 else
-                    EmployeesGrid.ItemsSource = Employees.Where(e => e.IsManager == 0);
+                {
+                    new WarningWindow("Neuspješno brisanje").ShowDialog();
+                }
             }
             else
             {

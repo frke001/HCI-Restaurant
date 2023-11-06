@@ -64,11 +64,11 @@
     </Page.Resources>
     <Grid>
         <Grid Margin="21,115,-16,0">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,42,36">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,42,36" Name="ReservationsGrid">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="Vrijeme rezervacije"  Width="400"   />
-                    <DataGridTextColumn Header="Ime Osobe"   Width="400"  />
+                    <DataGridTextColumn Header="Vrijeme rezervacije"  Width="380" Binding="{Binding DateAndTime}"  />
+                    <DataGridTextColumn Header="Ime Osobe"   Width="380"  Binding="{Binding PersonName}"/>
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -83,17 +83,40 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="FontFamily" Value="Century Gothic"/>
-                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="Normal"/>
+                        <Setter Property="MinHeight" Value="25"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Promeni boju pozadine i stila kada je mis iznad reda -->
+                                <Setter Property="Background" Value="LightSkyBlue"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <!-- Promeni cursor na ruci -->
+                            </Trigger>
+
+
+                        </Style.Triggers>
                     </Style>
                 </DataGrid.RowStyle>
-
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <!-- Postavi boju za selektovanu ćeliju -->
+                                <Setter Property="Background" Value="DodgerBlue"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <!-- Promeni boju teksta za bolju čitljivost -->
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
             </DataGrid>
         </Grid>
 
         <StackPanel Margin="20,25,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Width="310">
             <Label Style="{StaticResource CustomLabel}" Width="138">Datum Izdavanja:</Label>
-            <DatePicker Width="171" Style="{StaticResource CustomInput}" FontWeight="SemiBold" SelectedDate="{x:Static sys:DateTime.Now}"></DatePicker>
+            <DatePicker Width="171" Style="{StaticResource CustomInput}" FontWeight="SemiBold" SelectedDate="{x:Static sys:DateTime.Now}" Name="ReservationDatePicker" SelectedDateChanged="DatePicker_SelectedDateChanged"></DatePicker>
         </StackPanel>
         <StackPanel Margin="0,16,40,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="44" Width="145">
             <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0" Click="AddReservationButton_Click" >
@@ -109,7 +132,7 @@
                     <ToolTip Style="{StaticResource CustomTooltip}">Izmijeni rezervaciju</ToolTip>
                 </Button.ToolTip>
             </Button>
-            <Button  Style="{StaticResource OperationButton}"   >
+            <Button  Style="{StaticResource OperationButton}" Click="DeleteReservationButton_Click"  >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/delete.jpeg"/>
                 <Button.ToolTip>
                     <ToolTip Style="{StaticResource CustomTooltip}">Obriši rezervaciju</ToolTip>
