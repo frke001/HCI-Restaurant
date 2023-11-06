@@ -59,9 +59,16 @@ namespace Restaurant.Windows
                     Article temp = articleDAO.Add(new Article(NameTextBox.Text, price, DescriptionTextBox.Text, 1, articleTypeId));
                     /*temp.IdTypeNavigation = articleType;
                     articles.Add(temp);*/
-                    menuPage.ArticlesGrid.ItemsSource = articleDAO.GetAll();
-                    this.Close();
-                    new SuccessNotificationWindow().ShowDialog();
+                    if (temp == null)
+                    {
+                        new WarningWindow("Artikal postoji!").ShowDialog();
+                    }
+                    else
+                    {
+                        menuPage.ArticlesGrid.ItemsSource = articleDAO.GetAll();
+                        this.Close();
+                        new SuccessNotificationWindow().ShowDialog();
+                    }
                     
 
                 }
