@@ -51,10 +51,10 @@
     <Grid Margin="0,0,0,74" Background="{DynamicResource Background}">
         <StackPanel Margin="0,0,0,-72" Background="{DynamicResource Background}">
             <StackPanel Height="55" VerticalAlignment="Center">
-                <Label Style="{StaticResource CustomLabel}" FontSize="18" HorizontalAlignment="Center" Margin="0,20,0,0" >Popunite osnovne informacije o zaposlenom</Label>
+                <Label Style="{StaticResource CustomLabel}" FontSize="18" HorizontalAlignment="Center" Margin="0,20,0,0" Content="{DynamicResource AddEmployeeTitle}"></Label>
             </StackPanel>
 
-            <Grid Height="302">
+            <Grid Height="414">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <!-- Druga kolona za prikaz različitih formi -->
@@ -64,7 +64,7 @@
                 <StackPanel Grid.Column="0" >
                     
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="2,0,0,20">
-                        <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,22,0" >Ime:</Label>
+                        <Label Height="30" Style="{StaticResource CustomLabel}"  Width="90" Content="{DynamicResource FirstNameLabel}"></Label>
                         <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="NameTextBox">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
@@ -74,7 +74,7 @@
                         </TextBox>
                     </StackPanel>
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,0,0,20">
-                        <Label Height="30" Style="{StaticResource CustomLabel}" >Prezime:</Label>
+                        <Label Height="30" Style="{StaticResource CustomLabel}"   Width="90" Content="{DynamicResource SecondNameLabel}"></Label>
                         <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="SurnameTextBox" >
                             <TextBox.Resources>
                                 <Style TargetType="Border">
@@ -84,7 +84,7 @@
                         </TextBox>
                     </StackPanel>
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,0,0,20">
-                        <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,25,0" >JMB:</Label>
+                        <Label Height="30" Style="{StaticResource CustomLabel}"   Width="90" Content="{DynamicResource JMBLabel}"></Label>
                         <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="JmbTextBox">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
@@ -94,7 +94,7 @@
                         </TextBox>
                     </StackPanel>
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center">
-                        <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,8,0" >Telefon:</Label>
+                        <Label Height="30" Style="{StaticResource CustomLabel}"   Width="90" Content="{DynamicResource TelephoneLabel}"></Label>
                         <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="TelephoneTextBox">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
@@ -103,11 +103,19 @@
                             </TextBox.Resources>
                         </TextBox>
                     </StackPanel>
-                    
+                    <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,20,0,20">
+                        <Label Height="30" Style="{StaticResource CustomLabel}"  Width="90" Content="{DynamicResource TypeLabel}"></Label>
+                        <ComboBox VerticalAlignment="Center" Width="184" Height="32" Style="{StaticResource CustomInput}" Name="TypeComboBox" SelectedValuePath="Content">
+                            <ComboBoxItem Content="{DynamicResource ManagerBox}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource WaiterBox}"></ComboBoxItem>
+
+                        </ComboBox>
+                    </StackPanel>
+
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="2,0,0,20">
-                        <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,65,0" >Plata:</Label>
+                        <Label Height="30" Style="{StaticResource CustomLabel}"  Width="115" Content="{DynamicResource SalaryLabel}"></Label>
                         <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="SalaryTextBox">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
@@ -117,7 +125,7 @@
                         </TextBox>
                     </StackPanel>
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,0,0,20">
-                        <Label Height="30" Style="{StaticResource CustomLabel}" >Korisničko Ime:</Label>
+                        <Label Height="30" Style="{StaticResource CustomLabel}" Width="115" Content="{DynamicResource UsernameLabel}"></Label>
                         <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="UsernameTextBox">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
@@ -127,7 +135,7 @@
                         </TextBox>
                     </StackPanel>
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,0,0,20">
-                        <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,50,0" >Lozinka:</Label>
+                        <Label Height="30" Style="{StaticResource CustomLabel}" Width="115" Content="{DynamicResource PasswordLabel}"></Label>
                         <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="PasswordTextBox">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
@@ -137,7 +145,7 @@
                         </TextBox>
                     </StackPanel>
                     <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,0,0,20">
-                        <Label Height="30" Style="{StaticResource CustomLabel}" Margin="0,0,50,0" >Adresa:</Label>
+                        <Label Height="30" Style="{StaticResource CustomLabel}"  Width="115" Content="{DynamicResource AddressLabel}"></Label>
                         <TextBox Width="184" Height="30" Style="{StaticResource CustomInput}" Name="AddressTextBox">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
@@ -148,18 +156,11 @@
                     </StackPanel>
                 </StackPanel>
             </Grid>
-            <StackPanel Height="62" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,20,0,20">
-                <Label Height="30" Style="{StaticResource CustomLabel}" Margin="5,0,58,0" >Uloga:</Label>
-                <ComboBox VerticalAlignment="Center" Width="184" Height="32" Style="{StaticResource CustomInput}" Name="TypeComboBox" SelectedValuePath="Content">
-                    <ComboBoxItem >Menadžer</ComboBoxItem>
-                    <ComboBoxItem >Konobar</ComboBoxItem>
-
-                </ComboBox>
-            </StackPanel>
+           
             <StackPanel Height="32" HorizontalAlignment="Center" Orientation="Horizontal">
                 
-                <Button Height="32" Width="130" Content="Dodaj zaposlenog" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" Click="AddButton_Click"></Button>
-                <Button Height="32" Width="123" Content="Izađi" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="CancelButton_Click"></Button>
+                <Button Height="32" Width="130" Content="{DynamicResource AddButtons}" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" Click="AddButton_Click"></Button>
+                <Button Height="32" Width="123" Content="{DynamicResource CancelButton}" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="CancelButton_Click"></Button>
             </StackPanel>
             <!--<StackPanel Height="85" HorizontalAlignment="Center">
                 <Button Content="Dodaj zaposlenog" Style="{StaticResource AddButton}" Height="42" Width="139" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>

@@ -51,9 +51,9 @@
     <Grid Background="{DynamicResource Background}">
         <StackPanel>
 
-            <Label Style="{StaticResource CustomLabel}" Content="Unesite podatke za dodavanje novog artikla:" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="18"></Label>
+            <Label Style="{StaticResource CustomLabel}" Content="{DynamicResource AddArticleTitle}" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="18"></Label>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334">
-                <Label Content="Naziv:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,25,0"></Label>
+                <Label Content="{DynamicResource NameLabel}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Width="90" Margin="0,0,10,0"></Label>
                 <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}" Name="NameTextBox">
                     <TextBox.Resources>
                         <Style TargetType="Border">
@@ -63,7 +63,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334">
-                <Label Content="Cijena:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,18,0"></Label>
+                <Label Content="{DynamicResource PriceLabel}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Width="90" Margin="0,0,10,0"></Label>
                 <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Width="201" Height="32" Style="{StaticResource CustomInput}" Name="PriceTextBox">
                     <TextBox.Resources>
                         <Style TargetType="Border">
@@ -73,7 +73,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Height="135" Orientation="Horizontal" HorizontalAlignment="Center"  Width="334">
-                <Label Content="Opis:" Style="{StaticResource CustomLabel}" Height="98" Margin="0,0,32,0"/>
+                <Label Content="{DynamicResource DescriptionLabel}" Style="{StaticResource CustomLabel}" Height="98" Margin="0,0,10,0" Width="90"/>
                 <TextBox Name="DescriptionTextBox" VerticalContentAlignment="Top" Width="200" Height="100" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Style="{StaticResource CustomInput}">
                     <TextBox.Resources>
                         <Style TargetType="Border">
@@ -83,15 +83,15 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334" Margin="0,0,0,5">
-                <Label Content="Vrsta:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,29,0"/>
+                <Label Content="{DynamicResource TypeLabel}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Width="90" Margin="0,0,10,0"/>
                 <ComboBox VerticalAlignment="Center" SelectedValuePath="Content" Width="201" Height="32" Style="{StaticResource CustomInput}" Name="ArticleTypeComboBox">
                    
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                         HorizontalAlignment="Center">
-                <Button Height="31" Width="142" Content="Dodaj Artikal" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="AddButton_Click" Margin="0,0,10,0"/>
-                <Button Height="31" Width="142" Content="Izađi" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
+                <Button Height="31" Width="142" Content="{DynamicResource AddButtons}" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="AddButton_Click" Margin="0,0,10,0"/>
+                <Button Height="31" Width="142" Content="{DynamicResource CancelButton}" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
             </StackPanel>
                 
         </StackPanel>

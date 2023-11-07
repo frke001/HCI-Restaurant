@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant.Windows"
         mc:Ignorable="d"
-        Title="Manager Window" Height="517" Width="957" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Manager Window" Height="517" Width="957" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="CustomLabel" TargetType="Label">
             <Setter Property="FontSize" Value="14"/>
@@ -61,38 +61,38 @@
             <Button Style="{StaticResource MenuButton}" Click="MenuButton_Click" Margin="0,30,0,0" >
                 <StackPanel>
                     <Image Source="/Resources/menu.jpeg" Width="45" Height="32"/>
-                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal">Meni</Label>
+                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal" Content="{DynamicResource MeniButton}"></Label>
                 </StackPanel>
             </Button>
             <Button Style="{StaticResource MenuButton}" Click="CategoryButton_Click" Margin="0,5,0,0" >
                 <StackPanel>
                     <Image Source="/Resources/addCategory.jpeg" Width="45" Height="32"/>
-                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal">Vrste Artikala</Label>
+                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal" Content="{DynamicResource ArticleTypeButton}"></Label>
                 </StackPanel>
             </Button>
             <Button Style="{StaticResource MenuButton}" Click="EmployeesButton_Click">
                 <StackPanel>
                     <Image Source="/Resources/staff.jpeg" Width="45" Height="32"/>
-                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal">Zaposleni</Label>
+                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal" Content="{DynamicResource EmployeesButton}"></Label>
                 </StackPanel>
             </Button>
             
             <Button Style="{StaticResource MenuButton}" Click="BillsButton_Click" >
                 <StackPanel>
                     <Image Source="/Resources/bill.jpeg" Width="45" Height="32"/>
-                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal">Računi</Label>
+                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal" Content="{DynamicResource BillsButton}"></Label>
                 </StackPanel>
             </Button>
             <Button Style="{StaticResource MenuButton}" Click="SettingsButton_Click">
                 <StackPanel>
                     <Image Source="/Resources/settings.jpeg" Width="45" Height="32"/>
-                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal">Podešavanja</Label>
+                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal" Content="{DynamicResource SettingsButton}"></Label>
                 </StackPanel>
             </Button>
             <Button Style="{StaticResource MenuButton}" Click="LogoutButton_Click" >
                 <StackPanel>
                     <Image Source="/Resources/logout.jpeg" Width="45" Height="32"/>
-                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal">Odjavi se</Label>
+                    <Label  HorizontalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,5,0,0" Foreground="{DynamicResource Text}" FontWeight="Normal" Content="{DynamicResource LogoutButton}"></Label>
                 </StackPanel>
             </Button>
 

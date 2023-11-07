@@ -42,7 +42,18 @@ namespace Restaurant.Windows
         {
             if (string.IsNullOrWhiteSpace(PersonNameTextBox.Text))
             {
-                new WarningWindow("Nepotpuni podaci!").ShowDialog();
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Incomplete data");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Nepotpuni podaci!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
             }
             else
             {
@@ -52,7 +63,18 @@ namespace Restaurant.Windows
                 Reservation res = _reservationDAO.Add(reservation);
                 if(res == null)
                 {
-                    new WarningWindow("Rezervacija postoji!").ShowDialog();
+                    if (AppUtil.currentLanguage == "English")
+                    {
+                        var w = new WarningWindow("Reservation already exists!");
+                        w.Title = "Warning";
+                        w.ShowDialog();
+                    }
+                    else
+                    {
+                        var w = new WarningWindow("Rezervacija postoji!");
+                        w.Title = "Upozorenje";
+                        w.ShowDialog();
+                    }
                 }
                 else
                 {

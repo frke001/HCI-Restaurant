@@ -1,4 +1,5 @@
-﻿using Restaurant.DAO.MySQL;
+﻿using Restaurant.DAO;
+using Restaurant.DAO.MySQL;
 using Restaurant.Models;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,8 @@ namespace Restaurant.Windows
         public ObservableCollection<OrderItem> OrderItems { get; set; }
         public ObservableCollection<Order> Orders { get; set; }
         public Employee Employee { get; set; }
-        public CreateOrderWindow(Employee employee, ObservableCollection<Order> orders)
+        public OrdersPage OrdersPage { get; set; }
+        public CreateOrderWindow(Employee employee, ObservableCollection<Order> orders, OrdersPage ordersPage)
         {
             InitializeComponent();
             this._articleDAO = new ArticleDAOImpl();
@@ -42,6 +44,7 @@ namespace Restaurant.Windows
             QuantityTextBox.Text = "1";
             this.Employee = employee;
             this.Orders = orders;
+            OrdersPage = ordersPage;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -53,11 +56,34 @@ namespace Restaurant.Windows
         {
             if(OrderItems.Count() == 0)
             {
-                new WarningWindow("Niste dodali stavke!").ShowDialog();
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Items not added!");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Niste dodali stavke!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
             }
             if(PaymentComboBox.SelectedIndex == -1)
             {
-                new WarningWindow("Odaberite način plaćanja!").ShowDialog();
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Pick payment method!");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Odaberite način plaćanja!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
+                
             }
             else
             {
@@ -77,6 +103,7 @@ namespace Restaurant.Windows
                     _orderItemDao.Add(item);    
                 }
                 Orders.Add(temp);
+                OrdersPage.BillGrid.ItemsSource = Orders.Where(el => el.IssueDateAndTime.Date == OrdersPage.BillDatePicker.SelectedDate.Value.Date);
                 this.Close();
                 new SuccessNotificationWindow().ShowDialog();
             }
@@ -97,13 +124,36 @@ namespace Restaurant.Windows
                 }
                 catch (Exception ex)
                 {
-                    new WarningWindow("Nevalidna količina!").ShowDialog();
+
+                    if (AppUtil.currentLanguage == "English")
+                    {
+                        var w = new WarningWindow("Invalid quantity");
+                        w.Title = "Warning";
+                        w.ShowDialog();
+                    }
+                    else
+                    {
+                        var w = new WarningWindow("Nevalidan količina!");
+                        w.Title = "Upozorenje";
+                        w.ShowDialog();
+                    }
                 }
                 
             }
             else
             {
-                new WarningWindow("Izaberite artikal!").ShowDialog();
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Pick article!");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Izaberite artikal!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
             }
             
         }
@@ -117,7 +167,18 @@ namespace Restaurant.Windows
             }
             else
             {
-                new WarningWindow("Izaberite stavku!").ShowDialog();
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Data not selected");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Nije selektovan podatak!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }              
             }
         }
     }

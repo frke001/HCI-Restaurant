@@ -27,6 +27,11 @@ namespace Restaurant.Windows
         {
             InitializeComponent();
             _employeeDAOImpl = new EmployeeDAOImpl();
+            RestaurantDaoImpl restaurantDaoImpl = new RestaurantDaoImpl();
+            Models.Restaurant restaurant = restaurantDaoImpl.GetInfo();
+            WelcomeLabel.Content = "Welcome to " + restaurant.Name;
+            ContactLabel.Content = "Contact: " + restaurant.Telephone;
+            AddressLabel.Content = "Address: " + restaurant.Address;
         }
 
 

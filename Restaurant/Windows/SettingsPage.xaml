@@ -54,35 +54,35 @@
     <Grid>
 
         <StackPanel Margin="0,0,580,402" Orientation="Horizontal" VerticalAlignment="Center">
-            <Label Content="Podešavanja" Foreground="{DynamicResource Text}" Margin="20,10,0,0" VerticalAlignment="Top" Width="129" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
-            <Image Height="32" Width="32" Source="/Resources/settings.jpeg"></Image>
+            <Label Content="{DynamicResource SettingsButton}" Foreground="{DynamicResource Text}" Margin="20,0,0,20" VerticalAlignment="Top" Width="Auto" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
+            <Image Height="32" Width="32" Source="/Resources/settings.jpeg" Margin="0,0,0,20"></Image>
         </StackPanel>
-        <Separator Margin="21,10,19,365"/>
+        <Separator Margin="21,10,19,390"/>
         <StackPanel Margin="21,67,653,0" Orientation="Horizontal" VerticalAlignment="Top" Height="49">
-            <Label Content="Moj Profil" Width="Auto"  Height="38" Margin="0,5,0,0" Style="{StaticResource CustomLabel}"/>
+            <Label Content="{DynamicResource MyProfileLabel}" Width="Auto"  Height="38" Margin="0,5,0,0" Style="{StaticResource CustomLabel}"/>
             <Image Height="20" Width="20" Source="/Resources/profile.jpeg"/>
         </StackPanel>
         <Separator  Margin="21,90,19,329"/>
         <StackPanel Margin="21,126,478,226">
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                <Label Content="Korisničko Ime:" Width="119" Style="{StaticResource CustomLabel}" Height="24"/>
+                <Label Content="{DynamicResource UsernameLabel}" Width="115" Style="{StaticResource CustomLabel}" Height="24"/>
                 <TextBox Width="171" Height="28" Style="{StaticResource CustomInput}" Name="UsernameTextBox"/>
             </StackPanel>
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                <Label Content="Lozinka:" Width="119" Style="{StaticResource CustomLabel}" Height="24"/>
+                <Label Content="{DynamicResource PasswordLabel}" Width="115" Style="{StaticResource CustomLabel}" Height="24"/>
                 <PasswordBox Width="171" Height="28" Style="{StaticResource CustomInput}" Name="PasswordTextBox" />
             </StackPanel>
 
         </StackPanel>
         <StackPanel Margin="327,151,367,257">
-            <Button  Style="{StaticResource UpdateButton}"  Margin="0,0,5,0" HorizontalAlignment="Center" Content="Update" Click="UpdateCredentialsButton_Click"  >
+            <Button  Style="{StaticResource UpdateButton}"  Margin="0,0,5,0" HorizontalAlignment="Center" Content="{DynamicResource UpdateButtons}" Click="UpdateCredentialsButton_Click"  >
 
             </Button>
         </StackPanel>
         <StackPanel Margin="21,276,610,0" Orientation="Horizontal" VerticalAlignment="Top" Height="48">
-            <Label Content="Jezik i Tema" Width="Auto" Style="{StaticResource CustomLabel}" Height="38" Margin="0,5,0,0"/>
+            <Label Content="{DynamicResource LanguageAndThemeLabel}" Width="Auto" Style="{StaticResource CustomLabel}" Height="38" Margin="0,5,0,0"/>
             <Image Height="20" Width="20" Source="/Resources/language.jpeg" Margin="0,0,5,0"/>
             <Image Height="20" Width="20" Source="/Resources/theme.jpeg"/>
         </StackPanel>
@@ -90,19 +90,19 @@
         <StackPanel Margin="21,329,441,23">
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                <Label Content="Jezik:" Width="119" Style="{StaticResource CustomLabel}" Height="24"/>
+                <Label Content="{DynamicResource LanguageLabel}" Width="115" Style="{StaticResource CustomLabel}" Height="35" Margin="0,10,0,0"/>
                 <ComboBox Width="171" Height="28"  SelectedValuePath="Content" Style="{StaticResource CustomInput}" SelectionChanged="LanguageComboBox_SelectionChanged" Name="LanguageComboBox">
-                    <ComboBoxItem >Engleski</ComboBoxItem>
-                    <ComboBoxItem >Srpski</ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource EnglishLanguage}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SerbianLanguage}"></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
 
             <StackPanel Height="44" Width="309" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                <Label Content="Tema:" Width="119" Style="{StaticResource CustomLabel}" Height="24"/>
+                <Label Content="{DynamicResource ThemeLabel}" Width="115" Style="{StaticResource CustomLabel}" Height="24"/>
                 <ComboBox Width="171" Height="28" SelectedValuePath="Content" Style="{StaticResource CustomInput}" SelectionChanged="ThemeComboBox_SelectionChanged" Name="ThemeComboBox">
-                    <ComboBoxItem >Svijetla</ComboBoxItem>
-                    <ComboBoxItem >Tamna</ComboBoxItem>
-                    <ComboBoxItem >Hibridna</ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource LightTheme}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource DarkTheme}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource HibridTheme}"></ComboBoxItem>
                    
                 </ComboBox>
             </StackPanel>

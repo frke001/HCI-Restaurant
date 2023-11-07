@@ -56,7 +56,18 @@ namespace Restaurant.Windows
             if (string.IsNullOrWhiteSpace(NameTextBox.Text) || string.IsNullOrWhiteSpace(SurnameTextBox.Text) || string.IsNullOrWhiteSpace(AddressTextBox.Text)
               || string.IsNullOrWhiteSpace(TelephoneTextBox.Text) || string.IsNullOrWhiteSpace(SalaryTextBox.Text) || TypeComboBox.SelectedIndex == -1)
             {
-                new WarningWindow("Nepotpuni podaci!").ShowDialog();
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Incomplete data!");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Nepotpuni podaci!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
             }
             else
             {
@@ -82,7 +93,19 @@ namespace Restaurant.Windows
                     Employee temp = _employeeDAOImpl.Update(update);
                     if (temp == null)
                     {
-                        new WarningWindow("Zaposleni postoji!").ShowDialog();
+                        if (AppUtil.currentLanguage == "English")
+                        {
+                            var w = new WarningWindow("Employee already exists!");
+                            w.Title = "Warning";
+                            w.ShowDialog();
+                        }
+                        else
+                        {
+                            var w = new WarningWindow("Zaposleni postoji!");
+                            w.Title = "Upozorenje";
+                            w.ShowDialog();
+                        }
+                       
                     }
                     else
                     {
@@ -99,7 +122,18 @@ namespace Restaurant.Windows
                 }
                 catch (Exception ex)
                 {
-                    new WarningWindow("Nevalidna plata!").ShowDialog();
+                    if (AppUtil.currentLanguage == "English")
+                    {
+                        var w = new WarningWindow("Invalid salary!");
+                        w.Title = "Warning";
+                        w.ShowDialog();
+                    }
+                    else
+                    {
+                        var w = new WarningWindow("Nevalidna plata!");
+                        w.Title = "Upozorenje";
+                        w.ShowDialog();
+                    }
                 }
 
 

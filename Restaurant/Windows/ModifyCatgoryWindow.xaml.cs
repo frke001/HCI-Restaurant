@@ -45,7 +45,19 @@ namespace Restaurant.Windows
         {
             if (string.IsNullOrWhiteSpace(NameTextBox.Text))
             {
-                new WarningWindow("Nepotpuno polje!").ShowDialog();
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Incomplete data!");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Nepotpuni podaci!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
+                
             }
             else
             {
@@ -64,7 +76,18 @@ namespace Restaurant.Windows
                 ArticleType temp = _articleTypeDAO.Update(updated);
                 if (temp == null)
                 {
-                    new WarningWindow("Podatak vec postoji!").ShowDialog();
+                    if (AppUtil.currentLanguage == "English")
+                    {
+                        var w = new WarningWindow("Data already exists!");
+                        w.Title = "Warning";
+                        w.ShowDialog();
+                    }
+                    else
+                    {
+                        var w = new WarningWindow("Podatak vec postoji!");
+                        w.Title = "Upozorenje";
+                        w.ShowDialog();
+                    }
                 }
                 else
                 {

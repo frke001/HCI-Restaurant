@@ -39,7 +39,7 @@ namespace Restaurant.Windows
 
         private void CreateOrdeButton_Click(object sender, RoutedEventArgs e)
         {
-            new CreateOrderWindow(Employee,Orders).Show(); 
+            new CreateOrderWindow(Employee,Orders,this).Show(); 
         }
 
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

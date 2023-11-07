@@ -54,7 +54,18 @@ namespace Restaurant.Windows
             }
             else
             {
-                new WarningWindow("Izaberite podatak!").ShowDialog();
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Data not selected");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Nije selektovan podatak!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
             }
             
         }
@@ -70,7 +81,18 @@ namespace Restaurant.Windows
                 new SuccessNotificationWindow().ShowDialog();
             }else
             {
-                new WarningWindow("Izaberite podatak!").ShowDialog();
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Data not selected");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Nije selektovan podatak!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
             }
         }
     }

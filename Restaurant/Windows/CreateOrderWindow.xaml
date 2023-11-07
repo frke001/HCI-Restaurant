@@ -88,13 +88,13 @@
     </Window.Resources>
     <Grid Background="{DynamicResource Background}">
         <StackPanel Margin="0,0,0,369" HorizontalAlignment="Center">
-            <Label Style="{StaticResource CustomLabel}" FontSize="18" Margin="0,20,0,0">Odaberite artikle</Label>
+            <Label Style="{StaticResource CustomLabel}" FontSize="18" Margin="0,20,0,0" Content="{DynamicResource CreateBillTitle}"></Label>
         </StackPanel>
         <StackPanel Margin="714,20,10,370">
             <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0" Click="CancelItemButton_Click" >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/cancel.jpeg"/>
                 <Button.ToolTip>
-                    <ToolTip Style="{StaticResource CustomTooltip}">Izbaci stavku</ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}" Content="{DynamicResource DeleteItemTooltip}"></ToolTip>
                 </Button.ToolTip>
             </Button>
         </StackPanel>
@@ -102,8 +102,8 @@
             <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-12,-44,0,0" IsReadOnly="True" Name="ArticlesGrid">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="Naziv"  Width="160" Binding="{Binding Name}"  />
-                    <DataGridTextColumn Header="Cijena"  Width="126" Binding="{Binding Price}"  />
+                    <DataGridTextColumn Header="{DynamicResource NameColumn}"  Width="160" Binding="{Binding Name}"  />
+                    <DataGridTextColumn Header="{DynamicResource PriceColumn}"  Width="126" Binding="{Binding Price}"  />
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -151,7 +151,7 @@
         <StackPanel Margin="0,180,0,94" HorizontalAlignment="Center" Width="120">
            
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Style="{StaticResource CustomLabel}">Količina</Label>
+                <Label Style="{StaticResource CustomLabel}" Content="{DynamicResource QuantityColumn}"></Label>
                 <TextBox Height="21" Width="30" Style="{StaticResource CustomInput}" HorizontalContentAlignment="Center" Name="QuantityTextBox">
                     <TextBox.Resources>
                         <Style TargetType="Border">
@@ -163,19 +163,19 @@
             <Button Height="34" Width="38" Margin="0,0,0,40" Style="{StaticResource OperationButton}" Click="AddButton_Click">
                 <Image Height="32" Width="32" Source="/Resources/right-arrow.jpeg"></Image>
             </Button>
-            <Label Style="{StaticResource CustomLabel}" HorizontalAlignment="Center">Plaćanje</Label>
+            <Label Style="{StaticResource CustomLabel}" HorizontalAlignment="Center" Content="{DynamicResource PaymentLabel}"></Label>
             <ComboBox Width="108" SelectedValuePath="Content" Name="PaymentComboBox" Style="{StaticResource CustomInput}">
-                <ComboBoxItem>Gotovina</ComboBoxItem>
-                <ComboBoxItem>Kartica</ComboBoxItem>
+                <ComboBoxItem Content="{DynamicResource CashBox}"></ComboBoxItem>
+                <ComboBoxItem Content="{DynamicResource CardBox}"></ComboBoxItem>
             </ComboBox>
         </StackPanel>
         <Grid Margin="486,115,48,89">
             <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-16,-44,-40,0" IsReadOnly="True" Name="OrderItemsGrid">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="Naziv"  Width="125" Binding="{Binding IdArticleNavigation.Name}"  />
-                    <DataGridTextColumn Header="Cijena"  Width="90" Binding="{Binding IdArticleNavigation.Price}"  />
-                    <DataGridTextColumn Header="Količina"  Width="83"  Binding="{Binding Quantity}" />
+                    <DataGridTextColumn Header="{DynamicResource NameColumn}"  Width="125" Binding="{Binding IdArticleNavigation.Name}"  />
+                    <DataGridTextColumn Header="{DynamicResource PriceColumn}"  Width="90" Binding="{Binding IdArticleNavigation.Price}"  />
+                    <DataGridTextColumn Header="{DynamicResource QuantityColumn}"  Width="83"  Binding="{Binding Quantity}" />
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -222,8 +222,8 @@
         </Grid>
         <StackPanel Orientation="Horizontal"
              HorizontalAlignment="Center" Margin="0,390,0,0">
-            <Button Height="31" Width="142" Content="Kreiraj" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CreateButton_Click" Margin="0,0,10,0"/>
-            <Button Height="31" Width="142" Content="Izađi" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
+            <Button Height="31" Width="142" Content="{DynamicResource CreateButton}" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CreateButton_Click" Margin="0,0,10,0"/>
+            <Button Height="31" Width="142" Content="{DynamicResource CancelButton}" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>

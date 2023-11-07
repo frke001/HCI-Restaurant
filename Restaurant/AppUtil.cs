@@ -9,6 +9,7 @@ namespace Restaurant
 {
     class AppUtil
     {
+        public static string currentLanguage;
         public static void ChangeTheme(Uri themeUri)
         {
             ResourceDictionary Theme = new ResourceDictionary();
@@ -31,6 +32,10 @@ namespace Restaurant
 
         public static void ChangeLanguage(Uri languageUri)
         {
+            if (languageUri.ToString().Contains("English"))
+                currentLanguage = "English";
+            else
+                currentLanguage = "Serbian";
             ResourceDictionary Lang = new ResourceDictionary();
             Lang.Source = languageUri;
 

@@ -47,7 +47,18 @@ namespace Restaurant.Windows
                 Order selectedOrder = (Order)BillGrid.SelectedItem;
                 if(selectedOrder.IsCanceled == 1)
                 {
-                    new WarningWindow("Racun je vec storniran").ShowDialog();
+                    if (AppUtil.currentLanguage == "English")
+                    {
+                        var w = new WarningWindow("Bill already canceled");
+                        w.Title = "Warning";
+                        w.ShowDialog();
+                    }
+                    else
+                    {
+                        var w = new WarningWindow("Račun je već storniran!");
+                        w.Title = "Upozorenje";
+                        w.ShowDialog();
+                    }
                     return;
                 }
                 selectedOrder.IsCanceled = 1;
@@ -57,7 +68,18 @@ namespace Restaurant.Windows
             }
             else
             {
-                new WarningWindow("Nije selektovan podatak").ShowDialog();
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Data not selected");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Nije selektovan podatak!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
             }
         }
         private void BillItemsGrid_MouseRightButtonDown(object sender, MouseButtonEventArgs e)

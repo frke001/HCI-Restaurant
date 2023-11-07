@@ -65,14 +65,14 @@
     </Page.Resources>
     <Grid>
         <Grid Margin="22,115,0,0">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="EmployeesGrid">
+            <DataGrid Background="LightGray" AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="EmployeesGrid" CanUserResizeColumns="False" CanUserResizeRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="JMBG"  Width="140" Binding="{Binding Jmb}" />
-                    <DataGridTextColumn Header="Ime"  Width="130"  Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="Prezime"  Width="130"  Binding="{Binding Prezime}" />
-                    <DataGridTextColumn Header="Adresa"   Width="150" Binding="{Binding Address}" />
-                    <DataGridTextColumn Header="Plata"   Width="80" Binding="{Binding Salary}" />
-                    <DataGridTextColumn Header="Telefon"  Width="130" Binding="{Binding Telephone}" />
+                    <DataGridTextColumn Header="{DynamicResource JMBColumn}"  Width="140" Binding="{Binding Jmb}" />
+                    <DataGridTextColumn Header="{DynamicResource FirstNameColumn}"  Width="130"  Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="{DynamicResource SecondNameColumn}"  Width="130"  Binding="{Binding Prezime}" />
+                    <DataGridTextColumn Header="{DynamicResource AddressColumn}"   Width="150" Binding="{Binding Address}" />
+                    <DataGridTextColumn Header="{DynamicResource SalaryColumn}"   Width="80" Binding="{Binding Salary}" />
+                    <DataGridTextColumn Header="{DynamicResource TelephoneColumn}"  Width="130" Binding="{Binding Telephone}" />
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -90,6 +90,7 @@
                         <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="Normal"/>
                         <Setter Property="MinHeight" Value="25"/>
+                        <Setter Property="Background" Value="#EEFFFF"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <!-- Promeni boju pozadine i stila kada je mis iznad reda -->
@@ -124,7 +125,7 @@
             <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0" Click="AddEmployeeButton_Click" >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/addWorker.jpeg"/>
                 <Button.ToolTip>
-                    <ToolTip Style="{StaticResource CustomTooltip}">Dodaj zaposlenog
+                    <ToolTip Style="{StaticResource CustomTooltip}" Content="{DynamicResource AddEmployeeTooltip}">
                     </ToolTip>
                 </Button.ToolTip>
             </Button>
@@ -132,27 +133,27 @@
             <Button Style="{StaticResource OperationButton}"   Margin="0,0,5,0"  Click="ModifyEmployeeButton_Click">
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/modifyWorker.jpeg"/>
                 <Button.ToolTip>
-                    <ToolTip Style="{StaticResource CustomTooltip}">Izmijeni informacije o zaposlenog</ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}" Content="{DynamicResource ModifyEmployeeTooltip}"></ToolTip>
                 </Button.ToolTip>
             </Button>
             <Button  Style="{StaticResource OperationButton}"  Click="DeleteEmployeeButton_Click" >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/deleteWorker.jpeg"/>
                 <Button.ToolTip>
-                    <ToolTip Style="{StaticResource CustomTooltip}">Obriši zaposlenog</ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}" Content="{DynamicResource DeleteEmployeeTooltip}"></ToolTip>
                 </Button.ToolTip>
             </Button>
         </StackPanel>
 
         <StackPanel Margin="20,25,0,0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Label Style="{StaticResource CustomLabel}">Status:</Label>
-            <ComboBox Width="117" Margin="0,0,10,0" Style="{StaticResource CustomInput}" SelectionChanged="TypeComboBox_SelectionChanged" Name="TypeComboBox">
+            <Label Style="{StaticResource CustomLabel}" Content="{DynamicResource Status}"></Label>
+            <ComboBox Width="130" Margin="0,0,10,0" Style="{StaticResource CustomInput}" SelectionChanged="TypeComboBox_SelectionChanged" Name="TypeComboBox">
 
-                <ComboBoxItem>Svi zaposleni</ComboBoxItem>
-                <ComboBoxItem>Menadžer</ComboBoxItem>
-                <ComboBoxItem>Konobari</ComboBoxItem>
+                <ComboBoxItem Content="{DynamicResource AllEmployeesBox}"></ComboBoxItem>
+                <ComboBoxItem Content="{DynamicResource ManagersBox}"></ComboBoxItem>
+                <ComboBoxItem Content="{DynamicResource WaitersBox}"></ComboBoxItem>
 
             </ComboBox>
-            <TextBox  Style="{StaticResource CustomInput}" Width="430" TextChanged="SearchTextBox_TextChanged" Name="SearchTextBox" Foreground="Gray">
+            <TextBox  Style="{StaticResource CustomInput}" Width="420" TextChanged="SearchTextBox_TextChanged" Name="SearchTextBox" Foreground="Gray">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

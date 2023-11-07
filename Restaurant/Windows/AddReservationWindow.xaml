@@ -52,9 +52,9 @@
     <Grid Background="{DynamicResource Background}">
         <StackPanel>
 
-            <Label Style="{StaticResource CustomLabel}" Content="Unesite podatke za kreiranje nove rezervacije:" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="18"></Label>
+            <Label Style="{StaticResource CustomLabel}" Content="{DynamicResource AddReservationTitle}" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="18"></Label>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334" Margin="0,0,0,20">
-                <Label Content="Ime Osobe:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,10,0"/>
+                <Label Content="{DynamicResource PersonNameLabel}" Width="105" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" />
                 <TextBox  VerticalAlignment="Center" Width="203" Height="32" HorizontalAlignment="Center" Style="{StaticResource CustomInput}" Name="PersonNameTextBox">
                     <TextBox.Resources>
                         <Style TargetType="Border">
@@ -64,15 +64,15 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center" Width="334" Margin="0,0,0,30">
-                <Label Content="Datum:" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" Margin="0,0,41,0"></Label>
+                <Label Content="{DynamicResource DateLabel}" Width="105" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CustomLabel}" ></Label>
                 <DatePicker Width="200" Style="{StaticResource CustomInput}" FontWeight="SemiBold" SelectedDate="{x:Static sys:DateTime.Now}" VerticalAlignment="Center" Name="ReservationDatePicker"></DatePicker>
             </StackPanel>
            
            
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                      HorizontalAlignment="Center">
-                <Button Height="31" Width="142" Content="Kreiraj rezervaciju" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CreateButton_Click" Margin="0,0,10,0"/>
-                <Button Height="31" Width="142" Content="Izađi" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
+                <Button Height="31" Width="142" Content="{DynamicResource CreateButton}" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CreateButton_Click" Margin="0,0,10,0"/>
+                <Button Height="31" Width="142" Content="{DynamicResource CancelButton}" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
             </StackPanel>
 
         </StackPanel>

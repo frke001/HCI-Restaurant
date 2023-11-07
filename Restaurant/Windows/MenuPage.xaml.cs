@@ -54,7 +54,18 @@ namespace Restaurant.Windows
             }
             else
             {
-                new WarningWindow("Nije selektovan podatak").ShowDialog();
+                if(AppUtil.currentLanguage == "English") {
+                    var w = new WarningWindow("Data not selected!");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Nije selektovan podatak!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
+                
             }
         }
 
@@ -66,7 +77,19 @@ namespace Restaurant.Windows
 
                 if(selectedArticle.Active == 0)
                 {
-                    new WarningWindow("Podatak je već obrisan!").ShowDialog();
+                    if (AppUtil.currentLanguage == "English")
+                    {
+                        var w = new WarningWindow("Data already deleted!");
+                        w.Title = "Warning";
+                        w.ShowDialog();
+                    }
+                    else
+                    {
+                        var w = new WarningWindow("Podatak je već obrisan!");
+                        w.Title = "Upozorenje";
+                        w.ShowDialog();
+                    }
+                    
                     return;
                 }
                 /*if (TypeComboBox.SelectedIndex == 1)
@@ -84,12 +107,36 @@ namespace Restaurant.Windows
                 }
                 else
                 {
-                    new WarningWindow("Neuspješno brisanje!").ShowDialog();   
+                    if (AppUtil.currentLanguage == "English")
+                    {
+                        var w = new WarningWindow("Unsuccessful delete operation!");
+                        w.Title = "Warning";
+                        w.ShowDialog();
+                    }
+                    else
+                    {
+                        var w = new WarningWindow("Neuspješno brisanje!");
+                        w.Title = "Upozorenje";
+                        w.ShowDialog();
+                    }
+                    
                 }
             }
             else
             {
-                new WarningWindow("Nije selektovan podatak").ShowDialog();
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Data not selected!");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Nije selektovan podatak!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
+                
             }
         }
 

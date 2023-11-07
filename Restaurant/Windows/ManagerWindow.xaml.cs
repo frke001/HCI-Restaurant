@@ -38,6 +38,7 @@ namespace Restaurant.Windows
                 SettingsPage.LanguageComboBox.SelectedIndex = 0;
             else
                 SettingsPage.LanguageComboBox.SelectedIndex = 1;
+           
         }
         public SettingsPage SettingsPage { get; set; }
 

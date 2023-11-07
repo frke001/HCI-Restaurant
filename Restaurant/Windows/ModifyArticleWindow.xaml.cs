@@ -57,7 +57,19 @@ namespace Restaurant.Windows
             if (string.IsNullOrWhiteSpace(NameTextBox.Text) || string.IsNullOrWhiteSpace(PriceTextBox.Text)
                || string.IsNullOrWhiteSpace(DescriptionTextBox.Text) || ArticleTypeComboBox.SelectedIndex == -1)
             {
-                new WarningWindow("Nepotpuni podaci!").ShowDialog();
+
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Uncompleted data!");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Nepotpuni podaci!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
             }
             else
             {
@@ -82,9 +94,18 @@ namespace Restaurant.Windows
                     Article temp = articleDAO.Update(updated);
                     if (temp == null)
                     {
-                        new WarningWindow("Postojeći artikal!").ShowDialog();
-                        
-                     
+                        if (AppUtil.currentLanguage == "English")
+                        {
+                            var w = new WarningWindow("Article already exists!");
+                            w.Title = "Warning";
+                            w.ShowDialog();
+                        }
+                        else
+                        {
+                            var w = new WarningWindow("Artikal postoji!");
+                            w.Title = "Upozorenje";
+                            w.ShowDialog();
+                        }
                     }
                     else
                     {
@@ -99,7 +120,18 @@ namespace Restaurant.Windows
                 }
                 catch (Exception ex)
                 {
-                    new WarningWindow("Nevalidna cijena!").ShowDialog();
+                    if (AppUtil.currentLanguage == "English")
+                    {
+                        var w = new WarningWindow("Invalid price!");
+                        w.Title = "Warning";
+                        w.ShowDialog();
+                    }
+                    else
+                    {
+                        var w = new WarningWindow("Nevalidna cijena!");
+                        w.Title = "Upozorenje";
+                        w.ShowDialog();
+                    }
                 }
 
 

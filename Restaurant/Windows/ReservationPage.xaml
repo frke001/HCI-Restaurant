@@ -64,11 +64,11 @@
     </Page.Resources>
     <Grid>
         <Grid Margin="21,115,-16,0">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"  Margin="0,-44,42,36" Name="ReservationsGrid">
+            <DataGrid Background="LightGray" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"  Margin="0,-44,42,36" Name="ReservationsGrid" CanUserResizeColumns="False" CanUserResizeRows="False">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="Vrijeme rezervacije"  Width="380" Binding="{Binding DateAndTime}"  />
-                    <DataGridTextColumn Header="Ime Osobe"   Width="380"  Binding="{Binding PersonName}"/>
+                    <DataGridTextColumn Header="{DynamicResource IssueTimeColumn}"  Width="380" Binding="{Binding DateAndTime}"  />
+                    <DataGridTextColumn Header="{DynamicResource PersonNameColumn}"   Width="380"  Binding="{Binding PersonName}"/>
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -86,6 +86,7 @@
                         <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="Normal"/>
                         <Setter Property="MinHeight" Value="25"/>
+                        <Setter Property="Background" Value="#EEFFFF"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <!-- Promeni boju pozadine i stila kada je mis iznad reda -->
@@ -115,27 +116,27 @@
         </Grid>
 
         <StackPanel Margin="20,25,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Width="310">
-            <Label Style="{StaticResource CustomLabel}" Width="138">Datum Izdavanja:</Label>
+            <Label Style="{StaticResource CustomLabel}" Width="138" Content="{DynamicResource IssueDateLabel}"></Label>
             <DatePicker Width="171" Style="{StaticResource CustomInput}" FontWeight="SemiBold" SelectedDate="{x:Static sys:DateTime.Now}" Name="ReservationDatePicker" SelectedDateChanged="DatePicker_SelectedDateChanged"></DatePicker>
         </StackPanel>
         <StackPanel Margin="0,16,40,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="44" Width="145">
             <Button  Style="{StaticResource OperationButton}"  Margin="0,0,5,0" Click="AddReservationButton_Click" >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/createReservation.jpeg"/>
                 <Button.ToolTip>
-                    <ToolTip Style="{StaticResource CustomTooltip}">Kreiraj rezervaciju</ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}" Content="{DynamicResource AddReservationTooltip}"></ToolTip>
                 </Button.ToolTip>
             </Button>
 
             <Button Style="{StaticResource OperationButton}"   Margin="0,0,5,0" Click="ModifyReservationButton_Click" >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/modifyFood.jpeg"/>
                 <Button.ToolTip>
-                    <ToolTip Style="{StaticResource CustomTooltip}">Izmijeni rezervaciju</ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}" Content="{DynamicResource ModifyReservationTooltip}"></ToolTip>
                 </Button.ToolTip>
             </Button>
             <Button  Style="{StaticResource OperationButton}" Click="DeleteReservationButton_Click"  >
                 <Image Height="24" Width="24" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Source="/Resources/delete.jpeg"/>
                 <Button.ToolTip>
-                    <ToolTip Style="{StaticResource CustomTooltip}">Obriši rezervaciju</ToolTip>
+                    <ToolTip Style="{StaticResource CustomTooltip}" Content="{DynamicResource DeleteReservationTooltip}"></ToolTip>
                 </Button.ToolTip>
             </Button>
         </StackPanel>

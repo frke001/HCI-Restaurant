@@ -48,7 +48,18 @@ namespace Restaurant.Windows
               || string.IsNullOrWhiteSpace(TelephoneTextBox.Text) || string.IsNullOrWhiteSpace(SalaryTextBox.Text) || string.IsNullOrWhiteSpace(UsernameTextBox.Text)
               || string.IsNullOrWhiteSpace(PasswordTextBox.Text) || string.IsNullOrWhiteSpace(JmbTextBox.Text) || TypeComboBox.SelectedIndex == -1)
             {
-                new WarningWindow("Nepotpuni podaci!").ShowDialog();
+                if (AppUtil.currentLanguage == "English")
+                {
+                    var w = new WarningWindow("Incomplete data");
+                    w.Title = "Warning";
+                    w.ShowDialog();
+                }
+                else
+                {
+                    var w = new WarningWindow("Nepotpuni podaci!");
+                    w.Title = "Upozorenje";
+                    w.ShowDialog();
+                }
             }
             else
             {
@@ -64,7 +75,19 @@ namespace Restaurant.Windows
                     }*/
                     if (JmbTextBox.Text.Length != 13 || !long.TryParse(JmbTextBox.Text, out _)) 
                     {
-                        new WarningWindow("Nevalidan JMB!").ShowDialog();
+                        if (AppUtil.currentLanguage == "English")
+                        {
+                            var w = new WarningWindow("Invalid Id");
+                            w.Title = "Warning";
+                            w.ShowDialog();
+                        }
+                        else
+                        {
+                            var w = new WarningWindow("Nevalidan JMB!");
+                            w.Title = "Upozorenje";
+                            w.ShowDialog();
+                        }
+                        
                         return;
                     }
           
@@ -89,13 +112,37 @@ namespace Restaurant.Windows
                         new SuccessNotificationWindow().ShowDialog();
                         
                     }else
-                        new WarningWindow("Zaposleni postoji!").ShowDialog();
+                    {
+                        if (AppUtil.currentLanguage == "English")
+                        {
+                            var w = new WarningWindow("Employee already exists!");
+                            w.Title = "Warning";
+                            w.ShowDialog();
+                        }
+                        else
+                        {
+                            var w = new WarningWindow("Zaposleni postoji!");
+                            w.Title = "Upozorenje";
+                            w.ShowDialog();
+                        }
+                    }
                     
 
                 }
                 catch (Exception ex)
                 {
-                    new WarningWindow("Nevalidna plata!").ShowDialog();
+                    if (AppUtil.currentLanguage == "English")
+                    {
+                        var w = new WarningWindow("Invalid salary");
+                        w.Title = "Warning";
+                        w.ShowDialog();
+                    }
+                    else
+                    {
+                        var w = new WarningWindow("Nevalidna plata!");
+                        w.Title = "Upozorenje";
+                        w.ShowDialog();
+                    }
                 }
 
 
