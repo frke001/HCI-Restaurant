@@ -50,7 +50,7 @@
     </Window.Resources>
     <Grid Background="{DynamicResource Background}">
         <Grid Margin="77,106,56,203" >
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-12,-79,0,0" Name="BillItemsGrid">
+            <DataGrid Background="LightGray" AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-12,-79,0,0" Name="BillItemsGrid" CanUserResizeColumns="False" CanUserResizeRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{DynamicResource NameColumn}"  Width="180" Binding="{Binding IdArticleNavigation.Name}"  />
                     <DataGridTextColumn Header="{DynamicResource PriceColumn}"  Width="120" Binding="{Binding IdArticleNavigation.Price}"  />
@@ -73,6 +73,7 @@
                         <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="Normal"/>
                         <Setter Property="MinHeight" Value="25"/>
+                        <Setter Property="Background" Value="#EEFFFF"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <!-- Promeni boju pozadine i stila kada je mis iznad reda -->

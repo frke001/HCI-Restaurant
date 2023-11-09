@@ -97,13 +97,11 @@ namespace Restaurant.Windows
         }
         private void BillGrid_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            // Dobijte red koji je izazvao događaj
+
             DataGridRow row = sender as DataGridRow;
 
-            // Ako želite onemogućiti dvoklik na određenim redovima, postavite uslov prema vašim potrebama
             if (row != null )
             {
-                // Ako red ispunjava vaš kriterijum, sprečite dalje širenje događaja
                 e.Handled = true;
             }
         }

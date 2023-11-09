@@ -99,7 +99,7 @@
             </Button>
         </StackPanel>
         <Grid Margin="27,115,474,89">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-12,-44,0,0" IsReadOnly="True" Name="ArticlesGrid">
+            <DataGrid Background="LightGray" AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-12,-44,0,0" IsReadOnly="True" Name="ArticlesGrid" CanUserResizeColumns="False" CanUserResizeRows="False">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="{DynamicResource NameColumn}"  Width="160" Binding="{Binding Name}"  />
@@ -121,6 +121,7 @@
                         <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="Normal"/>
                         <Setter Property="MinHeight" Value="25"/>
+                        <Setter Property="Background" Value="#EEFFFF"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <!-- Promeni boju pozadine i stila kada je mis iznad reda -->
@@ -170,7 +171,7 @@
             </ComboBox>
         </StackPanel>
         <Grid Margin="486,115,48,89">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-16,-44,-40,0" IsReadOnly="True" Name="OrderItemsGrid">
+            <DataGrid Background="LightGray" AutoGenerateColumns="False" CanUserAddRows="False"  Margin="-16,-44,-40,0" IsReadOnly="True" Name="OrderItemsGrid" CanUserResizeColumns="False" CanUserResizeRows="False">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="{DynamicResource NameColumn}"  Width="125" Binding="{Binding IdArticleNavigation.Name}"  />
@@ -193,6 +194,7 @@
                         <Setter Property="FontSize" Value="14"/>
                         <Setter Property="FontWeight" Value="Normal"/>
                         <Setter Property="MinHeight" Value="25"/>
+                        <Setter Property="Background" Value="#EEFFFF"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <!-- Promeni boju pozadine i stila kada je mis iznad reda -->

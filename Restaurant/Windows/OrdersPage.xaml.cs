@@ -48,8 +48,10 @@ namespace Restaurant.Windows
             BillGrid.ItemsSource = Orders.Where(o => o.IssueDateAndTime.Date == selectedDate.Value.Date);
 
         }
-        private void BillGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void BillItemsGrid_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
+            var dataGrid = sender as DataGrid;
+            var selectedRow = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromItem(dataGrid.SelectedItem);
 
             Order selectedItem = (Order)BillGrid.SelectedItem;
 
@@ -57,6 +59,16 @@ namespace Restaurant.Windows
             if (selectedItem != null)
             {
                 new BillItemsWindow(selectedItem).ShowDialog();
+            }
+        }
+        private void BillGrid_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+            DataGridRow row = sender as DataGridRow;
+
+            if (row != null)
+            {
+                e.Handled = true;
             }
         }
     }

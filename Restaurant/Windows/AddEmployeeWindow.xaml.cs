@@ -101,7 +101,9 @@ namespace Restaurant.Windows
                         Telephone = TelephoneTextBox.Text,
                         Username = UsernameTextBox.Text,
                         Password = HashPassword(PasswordTextBox.Text),
-                        IsManager = type
+                        IsManager = type,
+                        Theme = "Svijetla",
+                        Language = "Srpski"
                     };
                     Employee temp = _employeeDAO.Add(toAdd);   
                     if(temp != null)

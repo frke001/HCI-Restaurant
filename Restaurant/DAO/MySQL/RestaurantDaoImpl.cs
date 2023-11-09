@@ -13,7 +13,9 @@ namespace Restaurant.DAO.MySQL
         {
             using( var _db = new restoranContext())
             {
-                return _db.Restaurants.ToList().First();
+                if (_db.Restaurants.Count() > 0)
+                    return _db.Restaurants.ToList().First();
+                else return null;
             }
         }
     }

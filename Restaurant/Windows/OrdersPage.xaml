@@ -68,7 +68,7 @@
     </Page.Resources>
     <Grid>
         <Grid Margin="21,115,0,0">
-            <DataGrid Background="LightGray" AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="BillGrid" IsReadOnly="True" MouseDoubleClick="BillGrid_MouseDoubleClick" CanUserResizeRows="False" CanUserResizeColumns="False">
+            <DataGrid Background="LightGray" AutoGenerateColumns="False" CanUserAddRows="False"  Margin="0,-44,26,36" Name="BillGrid" IsReadOnly="True" MouseRightButtonDown="BillItemsGrid_MouseRightButtonDown" PreviewMouseDoubleClick="BillGrid_PreviewMouseDoubleClick" CanUserResizeRows="False" CanUserResizeColumns="False">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="{DynamicResource IssueTimeColumn}"  Width="200" Binding="{Binding IssueDateAndTime}"  />
