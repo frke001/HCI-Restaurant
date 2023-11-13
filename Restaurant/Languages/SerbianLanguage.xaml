@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <system:String x:Key="Welcome">Dobrodošli u Aplikaciju</system:String>
+    <system:String x:Key="Welcome">Dobrodošli u aplikaciju</system:String>
     <system:String x:Key="MenuTitle">Artikli</system:String>
     <system:String x:Key="Status">Status</system:String>
     <system:String x:Key="AllArticles">Svi artikli</system:String>
@@ -62,7 +62,7 @@
     <system:String x:Key="IssueDateLabel">Datum izdavanja:</system:String>
     <system:String x:Key="CancelBillTooltip">Storniraj račun</system:String>
     <system:String x:Key="IssueTimeColumn">Vrijeme izdavanja</system:String>
-    <system:String x:Key="JMBWaiterColumn">JMB Konobara</system:String>
+    <system:String x:Key="JMBWaiterColumn">JMB konobara</system:String>
     <system:String x:Key="PaymentTypeColumn">Način plaćanja</system:String>
     <system:String x:Key="StateColumn">Status</system:String>
     <system:String x:Key="QuantityColumn">Količina</system:String>

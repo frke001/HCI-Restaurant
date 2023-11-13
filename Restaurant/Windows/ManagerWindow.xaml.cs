@@ -77,6 +77,7 @@ namespace Restaurant.Windows
         private void CategoryButton_Click(object sender, RoutedEventArgs e)
         {
             pageFrame.Navigate(new ArticleCatgeoryPage());
+            this.Title = "Article types";
         }
     }
 }
