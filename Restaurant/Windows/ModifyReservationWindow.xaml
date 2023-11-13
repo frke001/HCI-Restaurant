@@ -71,7 +71,7 @@
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                   HorizontalAlignment="Center">
-                <Button Height="31" Width="142" Content="{DynamicResource CreateButton}" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="SaveButton_Click" Margin="0,0,10,0"/>
+                <Button Height="31" Width="142" Content="{DynamicResource SaveButtons}" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="SaveButton_Click" Margin="0,0,10,0"/>
                 <Button Height="31" Width="142" Content="{DynamicResource CancelButton}" Style="{StaticResource AddButton}" FontWeight="SemiBold" Click="CancelButton_Click"/>
             </StackPanel>
 

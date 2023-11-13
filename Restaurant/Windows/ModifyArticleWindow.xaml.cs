@@ -112,7 +112,14 @@ namespace Restaurant.Windows
                         /*temp.IdTypeNavigation = articleType;
                         int index = articles.IndexOf(article);
                         articles[index] = temp;*/
-                        menuPage.ArticlesGrid.ItemsSource = _articleDAO.GetAll();
+                        var all = _articleDAO.GetAll();
+         
+                        if (menuPage.TypeComboBox.SelectedIndex == 1)
+                            menuPage.ArticlesGrid.ItemsSource = all.Where(el => el.Active == 1);
+                        else
+                        {
+                            menuPage.ArticlesGrid.ItemsSource = all;
+                        }
                         this.Close();
                         new SuccessNotificationWindow().ShowDialog();
                     }

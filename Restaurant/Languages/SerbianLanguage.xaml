@@ -54,7 +54,7 @@
     <system:String x:Key="AddressLabel">Adresa:</system:String>
     <system:String x:Key="TelephoneLabel">Telefon:</system:String>
     <system:String x:Key="UsernameLabel">Korisničko ime:</system:String>
-    <system:String x:Key="PasswordLabel">Lotinka:</system:String>
+    <system:String x:Key="PasswordLabel">Lozinka:</system:String>
     <system:String x:Key="SalaryLabel">Plata:</system:String>
     <system:String x:Key="JMBLabel">JMB:</system:String>
     <system:String x:Key="ManagerBox">Menadžer</system:String>
@@ -87,7 +87,7 @@
     <system:String x:Key="CreateButton">Kreiraj</system:String>
     <system:String x:Key="DeleteItemTooltip">Izbaci stavku</system:String>
     <system:String x:Key="AddReservationTooltip">Dodaj rezervaciju</system:String>
-    <system:String x:Key="ModifyReservationTooltip">Izmijeni rezervaciju</system:String>
+    <system:String x:Key="ModifyReservationTooltip">Modifikuj rezervaciju</system:String>
     <system:String x:Key="DeleteReservationTooltip">Obriši rezervaciju</system:String>
     <system:String x:Key="PersonNameColumn">Ime osobe</system:String>
     <system:String x:Key="PersonNameLabel">Ime osobe:</system:String>

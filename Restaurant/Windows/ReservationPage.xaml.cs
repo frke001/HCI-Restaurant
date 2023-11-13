@@ -38,7 +38,7 @@ namespace Restaurant.Windows
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             DateTime? selectedDate = ReservationDatePicker.SelectedDate;
-            ReservationsGrid.ItemsSource = Reservations.Where(o => o.DateAndTime.Date == selectedDate.Value.Date);
+            ReservationsGrid.ItemsSource = _reservationDAO.GetAll().Where(o => o.DateAndTime.Date == selectedDate.Value.Date);
         }
         private void AddReservationButton_Click(object sender, RoutedEventArgs e)
         {
@@ -50,7 +50,7 @@ namespace Restaurant.Windows
             if(ReservationsGrid.SelectedItem != null)
             {
                 Reservation reservation = (Reservation)ReservationsGrid.SelectedItem;
-                new ModifyReservationWindow(Reservations, reservation).Show();
+                new ModifyReservationWindow(Reservations, reservation, this).Show();
             }
             else
             {

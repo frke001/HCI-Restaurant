@@ -89,7 +89,14 @@ namespace Restaurant.Windows
                     }
                     else
                     {
-                        menuPage.ArticlesGrid.ItemsSource = articleDAO.GetAll();
+                        var all = articleDAO.GetAll();
+         
+                        if (menuPage.TypeComboBox.SelectedIndex == 1)
+                            menuPage.ArticlesGrid.ItemsSource = all.Where(el => el.Active == 1);
+                        else
+                        {
+                            menuPage.ArticlesGrid.ItemsSource = all;
+                        }
                         this.Close();
                         new SuccessNotificationWindow().ShowDialog();
                     }

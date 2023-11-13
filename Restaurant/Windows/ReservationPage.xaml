@@ -116,7 +116,7 @@
         </Grid>
 
         <StackPanel Margin="20,25,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Width="310">
-            <Label Style="{StaticResource CustomLabel}" Width="138" Content="{DynamicResource IssueDateLabel}"></Label>
+            <Label Style="{StaticResource CustomLabel}" Width="Auto" Content="{DynamicResource IssueDateLabel}"></Label>
             <DatePicker Width="171" Style="{StaticResource CustomInput}" FontWeight="SemiBold" SelectedDate="{x:Static sys:DateTime.Now}" Name="ReservationDatePicker" SelectedDateChanged="DatePicker_SelectedDateChanged"></DatePicker>
         </StackPanel>
         <StackPanel Margin="0,16,40,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="44" Width="145">

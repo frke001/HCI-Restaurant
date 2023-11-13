@@ -64,7 +64,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Height="32" HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button Height="32" Width="123" Content="{DynamicResource AddButtons}" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" Click="SaveButton_Click"></Button >
+                <Button Height="32" Width="123" Content="{DynamicResource SaveButtons}" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" Click="SaveButton_Click"></Button >
                 <Button Height="32" Width="123" Content="{DynamicResource CancelButton}" Style="{StaticResource AddButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="CancelButton_Click"></Button>
             </StackPanel>
         </StackPanel>

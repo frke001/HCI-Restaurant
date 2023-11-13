@@ -69,7 +69,7 @@ namespace Restaurant.Windows
                     w.ShowDialog();
                 }
             }
-            if(PaymentComboBox.SelectedIndex == -1)
+            else if(PaymentComboBox.SelectedIndex == -1)
             {
                 if (AppUtil.currentLanguage == "English")
                 {

@@ -112,8 +112,13 @@ namespace Restaurant.Windows
                         /* int index = employees.IndexOf(employee);
 
                          employees[index] = temp;*/
-                        var em = _employeeDAOImpl.GetAll();                                               
-                        employeesPage.EmployeesGrid.ItemsSource = em;                       
+                        var all = _employeeDAOImpl.GetAll();                                               
+                        if (employeesPage.TypeComboBox.SelectedIndex == 0)
+                            employeesPage.EmployeesGrid.ItemsSource = all;
+                        else if (employeesPage.TypeComboBox.SelectedIndex == 1)
+                            employeesPage.EmployeesGrid.ItemsSource = all.Where(e => e.IsManager == 1);
+                        else
+                            employeesPage.EmployeesGrid.ItemsSource = all.Where(e => e.IsManager == 0);
                         this.Close();
                         new SuccessNotificationWindow().ShowDialog();
                     }

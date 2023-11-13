@@ -14,7 +14,7 @@ namespace Restaurant.Convertors
         {
             if (value is sbyte withCash)
             {
-                return withCash == 1 ? "Sa gotovinom" : "Karticom";
+                return withCash == 1 ? "Gotovinom" : "Karticom";
             }
 
             return "Nepoznat";

@@ -25,7 +25,8 @@ namespace Restaurant.Windows
         private readonly ReservationDAOImpl _reservationDAO;
         public ObservableCollection<Reservation> Reservations { get; set; }
         public Reservation reservation;
-        public ModifyReservationWindow(ObservableCollection<Reservation> reservations, Reservation reservation)
+        private ReservationPage reservationPage;
+        public ModifyReservationWindow(ObservableCollection<Reservation> reservations, Reservation reservation, ReservationPage reservationPage)
         {
             InitializeComponent();
             this._reservationDAO = new ReservationDAOImpl();
@@ -33,6 +34,7 @@ namespace Restaurant.Windows
             this.reservation = reservation;
             PersonNameTextBox.Text = reservation.PersonName;
             ReservationDatePicker.SelectedDate = reservation.DateAndTime;
+            this.reservationPage = reservationPage;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -66,8 +68,9 @@ namespace Restaurant.Windows
                 Reservation r = _reservationDAO.Update(temp);
                 if (r != null)
                 {
-                    int index = Reservations.IndexOf(reservation);
-                    Reservations[index] = temp;
+                   
+                    var all = _reservationDAO.GetAll();
+                    reservationPage.ReservationsGrid.ItemsSource = all.Where(r => r.DateAndTime.Date == reservationPage.ReservationDatePicker.SelectedDate.Value.Date);
                     this.Close();
                     new SuccessNotificationWindow().ShowDialog();
                 }

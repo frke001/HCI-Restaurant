@@ -63,7 +63,8 @@ namespace Restaurant.Windows
                 }
                 selectedOrder.IsCanceled = 1;
                 Order temp = _billDaoImpl.Delete(selectedOrder);
-                BillGrid.ItemsSource = _billDaoImpl.GetAll();
+               
+                BillGrid.ItemsSource = Orders.Where(el => el.IssueDateAndTime.Date == BillDatePicker.SelectedDate.Value.Date);
                 new SuccessNotificationWindow().Show();
             }
             else

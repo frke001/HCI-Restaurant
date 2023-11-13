@@ -108,8 +108,14 @@ namespace Restaurant.Windows
                     Employee temp = _employeeDAO.Add(toAdd);   
                     if(temp != null)
                     {
-                        var em = _employeeDAO.GetAll();
-                        employeesPage.EmployeesGrid.ItemsSource = em;                       
+                        var all = _employeeDAO.GetAll();
+                        if (employeesPage.TypeComboBox.SelectedIndex == 0)
+                            employeesPage.EmployeesGrid.ItemsSource = all;
+                        else if (employeesPage.TypeComboBox.SelectedIndex == 1)
+                            employeesPage.EmployeesGrid.ItemsSource = all.Where(e => e.IsManager == 1);
+                        else
+                            employeesPage.EmployeesGrid.ItemsSource = all.Where(e => e.IsManager == 0);
+                                           
                         this.Close();
                         new SuccessNotificationWindow().ShowDialog();
                         
