@@ -79,8 +79,8 @@ namespace Restaurant.Windows
                 else
                 {
                     
-                    Reservations.Add(reservation);
-                    reservationPage.ReservationsGrid.ItemsSource = Reservations.Where(el => el.DateAndTime.Date == reservationPage.ReservationDatePicker.SelectedDate.Value.Date);
+                    var all = _reservationDAO.GetAll();
+                    reservationPage.ReservationsGrid.ItemsSource = all.Where(el => el.DateAndTime.Date == reservationPage.ReservationDatePicker.SelectedDate.Value.Date);
                     this.Close();
                     new SuccessNotificationWindow().ShowDialog();
                 }
